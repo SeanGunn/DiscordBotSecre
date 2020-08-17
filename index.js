@@ -55,7 +55,7 @@ bot.on('message', msg=>{
     if(temp == ((".welcome")|| ('.w')|| ('hello')|| ('hi'))){ 
         msg.reply('You are my pet now.');
     }
-    if(temp.contain("simp")){ 
+    if(temp == ("simp")){ 
         msg.reply('You are my little simp. :Secre_Blush:');
     }
     else if(temp === (('.schedule')||('sch'))){
