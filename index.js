@@ -245,7 +245,7 @@ bot.on('message', msg=>{
         todayOrTomorrow(msg,lowWeekDay);
     }
     else{
-        if(msg.id != ("<@744819833966952579>"))
+        if(Discord.User.id != ("<@744819833966952579>"))
             msg.reply("<:secre_pathetic:743119690859020320>");
     }
 })
