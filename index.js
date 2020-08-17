@@ -4,10 +4,10 @@ var request = require('request');
 const mal = new Jikan();
 const bot = new Discord.Client();
 const listOfWords = new Array("sean","asta","secre","black clover","yuno", "yami");
-const apiKeyOpenWeather = "c5b973a5540563fb412fa66bd17b2d41";
 
-bot.on('ready',() =>{
+bot.on('ready',msg =>{
     console.log('Best bird is online.');
+    msg.reply("Best girl is now here. <a:secre_affirmative:743415114656383017>")
 })
 
 /**
@@ -52,11 +52,35 @@ function getDayAnimeList(date){
 bot.on('message', msg=>{
     var temp = msg.content.toLowerCase();
     console.log(temp);
-    if(temp == ((".welcome")|| ('.w')|| ('hello')|| ('hi'))){ 
+    if(temp == (("welcome")|| ('hello')|| ('hi'))){ 
         msg.reply('You are my pet now. <:secre_pathetic:743119690859020320>');
     }
-    if(temp == ("simp")){ 
+    else if(temp == ("simp")){ 
         msg.reply('You are my little simp. <:secre_blush:743040181275459645>');
+    }
+    else if( temp == "are you best girl"){
+        msg.reply("<:secre_yes:743119658181197834>")
+    }
+    else if( temp == "are you my waifu"){
+        msg.reply("<:secre_yes:743119658181197834>")
+    }
+    else if( temp == "best girl"){
+        msg.reply("<:secre_yes:743119658181197834>")
+    }
+    else if( temp == "best girl?"){
+        msg.reply("<:secre_yes:743119658181197834>")
+    }
+    else if( temp == "waifu?"){
+        msg.reply("<:secre_yes:743119658181197834>")
+    }
+    else if( temp == "waifu"){
+        msg.reply("<:secre_yes:743119658181197834>")
+    }
+    else if( temp == "anyone else better"){
+        msg.reply("<:secre_no:743119671984652320>");
+    }
+    else if( temp == "am i a sad person for making this"){
+        msg.reply("<:secre_yes:743119658181197834>");
     }
     else if(temp === (('.schedule')||('sch'))){
         request('https://api.jikan.moe/v3/schedule/', function (error, response, body) {
@@ -182,6 +206,7 @@ bot.on('message', msg=>{
             string = string + t.sunday[sizeTues-1].title;
             string = string +".";
             console.log(string);
+            string = string + "<:secre_pathetic:743119690859020320>";
             msg.reply(string);
         });
     }
@@ -220,18 +245,6 @@ bot.on('message', msg=>{
         var lowWeekDay = weekDay.toLowerCase();
         todayOrTomorrow(msg,lowWeekDay);
     }
-    else if(temp === ('.weather doncaster')){
-        request('api.openweathermap.org/data/2.5/weather?q={Doncaster}&appid={'+apiKeyOpenWeather+'}', function (error, response, body) {
-            var t = JSON.parse(body);
-
-        })
-    }
-    else if(temp === ('.weather sheffield')){
-        request('api.openweathermap.org/data/2.5/weather?q={sheffield}&appid={'+apiKeyOpenWeather+'}', function (error, response, body) {
-            var t = JSON.parse(body);
-            console.log(t);
-        })
-    }
     else{
         console.log('Best bird is getting incorrect messages.');
     }
@@ -258,6 +271,7 @@ function shedMonday(msg){
             string = string + t.monday[sizeTues-1].title;
             string = string +".";
             console.log(string);
+            string = string + "<:secre_pathetic:743119690859020320>";
             msg.reply(string);
         })
      return "";
@@ -280,6 +294,7 @@ function shedTuesday(msg){
             string = string + t.tuesday[sizeTues-1].title;
             string = string +".";
             console.log(string);
+            string = string + "<:secre_pathetic:743119690859020320>";
             msg.reply(string);
         });
         return "";
@@ -302,6 +317,7 @@ function shedWednesday(msg){
         string = string + t.wednesday[sizeTues-1].title;
         string = string +".";
         console.log(string);
+        string = string + "<:secre_pathetic:743119690859020320>";
         msg.reply(string);
     });
     return "";
@@ -324,6 +340,7 @@ function shedThursday(msg){
         string = string + t.thursday[sizeTues-1].title;
         string = string +".";
         console.log(string);
+        string = string + "<:secre_pathetic:743119690859020320>";
         msg.reply(string);
     });
     return "";
@@ -346,6 +363,7 @@ function shedFriday(msg){
             string = string + t.friday[sizeTues-1].title;
             string = string +".";
             console.log(string);
+            string = string + "<:secre_pathetic:743119690859020320>";
             msg.reply(string);
         });
     return "";
@@ -368,6 +386,7 @@ function shedSaturday(msg){
             string = string + t.saturday[sizeTues-1].title;
             string = string +".";
             console.log(string);
+            string = string + "<:secre_pathetic:743119690859020320>";
             msg.reply(string);
         });
         return "";
@@ -390,6 +409,7 @@ function shedSunday(msg){
             string = string + t.sunday[sizeTues-1].title;
             string = string +".";
             console.log(string);
+            string = string + "<:secre_pathetic:743119690859020320>";
             msg.reply(string);
         })
         return "";
