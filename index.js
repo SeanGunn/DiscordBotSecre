@@ -87,7 +87,7 @@ bot.on('message', msg=>{
             var t = JSON.parse(body);
             var sizeTues = Object.keys(t.monday).length;
             var i = 0;
-            var string = "\n\nThe shows that are on Monday are \n";
+            var string = "\n\nThe shows that are on Monday are: \n";
             while(i<sizeTues-1){
                 console.log(i);
                 console.log(t.monday[i].title);
@@ -104,7 +104,7 @@ bot.on('message', msg=>{
             var t = JSON.parse(body);
             var sizeTues = Object.keys(t.tuesday).length;
             var i = 0;
-            string = string+ "\nThe shows that are on Tuesday are \n";
+            string = string+ "\nThe shows that are on Tuesday are: \n";
             while(i<sizeTues-1){
                 console.log(i);
                 console.log(t.tuesday[i].title);
@@ -122,7 +122,7 @@ bot.on('message', msg=>{
             var t = JSON.parse(body);
             var sizeTues = Object.keys(t.wednesday).length;
             var i = 0;
-            var string = "\n\nThe shows that are on Wednesday are \n";
+            var string = "\n\nThe shows that are on Wednesday are: \n";
             while(i<sizeTues-1){
                 console.log(i);
                 console.log(t.wednesday[i].title);
@@ -139,7 +139,7 @@ bot.on('message', msg=>{
             var t = JSON.parse(body);
             var sizeTues = Object.keys(t.thursday).length;
             var i = 0;
-            string = string+ "\nThe shows that are on Thursday are \n";
+            string = string+ "\nThe shows that are on Thursday are: \n";
             while(i<sizeTues-1){
                 console.log(i);
                 console.log(t.thursday[i].title);
@@ -157,7 +157,7 @@ bot.on('message', msg=>{
             var t = JSON.parse(body);
             var sizeTues = Object.keys(t.friday).length;
             var i = 0;
-            var string = "\n\nThe shows that are on Friday are \n";
+            var string = "\n\nThe shows that are on Friday are: \n";
             while(i<sizeTues-1){
                 console.log(i);
                 console.log(t.friday[i].title);
@@ -174,7 +174,7 @@ bot.on('message', msg=>{
             var t = JSON.parse(body);
             var sizeTues = Object.keys(t.saturday).length;
             var i = 0;
-            string = string+ "\nThe shows that are on Saturday are \n";
+            string = string+ "\nThe shows that are on Saturday are: \n";
             while(i<sizeTues-1){
                 console.log(i);
                 console.log(t.saturday[i].title);
@@ -192,7 +192,7 @@ bot.on('message', msg=>{
             var t = JSON.parse(body);
             var sizeTues = Object.keys(t.sunday).length;
             var i = 0;
-            var string = "\n\nThe shows that are on Sunday are \n";
+            var string = "\n\nThe shows that are on Sunday are: \n";
             while(i<sizeTues-1){
                 console.log(i);
                 console.log(t.sunday[i].title);
@@ -236,7 +236,7 @@ bot.on('message', msg=>{
         var lowWeekDay = weekDay.toLowerCase();
         todayOrTomorrow(msg,lowWeekDay);
     }
-    else if(temp === (('tomorrow')|| ('nextday'))){
+    else if(temp === (('tomorrow')|| ('nextday')||('tomo'))){
         //What weekday is tomorrow?
         var tomorrow = new Date();
         tomorrow.setDate(tomorrow.getDate() + 1);
@@ -254,7 +254,7 @@ function shedMonday(msg){
             var t = JSON.parse(body);
             var sizeTues = Object.keys(t.monday).length;
             var i = 0;
-            var string = "The shows that are on Monday are ";
+            var string = "The shows that are on Monday are: \n";
             while(i<sizeTues-1){
                 console.log(i);
                 console.log(t.monday[i].title);
@@ -273,7 +273,7 @@ function shedMonday(msg){
      return "";
 }
 function shedTuesday(msg){
-    var string = "The shows that are on Tuesday are ";
+    var string = "The shows that are on Tuesday are: \n ";
     request('https://api.jikan.moe/v3/schedule/tuesday', function (error, response, body) {
             var t = JSON.parse(body);
             var sizeTues = Object.keys(t.tuesday).length;
@@ -300,7 +300,7 @@ function shedWednesday(msg){
         var t = JSON.parse(body);
         var sizeTues = Object.keys(t.wednesday).length;
         var i = 0;
-        var string = "The shows that are on Wednesday are ";
+        var string = "The shows that are on Wednesday are: \n ";
         while(i<sizeTues-1){
             console.log(i);
             console.log(t.wednesday[i].title);
@@ -323,7 +323,7 @@ function shedThursday(msg){
         var t = JSON.parse(body);
         var sizeTues = Object.keys(t.thursday).length;
         var i = 0;
-        var string = "The shows that are on Thursday are ";
+        var string = "The shows that are on Thursday are: \n ";
         while(i<sizeTues-1){
             console.log(i);
             console.log(t.thursday[i].title);
@@ -346,7 +346,7 @@ function shedFriday(msg){
             var t = JSON.parse(body);
             var sizeTues = Object.keys(t.friday).length;
             var i = 0;
-            var string = "The shows that are on Friday are ";
+            var string = "The shows that are on Friday are: \n ";
             while(i<sizeTues-1){
                 console.log(i);
                 console.log(t.friday[i].title);
@@ -369,7 +369,7 @@ function shedSaturday(msg){
             var t = JSON.parse(body);
             var sizeTues = Object.keys(t.saturday).length;
             var i = 0;
-            var string = "The shows that are on Saturday are ";
+            var string = "The shows that are on Saturday are: \n ";
             while(i<sizeTues-1){
                 console.log(i);
                 console.log(t.saturday[i].title);
@@ -392,7 +392,7 @@ function shedSunday(msg){
             var t = JSON.parse(body);
             var sizeTues = Object.keys(t.sunday).length;
             var i = 0;
-            var string = "The shows that are on Sunday are ";
+            var string = "The shows that are on Sunday are: \n ";
             while(i<sizeTues-1){
                 console.log(i);
                 console.log(t.sunday[i].title);
