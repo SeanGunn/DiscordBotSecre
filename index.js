@@ -504,7 +504,7 @@ function selectHangmanWord(){
 function HangmanGame(msg){
     var guesses = 0;
     var word = selectHangmanWord();
-    var sizeOfWord = word.size;
+    var sizeOfWord = word.length;
     var blanks = "_ "*sizeOfWord;
     var guessesList = []
     var wordsForUser;
@@ -527,16 +527,16 @@ function HangmanGame(msg){
             guesses = 7;
             msg.reply(HanganManScaffold(guess,word));
         }
-        else if((word.contain(guess) == false)&&(guessesList.contain(guess)==false)&&(guess.size == 1)){
+        else if((word.contain(guess) == false)&&(guessesList.contain(guess)==false)&&(guess.length == 1)){
             guesses++;
             guessesList.push(guess);
             msg.reply(HanganManScaffold(guess,word));
         }
-        else if((word.contain(guess) == false)&&(guessesList.contain(guess)==true)&&(guess.size == 1)){
+        else if((word.contain(guess) == false)&&(guessesList.contain(guess)==true)&&(guess.length == 1)){
             msg.reply("Write a new letter.");
             msg.reply(HanganManScaffold(guess,word));
         }
-        else if((word.contain(guess) == true)&&(guessesList.contain(guess)==false)&&(guess.size == 1)){
+        else if((word.contain(guess) == true)&&(guessesList.contain(guess)==false)&&(guess.length == 1)){
             msg.reply("The word contains the letter "+guess);
             msg.reply(HanganManScaffold(guess,word));
         }else if(guess == exit){
