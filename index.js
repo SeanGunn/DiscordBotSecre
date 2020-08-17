@@ -7,7 +7,7 @@ const listOfWords = new Array("sean","asta","secre","black clover","yuno", "yami
 
 bot.on('ready',msg =>{
     console.log('Best bird is online.');
-    msg.reply("Best girl is now here. <a:secre_affirmative:743415114656383017>")
+    msg.send("Best girl is now here. <a:secre_affirmative:743415114656383017>")
 })
 
 /**
