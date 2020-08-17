@@ -53,10 +53,10 @@ bot.on('message', msg=>{
     var temp = msg.content.toLowerCase();
     console.log(temp);
     if(temp == ((".welcome")|| ('.w')|| ('hello')|| ('hi'))){ 
-        msg.reply('You are my pet now.');
+        msg.reply('You are my pet now. <:secre_pathetic:743119690859020320>');
     }
     if(temp == ("simp")){ 
-        msg.reply('You are my little simp. :Secre_Blush:');
+        msg.reply('You are my little simp. <:secre_blush:743040181275459645>');
     }
     else if(temp === (('.schedule')||('sch'))){
         request('https://api.jikan.moe/v3/schedule/', function (error, response, body) {
