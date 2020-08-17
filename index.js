@@ -3,6 +3,7 @@ const Jikan = require('jikan-node');
 var request = require('request');
 const mal = new Jikan();
 const bot = new Discord.Client();
+const listOfWords = new Array("sean","asta","secre","black clover","yuno", "yami");
 
 bot.on('ready',() =>{
     console.log('Best bird is online.');
@@ -215,10 +216,19 @@ bot.on('message', msg=>{
         var lowWeekDay = weekDay.toLowerCase();
         todayOrTomorrow(msg,lowWeekDay);
     }
+    else if(temp === ".hangman")
+        HangmanGame(msg);
     else{
         console.log('Best bird is getting incorrect messages.');
     }
 })
+
+bot.on('message', msg=>{
+if(temp === ".hangman")
+    HangmanGame(msg);
+})
+
+
 
 bot.login(process.env.token);
 
@@ -395,3 +405,144 @@ function todayOrTomorrow(msg,lowWeekDay){
         shedSunday(msg);
     }
 }
+
+function HanganManScaffold(guesses, wd){
+    var scaf;
+    if(guesses == 0){
+        scaf = "\n---------";
+        scaf = scaf + "\n|    |";
+        scaf = scaf + "\n|";
+        scaf = scaf + "\n| ";
+        scaf = scaf + "\n| ";
+        scaf = scaf + "\n| ";
+        scaf = scaf + "\n|--------";
+        return scaf;
+    }
+    else if(guesses == 1){
+        scaf = "\n---------";
+        scaf = scaf + "\n|    |";
+        scaf = scaf + "\n|    0";
+        scaf = scaf + "\n| ";
+        scaf = scaf + "\n| ";
+        scaf = scaf + "\n| ";
+        scaf = scaf + "\n|--------";
+        return scaf;
+    }
+    else if(guesses == 2){
+        scaf = "\n---------";
+        scaf = scaf + "\n|    |";
+        scaf = scaf + "\n|    0";
+        scaf = scaf + "\n|    | ";
+        scaf = scaf + "\n| ";
+        scaf = scaf + "\n| ";
+        scaf = scaf + "\n|--------";
+        return scaf;
+    }
+    else if(guesses == 3){
+        scaf = "\n---------";
+        scaf = scaf + "\n|    |";
+        scaf = scaf + "\n|    0";
+        scaf = scaf + "\n|   \| ";
+        scaf = scaf + "\n| ";
+        scaf = scaf + "\n| ";
+        scaf = scaf + "\n|--------";
+        return scaf;
+    }
+    else if(guesses == 4){
+        scaf = "\n---------";
+        scaf = scaf + "\n|    |";
+        scaf = scaf + "\n|    0";
+        scaf = scaf + "\n|   \|/ ";
+        scaf = scaf + "\n| ";
+        scaf = scaf + "\n| ";
+        scaf = scaf + "\n|--------";
+        return scaf;
+    }
+    else if(guesses == 5){
+        scaf = "\n---------";
+        scaf = scaf + "\n|    |";
+        scaf = scaf + "\n    0";
+        scaf = scaf + "\n|   \|/ ";
+        scaf = scaf + "\n|    | ";
+        scaf = scaf + "\n| ";
+        scaf = scaf + "\n|--------";
+        return scaf;
+    }
+    else if(guesses == 6){
+        scaf = "\n---------";
+        scaf = scaf + "\n|    |";
+        scaf = scaf + "\n|    0";
+        scaf = scaf + "\n|   \|/ ";
+        scaf = scaf + "\n|    | ";
+        scaf = scaf + "\n|   / ";
+        scaf = scaf + "\n|--------";
+        return scaf;
+    }
+    else if(guesses == 7){
+        scaf = "\n---------";
+        scaf = scaf + "\n|    |";
+        scaf = scaf + "\n|    0";
+        scaf = scaf + "\n|   \|/ ";
+        scaf = scaf + "\n|    | ";
+        scaf = scaf + "\n|   / \\";
+        scaf = scaf + "\n|--------";
+        scaf = scaf + "\n";
+        scaf = scaf + "The word was "+wd;
+        return scaf;
+    }
+}
+
+function getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+}
+
+function selectHangmanWord(){
+    var amountOfWords = listOfWords.size;
+    var wordUsing = listOfWords[getRandomInt(amountOfWords)];
+    return wordUsing;
+}
+
+function HangmanGame(msg){
+    var guesses = 0;
+    var word = selectHangmanWord();
+    var sizeOfWord = word.size;
+    var blanks = "_ "*sizeOfWord;
+    var guessesList = []
+    var wordsForUser;
+    wordsForUser = wordsForUser + "Lets play hangman!\n";
+    wordsForUser = wordsForUser + HanganManScaffold(guesses, word);
+    wordsForUser = wordsForUser + "\n";
+    wordsForUser = wordsForUser + "" + blanks;
+    wordsForUser = wordsForUser + "\nGuess a letter.\n";
+    msg.reply(wordsForUser);
+    var exit = ".exit";
+    while (guesses < 7 ){
+        var guess = await bot.wait_for('message',check = check);
+        guess = guess.toLocaleLowerCase();
+        if((guess == word)&&(guess.size > 1)){
+            msg.reply("\nYou win. The word was" +word);
+            guesses = 7;
+        }
+        else if((guess != word) &&(guess.size > 1)){
+            msg.reply("You lose! The word was "+word);
+            guesses = 7;
+            msg.reply(HanganManScaffold(guess,word));
+        }
+        else if((word.contain(guess) == false)&&(guessesList.contain(guess)==false)&&(guess.size == 1)){
+            guesses++;
+            guessesList.push(guess);
+            msg.reply(HanganManScaffold(guess,word));
+        }
+        else if((word.contain(guess) == false)&&(guessesList.contain(guess)==true)&&(guess.size == 1)){
+            msg.reply("Write a new letter.");
+            msg.reply(HanganManScaffold(guess,word));
+        }
+        else if((word.contain(guess) == true)&&(guessesList.contain(guess)==false)&&(guess.size == 1)){
+            msg.reply("The word contains the letter "+guess);
+            msg.reply(HanganManScaffold(guess,word));
+        }else if(guess == exit){
+            guesses = 7;
+        }
+    }
+}
+ 
