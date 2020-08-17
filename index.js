@@ -222,7 +222,8 @@ bot.on('message', msg=>{
 })
 
 bot.on('message', msg=>{
-if(temp === ".hangmanSecre")
+    var temp = msg.content.toLowerCase();
+if(temp === ".hangmansecre")
     HangmanGame(msg);
 })
 
