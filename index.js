@@ -495,15 +495,11 @@ function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
 }
 
-function selectHangmanWord(){
-    var amountOfWords = listOfWords.size;
-    var wordUsing = listOfWords[getRandomInt(amountOfWords)];
-    return wordUsing;
-}
 
 function HangmanGame(msg){
     var guesses = 0;
-    var word = selectHangmanWord();
+    var amountOfWords = listOfWords.size;
+    var word = listOfWords[getRandomInt(amountOfWords)];
     var sizeOfWord = word.length;
     var blanks = "_ "*sizeOfWord;
     var guessesList = []
