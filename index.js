@@ -515,7 +515,7 @@ function HangmanGame(msg){
     msg.reply(wordsForUser);
     var exit = ".exit";
     while (guesses < 7 ){
-        var guess = await bot.wait_for('message',check = check);
+        var guess = bot.wait_for('message',check = check);
         guess = guess.toLocaleLowerCase();
         if((guess == word)&&(guess.size > 1)){
             msg.reply("\nYou win. The word was" +word);
