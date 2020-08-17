@@ -4,8 +4,6 @@ var request = require('request');
 const mal = new Jikan();
 const bot = new Discord.Client();
 
-const token = 'NzQ0ODE5ODMzOTY2OTUyNTc5.Xzoxhg.m5MoiYBeaF2bWcIAldGaiOvhnvM';
-
 bot.on('ready',() =>{
     console.log('Best bird is online.');
 })
@@ -222,7 +220,7 @@ bot.on('message', msg=>{
     }
 })
 
-bot.login(token);
+bot.login(process.env.token);
 
 function shedMonday(msg){
     
