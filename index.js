@@ -7,7 +7,6 @@ const listOfWords = new Array("sean","asta","secre","black clover","yuno", "yami
 
 bot.on('ready',msg =>{
     console.log('Best bird is online.');
-    //msg.channel.send("Best girl is now here. <a:secre_affirmative:743415114656383017>")
 })
 
 /**
@@ -95,7 +94,7 @@ bot.on('message', msg=>{
                 string = string + t.monday[i].title;
                 i++
                 if(i<sizeTues-1)
-                    string = string + ", "
+                    string = string + "\n, "
             } 
             string = string + " and ";
             string = string + t.monday[sizeTues-1].title;
@@ -112,7 +111,7 @@ bot.on('message', msg=>{
                 string = string + t.tuesday[i].title;
                 i++
                 if(i<sizeTues-1)
-                    string = string + ", "
+                    string = string + "\n, "
             } 
             string = string + " and ";
             string = string + t.tuesday[sizeTues-1].title;
@@ -130,7 +129,7 @@ bot.on('message', msg=>{
                 string = string + t.wednesday[i].title;
                 i++
                 if(i<sizeTues-1)
-                    string = string + ", "
+                    string = string + "\n, "
             } 
             string = string + " and ";
             string = string + t.wednesday[sizeTues-1].title;
@@ -147,7 +146,7 @@ bot.on('message', msg=>{
                 string = string + t.thursday[i].title;
                 i++
                 if(i<sizeTues-1)
-                    string = string + ", "
+                    string = string + "\n, "
             } 
             string = string + " and ";
             string = string + t.thursday[sizeTues-1].title;
@@ -165,7 +164,7 @@ bot.on('message', msg=>{
                 string = string + t.friday[i].title;
                 i++
                 if(i<sizeTues-1)
-                    string = string + ", "
+                    string = string + "\n, "
             } 
             string = string + " and ";
             string = string + t.friday[sizeTues-1].title;
@@ -182,7 +181,7 @@ bot.on('message', msg=>{
                 string = string + t.saturday[i].title;
                 i++
                 if(i<sizeTues-1)
-                    string = string + ", "
+                    string = string + "\n, "
             } 
             string = string + " and ";
             string = string + t.saturday[sizeTues-1].title;
@@ -200,7 +199,7 @@ bot.on('message', msg=>{
                 string = string + t.sunday[i].title;
                 i++
                 if(i<sizeTues-1)
-                    string = string + ", "
+                    string = string + "\n, "
             } 
             string = string + " and ";
             string = string + t.sunday[sizeTues-1].title;
@@ -265,7 +264,7 @@ function shedMonday(msg){
                 string = string + t.monday[i].title;
                 i++
                 if(i<sizeTues-1)
-                    string = string + ", "
+                    string = string + "\n, "
             } 
             string = string + " and ";
             string = string + t.monday[sizeTues-1].title;
@@ -288,7 +287,7 @@ function shedTuesday(msg){
                 string = string + t.tuesday[i].title;
                 i++
                 if(i<sizeTues-1)
-                    string = string + ", "
+                    string = string + "\n, "
             } 
             string = string + " and ";
             string = string + t.tuesday[sizeTues-1].title;
@@ -311,7 +310,7 @@ function shedWednesday(msg){
             string = string + t.wednesday[i].title;
             i++
             if(i<sizeTues-1)
-                string = string + ", "
+                string = string + "\n, "
         } 
         string = string + " and ";
         string = string + t.wednesday[sizeTues-1].title;
@@ -334,7 +333,7 @@ function shedThursday(msg){
             string = string + t.thursday[i].title;
             i++
             if(i<sizeTues-1)
-                string = string + ", "
+                string = string + "\n, "
         } 
         string = string + " and ";
         string = string + t.thursday[sizeTues-1].title;
@@ -357,7 +356,7 @@ function shedFriday(msg){
                 string = string + t.friday[i].title;
                 i++
                 if(i<sizeTues-1)
-                    string = string + ", "
+                    string = string + "\n, "
             } 
             string = string + " and ";
             string = string + t.friday[sizeTues-1].title;
@@ -380,7 +379,7 @@ function shedSaturday(msg){
                 string = string + t.saturday[i].title;
                 i++
                 if(i<sizeTues-1)
-                    string = string + ", "
+                    string = string + "\n, "
             } 
             string = string + " and ";
             string = string + t.saturday[sizeTues-1].title;
@@ -403,7 +402,7 @@ function shedSunday(msg){
                 string = string + t.sunday[i].title;
                 i++
                 if(i<sizeTues-1)
-                    string = string + ", "
+                    string = string + "\n, "
             } 
             string = string + " and ";
             string = string + t.sunday[sizeTues-1].title;
