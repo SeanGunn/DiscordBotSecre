@@ -4,6 +4,7 @@ var request = require('request');
 const mal = new Jikan();
 const bot = new Discord.Client();
 const listOfWords = new Array("sean","asta","secre","black clover","yuno", "yami");
+const apiKeyOpenWeather = "c5b973a5540563fb412fa66bd17b2d41";
 
 bot.on('ready',() =>{
     console.log('Best bird is online.');
@@ -53,6 +54,9 @@ bot.on('message', msg=>{
     console.log(temp);
     if(temp == ((".welcome")|| ('.w')|| ('hello')|| ('hi'))){ 
         msg.reply('You are my pet now.');
+    }
+    if(temp.contain("simp")){ 
+        msg.reply('You are my little simp. :Secre_Blush:');
     }
     else if(temp === (('.schedule')||('sch'))){
         request('https://api.jikan.moe/v3/schedule/', function (error, response, body) {
@@ -216,18 +220,22 @@ bot.on('message', msg=>{
         var lowWeekDay = weekDay.toLowerCase();
         todayOrTomorrow(msg,lowWeekDay);
     }
+    else if(temp === ('.weather doncaster')){
+        request('api.openweathermap.org/data/2.5/weather?q={Doncaster}&appid={'+apiKeyOpenWeather+'}', function (error, response, body) {
+            var t = JSON.parse(body);
+
+        })
+    }
+    else if(temp === ('.weather sheffield')){
+        request('api.openweathermap.org/data/2.5/weather?q={sheffield}&appid={'+apiKeyOpenWeather+'}', function (error, response, body) {
+            var t = JSON.parse(body);
+            console.log(t);
+        })
+    }
     else{
         console.log('Best bird is getting incorrect messages.');
     }
 })
-
-bot.on('message', msg=>{
-    var temp = msg.content.toLowerCase();
-if(temp === ".hangmansecre")
-    HangmanGame(msg);
-})
-
-
 
 bot.login(process.env.token);
 
