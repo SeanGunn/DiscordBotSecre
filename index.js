@@ -244,10 +244,6 @@ bot.on('message', msg=>{
         var lowWeekDay = weekDay.toLowerCase();
         todayOrTomorrow(msg,lowWeekDay);
     }
-    else{
-        if(Discord.User.id != ("<@744819833966952579>"))
-            msg.reply("<:secre_pathetic:743119690859020320>");
-    }
 })
 
 bot.login(process.env.token);
