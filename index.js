@@ -87,7 +87,7 @@ bot.on('message', msg=>{
             var t = JSON.parse(body);
             var sizeTues = Object.keys(t.monday).length;
             var i = 0;
-            var string = "\nThe shows that are on Monday are ";
+            var string = "\n\nThe shows that are on Monday are \n";
             while(i<sizeTues-1){
                 console.log(i);
                 console.log(t.monday[i].title);
@@ -104,7 +104,7 @@ bot.on('message', msg=>{
             var t = JSON.parse(body);
             var sizeTues = Object.keys(t.tuesday).length;
             var i = 0;
-            string = string+ "\nThe shows that are on Tuesday are ";
+            string = string+ "\nThe shows that are on Tuesday are \n";
             while(i<sizeTues-1){
                 console.log(i);
                 console.log(t.tuesday[i].title);
@@ -122,7 +122,7 @@ bot.on('message', msg=>{
             var t = JSON.parse(body);
             var sizeTues = Object.keys(t.wednesday).length;
             var i = 0;
-            var string = "\nThe shows that are on Wednesday are ";
+            var string = "\n\nThe shows that are on Wednesday are \n";
             while(i<sizeTues-1){
                 console.log(i);
                 console.log(t.wednesday[i].title);
@@ -139,7 +139,7 @@ bot.on('message', msg=>{
             var t = JSON.parse(body);
             var sizeTues = Object.keys(t.thursday).length;
             var i = 0;
-            string = string+ "\nThe shows that are on Thursday are ";
+            string = string+ "\nThe shows that are on Thursday are \n";
             while(i<sizeTues-1){
                 console.log(i);
                 console.log(t.thursday[i].title);
@@ -157,7 +157,7 @@ bot.on('message', msg=>{
             var t = JSON.parse(body);
             var sizeTues = Object.keys(t.friday).length;
             var i = 0;
-            var string = "\nThe shows that are on Friday are ";
+            var string = "\n\nThe shows that are on Friday are \n";
             while(i<sizeTues-1){
                 console.log(i);
                 console.log(t.friday[i].title);
@@ -174,7 +174,7 @@ bot.on('message', msg=>{
             var t = JSON.parse(body);
             var sizeTues = Object.keys(t.saturday).length;
             var i = 0;
-            string = string+ "\nThe shows that are on Saturday are ";
+            string = string+ "\nThe shows that are on Saturday are \n";
             while(i<sizeTues-1){
                 console.log(i);
                 console.log(t.saturday[i].title);
@@ -192,7 +192,7 @@ bot.on('message', msg=>{
             var t = JSON.parse(body);
             var sizeTues = Object.keys(t.sunday).length;
             var i = 0;
-            var string = "\nThe shows that are on Sunday are ";
+            var string = "\n\nThe shows that are on Sunday are \n";
             while(i<sizeTues-1){
                 console.log(i);
                 console.log(t.sunday[i].title);
