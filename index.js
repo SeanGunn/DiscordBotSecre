@@ -216,15 +216,13 @@ bot.on('message', msg=>{
         var lowWeekDay = weekDay.toLowerCase();
         todayOrTomorrow(msg,lowWeekDay);
     }
-    else if(temp === ".hangman")
-        HangmanGame(msg);
     else{
         console.log('Best bird is getting incorrect messages.');
     }
 })
 
 bot.on('message', msg=>{
-if(temp === ".hangman")
+if(temp === ".hangmanSecre")
     HangmanGame(msg);
 })
 
