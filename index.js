@@ -81,7 +81,7 @@ bot.on('message', msg=>{
     else if( temp == "am i a sad person for making this"){
         msg.reply("<:secre_yes:743119658181197834>");
     }
-    else if(temp === (('.schedule')||('sch'))){
+    else if(temp === (('schedule')||('sch'))){
         request('https://api.jikan.moe/v3/schedule/', function (error, response, body) {
             //Mon
             var t = JSON.parse(body);
@@ -98,7 +98,7 @@ bot.on('message', msg=>{
             } 
             string = string + " and ";
             string = string + t.monday[sizeTues-1].title;
-            string = string +".";
+            string = string +".\n\n";
             console.log(string);
             //Tues
             var t = JSON.parse(body);
@@ -115,7 +115,7 @@ bot.on('message', msg=>{
             } 
             string = string + " and ";
             string = string + t.tuesday[sizeTues-1].title;
-            string = string +".";
+            string = string +".\n\n";
             console.log(string);
             msg.reply(string);
            //Wed
@@ -133,7 +133,7 @@ bot.on('message', msg=>{
             } 
             string = string + " and ";
             string = string + t.wednesday[sizeTues-1].title;
-            string = string +".";
+            string = string +".\n\n";
             console.log(string);
             //Thur
             var t = JSON.parse(body);
@@ -150,7 +150,7 @@ bot.on('message', msg=>{
             } 
             string = string + " and ";
             string = string + t.thursday[sizeTues-1].title;
-            string = string +".";
+            string = string +".\n\n";
             console.log(string);
             msg.reply(string);
             //Fri
@@ -168,7 +168,7 @@ bot.on('message', msg=>{
             } 
             string = string + " and ";
             string = string + t.friday[sizeTues-1].title;
-            string = string +".";
+            string = string +".\n\n";
             console.log(string);
             //Sat
             var t = JSON.parse(body);
@@ -185,7 +185,7 @@ bot.on('message', msg=>{
             } 
             string = string + " and ";
             string = string + t.saturday[sizeTues-1].title;
-            string = string +".";
+            string = string +".\n\n";
             console.log(string);
             msg.reply(string);
             //Sun
@@ -203,40 +203,40 @@ bot.on('message', msg=>{
             } 
             string = string + " and ";
             string = string + t.sunday[sizeTues-1].title;
-            string = string +".";
+            string = string +".\n";
             console.log(string);
             string = string + "<:secre_pathetic:743119690859020320>";
             msg.reply(string);
         });
     }
-    else if(temp === (('.monday')|| ('.mon'))){
+    else if(temp === (('monday')|| ('mon'))){
         shedMonday(msg);
     }
-    else if(temp === (('.tuesday')|| ('.tue'))){
+    else if(temp === (('tuesday')|| ('tue'))){
         shedTuesday(msg);
     }
-    else if(temp === (('.wednesday')|| ('.wed'))){
+    else if(temp === (('wednesday')|| ('wed'))){
         shedWednesday(msg);
     }
-    else if(temp === (('.thursday')|| ('.thu'))){
+    else if(temp === (('thursday')|| ('thu'))){
         shedThursday(msg);
     }
-    else if(temp === (('.friday')|| ('.fri'))){
+    else if(temp === (('friday')|| ('fri'))){
         shedFriday(msg);
     }
-    else if(temp === (('.saturday')|| ('.sat'))){
+    else if(temp === (('saturday')|| ('sat'))){
         shedSaturday(msg);
     }
-    else if(temp === (('.sunday')|| ('.sun'))){
+    else if(temp === (('sunday')|| ('sun'))){
         shedSunday(msg);
     }
-    else if(temp === (('.today')|| ('.tod'))){
+    else if(temp === (('today')|| ('tod'))){
         var today = new Date();
         var weekDay = getWeekDay(today);
         var lowWeekDay = weekDay.toLowerCase();
         todayOrTomorrow(msg,lowWeekDay);
     }
-    else if(temp === (('.tomorrow')|| ('.nextday'))){
+    else if(temp === (('tomorrow')|| ('nextday'))){
         //What weekday is tomorrow?
         var tomorrow = new Date();
         tomorrow.setDate(tomorrow.getDate() + 1);
@@ -245,7 +245,7 @@ bot.on('message', msg=>{
         todayOrTomorrow(msg,lowWeekDay);
     }
     else{
-        console.log('Best bird is getting incorrect messages.');
+        msg.reply("<:secre_pathetic:743119690859020320>");
     }
 })
 
