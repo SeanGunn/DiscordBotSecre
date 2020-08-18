@@ -10,5 +10,5 @@ module.exports.config = {
     description: "Answers if she is my waifu",
     usage: ".waifu",
     accessableby: "Members",
-    aliases: ['waifu']
+    aliases: ['waif']
 }

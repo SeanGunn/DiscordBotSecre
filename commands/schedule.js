@@ -136,5 +136,5 @@ module.exports.config = {
     description: "Answers what the weekly anime schedule is",
     usage: ".schedule",
     accessableby: "Members",
-    aliases: ['schedule']
+    aliases: ['sch']
 }

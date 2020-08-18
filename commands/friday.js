@@ -6,9 +6,9 @@ module.exports.run = async (bot, message, args) => {
 }
 
 module.exports.config = {
-    name: "friday",
+    name: "fri",
     description: "Answers what anime are on friday",
     usage: ".friday",
     accessableby: "Members",
-    aliases: ['friday']
+    aliases: ['fri']
 }
