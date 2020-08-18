@@ -8,11 +8,11 @@ module.exports.run = async (bot, message, args) => {
     }
 
     if (!message.member.hasPermission("MANAGE_MESSAGES")) {
-        return message.reply("Missing Permissions!").then(m => m.delete(5000));
+        return message.reply("Missing Permissions!").then(m => m.delete(500));
     }
 
     if (parseInt(args[0]) <= 0) {
-        return message.reply("This is not a number").then(m => m.delete(5000));
+        return message.reply("This is not a number").then(m => m.delete(500));
     }
 
     if(isNaN(args[0])){
