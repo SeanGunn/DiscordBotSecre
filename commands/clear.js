@@ -27,7 +27,7 @@ module.exports.run = async (bot, message, args) => {
 }
 
 module.exports.config = {
-    name: "c",
+    name: "clear",
     description: "clears message",
     usage: ".clear",
     accessableby: "Members",
