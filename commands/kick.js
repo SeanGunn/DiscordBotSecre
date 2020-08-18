@@ -3,10 +3,8 @@ const botconfig = require("../botsettings.json");
 
 module.exports.run = async (bot, message, args) => {
     if(!message.member.hasPermission('KICK_MEMBERS'))
-        message.channel.send("You don't have permission to use that command.").then(msg => {
-            msg.delete({ timeout: 10000 })
-          })
-          .catch(console.error);
+        message.channel.send("You don't have permission to use that command.").then(message  => { message.delete({ timeout: 10000 }) }).catch(console.error);
+
     else {
         let member = message.guild.members.cache.get(args);
         if(member) {
@@ -15,8 +13,8 @@ module.exports.run = async (bot, message, args) => {
             console.log('Kicked the user from the discord.');
             message.channel.send(`${member}, Kicked!`).then(msg => {
                 msg.delete({ timeout: 10000 })
-              })
-              .catch(console.error);
+            }).catch(console.error);
+
         }
             catch(err) {
             console.log(err);
