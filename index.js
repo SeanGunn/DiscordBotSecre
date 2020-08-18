@@ -7,7 +7,7 @@ const bot = new Discord.Client({disableEveryone: true});
 const listOfWords = new Array("sean","asta","secre","black clover","yuno", "yami");
 
 bot.on('ready', async () => {
-    console.log('${bot.user.username} is online');
+    console.log(`${bot.user.username} is online`);
     bot.user.setActivity("Making you her pet.", {type:"CUSTOM_STATUS"})
     console.log('Best bird is online.');
 })
@@ -59,8 +59,8 @@ bot.on('message', async message =>{
     let messageArray = message.content.split(" ");
     let cmd = messageArray[0];
     let args = messageArray.slice(1);
-
-    if(cmd === '${prefix}hi'){
+    console.log(cmd);
+    if(cmd === `${prefix}hi`){
         return message.channel.send("Hi my pet.");
     }
 
