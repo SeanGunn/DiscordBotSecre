@@ -221,31 +221,31 @@ bot.on('message', async message =>{
         });
     }
     else if((cmd === `${prefix}monday`)||(cmd === `${prefix}mon`)){
-        shedMonday(messsage);
+        return shedMonday(messsage);
     }
     else if((cmd === `${prefix}tuesday`)||(cmd === `${prefix}tue`)){
-        shedTuesday(message);
+        return shedTuesday(message);
     }
     else if((cmd === `${prefix}wednesday`)||(cmd === `${prefix}wed`)){
-        shedWednesday(message);
+        return shedWednesday(message);
     }
     else if((cmd === `${prefix}thursday`)||(cmd === `${prefix}thu`)){
-        shedThursday(message);
+        return shedThursday(message);
     }
     else if((cmd === `${prefix}friday`)||(cmd === `${prefix}fri`)){
-        shedFriday(message);
+        return shedFriday(message);
     }
     else if((cmd === `${prefix}saturday`)||(cmd === `${prefix}sat`)){
-        shedSaturday(message);
+        return shedSaturday(message);
     }
     else if((cmd === `${prefix}sunday`)||(cmd === `${prefix}sun`)){
-        shedSunday(message);
+        return shedSunday(message);
     }
     else if(cmd === `${prefix}today`){
         var today = new Date();
         var weekDay = getWeekDay(today);
         var lowWeekDay = weekDay.toLowerCase();
-        todayOrTomorrow(messsage,lowWeekDay);
+        return todayOrTomorrow(messsage,lowWeekDay);
     }
     else if((cmd === `${prefix}tomorrow`)||(cmd === `${prefix}nextday`)){
         //What weekday is tomorrow?
@@ -253,7 +253,30 @@ bot.on('message', async message =>{
         tomorrow.setDate(tomorrow.getDate() + 1);
         var weekDay = getWeekDay(tomorrow);
         var lowWeekDay = weekDay.toLowerCase();
-        todayOrTomorrow(message,lowWeekDay);
+        return todayOrTomorrow(message,lowWeekDay);
+    }
+
+    if(cmd === `${prefix}clear`){
+        if(messsage.deletable){
+            messsage.delete();
+        }
+
+        if(!message.member.hasPermission("MANAGE_MESSAGES")){
+            return message.reply("Missing Permissions").then(m => m.delete(5000));
+        }
+
+        if((isNaN(args[0]))||(parseInt(args[0]) <= 0)){
+            return message.reply("This is not a number").then(m => m.delete(5000));
+        }
+
+        let deletableAmount;
+        if(parseInt(arg[0])>100){
+            deletableAmount = 100;
+        }else{
+            deletableAmount = parseInt(args[0]);
+        }
+
+        message.channel.bulkDelete(deletableAmount, true).catch(err => message.reply(`Something went wrong... ${err}`));
     }
 })
 
