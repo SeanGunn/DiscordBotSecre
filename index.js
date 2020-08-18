@@ -5,10 +5,8 @@ const bot = new Discord.Client({disableEveryone: true});
 
 require("./util/eventHandler")(bot)
 
-
-
-const fs =require("fs");
-bot.commmands = new Discord.Collection();
+const fs = require("fs");
+bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
 
 fs.readdir("./commands/", (err, files) => {
@@ -38,10 +36,10 @@ bot.on("message", async message => {
     let args = messageArray.slice(1);
 
     if(!message.content.startsWith(prefix))
-     return;
-    let commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)));
+        return;
+    let commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)))
     if(commandfile)
-     commandfile.run(bot,message,args);
+        commandfile.run(bot,message,args);
 
 })
 
