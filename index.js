@@ -29,12 +29,12 @@ fs.readdir("./commands/", (err, files) => {
 
 bot.on("message", async message => {
     if(message.author.bot || message.channel.type === "dm") return;
-    console.log(message);
+    
     let prefix = botsettings.prefix;
     let messageArray = message.content.split(" ");
     let cmd = messageArray[0];
     let args = messageArray.slice(1);
-
+    console.log(cmd);
     if(!message.content.startsWith(prefix))
         return;
     let commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)))
