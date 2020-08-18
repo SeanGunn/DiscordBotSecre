@@ -1,11 +1,14 @@
 const Discord = require('discord.js');
 const Jikan = require('jikan-node');
 var request = require('request');
+const botsettings = require('./botsettings.json');
 const mal = new Jikan();
-const bot = new Discord.Client();
+const bot = new Discord.Client({disableEveryone: true});
 const listOfWords = new Array("sean","asta","secre","black clover","yuno", "yami");
 
-bot.on('ready',msg =>{
+bot.on('ready', async () => {
+    console.log('${bot.user.username} is online');
+    bot.user.setActivity("Making you her pet.", {type:"LISTENING"})
     console.log('Best bird is online.');
 })
 
@@ -48,7 +51,20 @@ function getDayAnimeList(date){
     return string;
 }
 
-bot.on('message', msg=>{
+bot.on('message', async message =>{
+
+    if(message.author.bot || message.channel.type === "dm") return;
+
+    let prefix = botsettings.prefix;
+    let messageArray = message.content.split(" ");
+    let cmd = messageArray[0];
+    let args = messageArray.slice(1);
+
+    if(cmd === '${prefix}hi'){
+        return message.channel.send("Hi my pet.");
+    }
+
+
     var temp = msg.content.toLowerCase();
     console.log(temp);
     if(temp == (("welcome")|| ('hello')|| ('hi'))){ 
