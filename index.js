@@ -10,6 +10,7 @@ bot.on('ready', async () => {
     console.log(`${bot.user.username} is online`);
     bot.user.setActivity("Making you her pet.", {type:"CUSTOM_STATUS"})
     console.log('Best bird is online.');
+    message.channel.send("Best bird is now online. <:secre_blush:743040181275459645>");
 })
 
 /**
@@ -46,7 +47,7 @@ function getDayAnimeList(date){
         string = string + t.date[sizeTues-1].title;
         string = string +".";
         console.log(string);
-        msg.reply(string);
+        message.channel.send(string);
     })
     return string;
 }
@@ -57,47 +58,41 @@ bot.on('message', async message =>{
 
     let prefix = botsettings.prefix;
     let messageArray = message.content.split(" ");
-    let cmd = messageArray[0];
+    let cmd = messageArray[0].toLowerCase();
     let args = messageArray.slice(1);
     console.log(cmd);
     if(cmd === `${prefix}hi`){
         return message.channel.send("Hi my pet.");
     }
 
-    /*
-    var temp = msg.content.toLowerCase();
-    console.log(temp);
-    if(temp == (("welcome")|| ('hello')|| ('hi'))){ 
-        msg.reply('You are my pet now. <:secre_pathetic:743119690859020320>');
+    if((cmd === `${prefix}hi`) || ((cmd === `${prefix}welcome`))){ 
+        return message.reply('You are my pet now. <:secre_pathetic:743119690859020320>');
     }
-    else if(temp == ("simp")){ 
-        msg.reply('You are my little simp. <:secre_blush:743040181275459645>');
+    else if(cmd === `${prefix}simp`){ 
+        return message.reply('You are my little simp. <:secre_blush:743040181275459645>');
     }
-    else if( temp == "are you best girl"){
-        msg.reply("<:secre_yes:743119658181197834>")
+    /*else if(cmd === `${prefix}are you best girl`){
+        return message.channel.send("<:secre_yes:743119658181197834>");
     }
     else if( temp == "are you my waifu"){
-        msg.reply("<:secre_yes:743119658181197834>")
+        return message.reply("<:secre_yes:743119658181197834>");
     }
     else if( temp == "best girl"){
         msg.reply("<:secre_yes:743119658181197834>")
     }
     else if( temp == "best girl?"){
         msg.reply("<:secre_yes:743119658181197834>")
-    }
-    else if( temp == "waifu?"){
+    }*/
+    else if(cmd === `${prefix}waifu`){
         msg.reply("<:secre_yes:743119658181197834>")
     }
-    else if( temp == "waifu"){
-        msg.reply("<:secre_yes:743119658181197834>")
-    }
-    else if( temp == "anyone else better"){
+    /*else if( temp == "anyone else better"){
         msg.reply("<:secre_no:743119671984652320>");
     }
     else if( temp == "am i a sad person for making this"){
         msg.reply("<:secre_yes:743119658181197834>");
-    }
-    else if(temp === (('schedule')||('sch'))){
+    }*/
+    else if((cmd === `${prefix}schedule`)||(cmd === `${prefix}sch`)){
         request('https://api.jikan.moe/v3/schedule/', function (error, response, body) {
             //Mon
             var t = JSON.parse(body);
@@ -133,7 +128,7 @@ bot.on('message', async message =>{
             string = string + t.tuesday[sizeTues-1].title;
             string = string +".\n\n";
             console.log(string);
-            msg.reply(string);
+            message.channel.send(string);
            //Wed
             var t = JSON.parse(body);
             var sizeTues = Object.keys(t.wednesday).length;
@@ -168,7 +163,7 @@ bot.on('message', async message =>{
             string = string + t.thursday[sizeTues-1].title;
             string = string +".\n\n";
             console.log(string);
-            msg.reply(string);
+            message.channel.send(string);
             //Fri
             var t = JSON.parse(body);
             var sizeTues = Object.keys(t.friday).length;
@@ -203,7 +198,7 @@ bot.on('message', async message =>{
             string = string + t.saturday[sizeTues-1].title;
             string = string +".\n\n";
             console.log(string);
-            msg.reply(string);
+            message.channel.send(string);
             //Sun
             var t = JSON.parse(body);
             var sizeTues = Object.keys(t.sunday).length;
@@ -222,49 +217,49 @@ bot.on('message', async message =>{
             string = string +".\n";
             console.log(string);
             string = string + "<:secre_pathetic:743119690859020320>";
-            msg.reply(string);
+            return message.channel.send(string);
         });
     }
-    else if(temp === (('monday')|| ('mon'))){
-        shedMonday(msg);
+    else if((cmd === `${prefix}monday`)||(cmd === `${prefix}mon`)){
+        shedMonday(messsage);
     }
-    else if(temp === (('tuesday')|| ('tue'))){
-        shedTuesday(msg);
+    else if((cmd === `${prefix}tuesday`)||(cmd === `${prefix}tue`)){
+        shedTuesday(message);
     }
-    else if(temp === (('wednesday')|| ('wed'))){
-        shedWednesday(msg);
+    else if((cmd === `${prefix}wednesday`)||(cmd === `${prefix}wed`)){
+        shedWednesday(message);
     }
-    else if(temp === (('thursday')|| ('thu'))){
-        shedThursday(msg);
+    else if((cmd === `${prefix}thursday`)||(cmd === `${prefix}thu`)){
+        shedThursday(message);
     }
-    else if(temp === (('friday')|| ('fri'))){
-        shedFriday(msg);
+    else if((cmd === `${prefix}friday`)||(cmd === `${prefix}fri`)){
+        shedFriday(message);
     }
-    else if(temp === (('saturday')|| ('sat'))){
-        shedSaturday(msg);
+    else if((cmd === `${prefix}saturday`)||(cmd === `${prefix}sat`)){
+        shedSaturday(message);
     }
-    else if(temp === (('sunday')|| ('sun'))){
-        shedSunday(msg);
+    else if((cmd === `${prefix}sunday`)||(cmd === `${prefix}sun`)){
+        shedSunday(message);
     }
-    else if(temp === (('today')|| ('tod'))){
+    else if(cmd === `${prefix}today`){
         var today = new Date();
         var weekDay = getWeekDay(today);
         var lowWeekDay = weekDay.toLowerCase();
-        todayOrTomorrow(msg,lowWeekDay);
+        todayOrTomorrow(messsage,lowWeekDay);
     }
-    else if(temp === (('tomorrow')|| ('nextday')||('tomo'))){
+    else if((cmd === `${prefix}tomorrow`)||(cmd === `${prefix}nextday`)){
         //What weekday is tomorrow?
         var tomorrow = new Date();
         tomorrow.setDate(tomorrow.getDate() + 1);
         var weekDay = getWeekDay(tomorrow);
         var lowWeekDay = weekDay.toLowerCase();
-        todayOrTomorrow(msg,lowWeekDay);
-    }*/
+        todayOrTomorrow(message,lowWeekDay);
+    }
 })
 
 bot.login(process.env.token);
 
-function shedMonday(msg){
+function shedMonday(message){
     
     request('https://api.jikan.moe/v3/schedule/monday', function (error, response, body) {
             var t = JSON.parse(body);
@@ -284,11 +279,11 @@ function shedMonday(msg){
             string = string +".";
             console.log(string);
             string = string + "<:secre_pathetic:743119690859020320>";
-            msg.reply(string);
+            message.channel.send(string);
         })
      return "";
 }
-function shedTuesday(msg){
+function shedTuesday(message){
     var string = "The shows that are on Tuesday are: \n ";
     request('https://api.jikan.moe/v3/schedule/tuesday', function (error, response, body) {
             var t = JSON.parse(body);
@@ -307,11 +302,11 @@ function shedTuesday(msg){
             string = string +".";
             console.log(string);
             string = string + "<:secre_pathetic:743119690859020320>";
-            msg.reply(string);
+            message.channel.send(string);
         });
         return "";
 }
-function shedWednesday(msg){
+function shedWednesday(message){
     request('https://api.jikan.moe/v3/schedule/wednesday', function (error, response, body) {
         var t = JSON.parse(body);
         var sizeTues = Object.keys(t.wednesday).length;
@@ -330,11 +325,11 @@ function shedWednesday(msg){
         string = string +".";
         console.log(string);
         string = string + "<:secre_pathetic:743119690859020320>";
-        msg.reply(string);
+        message.channel.send(string);
     });
     return "";
 }
-function shedThursday(msg){
+function shedThursday(message){
     request('https://api.jikan.moe/v3/schedule/thursday', function (error, response, body) {
         var t = JSON.parse(body);
         var sizeTues = Object.keys(t.thursday).length;
@@ -353,11 +348,11 @@ function shedThursday(msg){
         string = string +".";
         console.log(string);
         string = string + "<:secre_pathetic:743119690859020320>";
-        msg.reply(string);
+        message.channel.send(string);
     });
     return "";
 }
-function shedFriday(msg){
+function shedFriday(message){
     request('https://api.jikan.moe/v3/schedule/friday', function (error, response, body) {
             var t = JSON.parse(body);
             var sizeTues = Object.keys(t.friday).length;
@@ -376,11 +371,11 @@ function shedFriday(msg){
             string = string +".";
             console.log(string);
             string = string + "<:secre_pathetic:743119690859020320>";
-            msg.reply(string);
+            message.channel.send(string);
         });
     return "";
 }
-function shedSaturday(msg){
+function shedSaturday(message){
     request('https://api.jikan.moe/v3/schedule/saturday', function (error, response, body) {
             var t = JSON.parse(body);
             var sizeTues = Object.keys(t.saturday).length;
@@ -399,11 +394,11 @@ function shedSaturday(msg){
             string = string +".";
             console.log(string);
             string = string + "<:secre_pathetic:743119690859020320>";
-            msg.reply(string);
+            message.channel.send(string);
         });
         return "";
 }
-function shedSunday(msg){
+function shedSunday(message){
     request('https://api.jikan.moe/v3/schedule/sunday', function (error, response, body) {
             var t = JSON.parse(body);
             var sizeTues = Object.keys(t.sunday).length;
@@ -422,7 +417,7 @@ function shedSunday(msg){
             string = string +".";
             console.log(string);
             string = string + "<:secre_pathetic:743119690859020320>";
-            msg.reply(string);
+            message.channel.send(string);
         })
         return "";
 }
@@ -536,7 +531,7 @@ function getRandomInt(max) {
 }
 
 
-function HangmanGame(msg){
+function HangmanGame(message){
     var guesses = 0;
     var amountOfWords = listOfWords.size;
     var word = listOfWords[getRandomInt(amountOfWords)];
@@ -549,32 +544,31 @@ function HangmanGame(msg){
     wordsForUser = wordsForUser + "\n";
     wordsForUser = wordsForUser + "" + blanks;
     wordsForUser = wordsForUser + "\nGuess a letter.\n";
-    msg.reply(wordsForUser);
+    message.channel.send();
+    message.channel.send(wordsForUser);
     var exit = ".exit";
     while (guesses < 7 ){
         var guess = bot.wait_for('message',check = check);
         guess = guess.toLocaleLowerCase();
         if((guess == word)&&(guess.size > 1)){
-            msg.reply("\nYou win. The word was" +word);
+            message.channel.send("\nYou win. The word was" +word);
             guesses = 7;
         }
         else if((guess != word) &&(guess.size > 1)){
-            msg.reply("You lose! The word was "+word);
+            message.channel.send("You lose! The word was "+word);
             guesses = 7;
             msg.reply(HanganManScaffold(guess,word));
         }
         else if((word.contain(guess) == false)&&(guessesList.contain(guess)==false)&&(guess.size == 1)){
             guesses++;
             guessesList.push(guess);
-            msg.reply(HanganManScaffold(guess,word));
+            message.channel.send(HanganManScaffold(guess,word));
         }
         else if((word.contain(guess) == false)&&(guessesList.contain(guess)==true)&&(guess.size == 1)){
-            msg.reply("Write a new letter.");
-            msg.reply(HanganManScaffold(guess,word));
+            message.channel.send("Write a new letter.\n"+HanganManScaffold(guess,word));
         }
         else if((word.contain(guess) == true)&&(guessesList.contain(guess)==false)&&(guess.size == 1)){
-            msg.reply("The word contains the letter "+guess);
-            msg.reply(HanganManScaffold(guess,word));
+            message.channel.send("The word contains the letter "+guess+"\n"+HanganManScaffold(guess,word));
         }else if(guess == exit){
             guesses = 7;
         }
