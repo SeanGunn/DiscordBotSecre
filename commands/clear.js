@@ -11,11 +11,11 @@ module.exports.run = async (bot, message, args) => {
         return message.reply("Missing Permissions!").then(m => m.delete(5000));
     }
 
-    if (isNaN(args[0]) || parseInt(args[0]) <= 0) {
+    if (parseInt(args[0]) <= 0) {
         return message.reply("This is not a number").then(m => m.delete(5000));
     }
 
-    if(args[0] === ""){
+    if(isNaN(args[0])){
         return message.reply("Enter a number after the command to clear messages.").then(m => m.delete(5000));
     }
 
