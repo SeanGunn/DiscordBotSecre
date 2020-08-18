@@ -3,7 +3,6 @@ const botconfig = require("../botsettings.json");
 var request = require('request');
 
 module.exports.run = async (bot, message, args) => {
-    console.log("In friday");
     return shedFriday(message);
 }
 
