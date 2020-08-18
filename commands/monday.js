@@ -1,5 +1,6 @@
 const Discord = require("discord.js")
 const botconfig = require("../botsettings.json");
+var request = require('request');
 
 module.exports.run = async (bot, message, args) => {
     return shedMonday(message);
@@ -10,7 +11,7 @@ module.exports.config = {
     description: "Answers what mondays anime schedule is",
     usage: ".monday",
     accessableby: "Members",
-    aliases: ['mon']
+    aliases: ['m']
 }
 
 function shedMonday(message){
