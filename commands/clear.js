@@ -15,6 +15,10 @@ module.exports.run = async (bot, message, args) => {
         return message.reply("This is not a number").then(m => m.delete(5000));
     }
 
+    if(args[0] === ""){
+        return message.reply("Enter a number after the command to clear messages.").then(m => m.delete(5000));
+    }
+
     let deleteAmount;
     if (parseInt(args[0]) > 100) {
         deleteAmount = 100;
@@ -28,7 +32,7 @@ module.exports.run = async (bot, message, args) => {
 
 module.exports.config = {
     name: "clear",
-    description: "clears message",
+    description: "clears message based on the number typed after",
     usage: ".clear",
     accessableby: "Members",
     aliases: ['c', 'purge']
