@@ -8,13 +8,22 @@ module.exports.run = async (bot, message, args) => {
     }
 
     if (!message.member.hasPermission("MANAGE_MESSAGES")) {
-        return message.reply("Missing Permissions!").then(message => message.delete(10));
+        return message.reply("Missing Permissions!").then(msg => {
+            msg.delete({ timeout: 10000 })
+          })
+          .catch(console.error);
     }
 
     if(isNaN(args[0])){
-        return message.reply("Enter a number after the command to clear messages.").then(message => message.delete(10));
+        return message.reply("Enter a number after the command to clear messages.").then(msg => {
+            msg.delete({ timeout: 10000 })
+          })
+          .catch(console.error);
     }else if (parseInt(args[0]) <= 0) {
-        return message.reply("Input a number greater then 0. Not any decimals numbers.").then(message => message.delete(10));
+        return message.reply("Input a number greater then 0. Not any decimals numbers.").then(msg => {
+            msg.delete({ timeout: 10000 })
+          })
+          .catch(console.error);
     }
 
     let deleteAmount;
