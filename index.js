@@ -29,7 +29,7 @@ fs.readdir("./commands/", (err, files) => {
 
 bot.on("message", async message => {
     if(message.author.bot || message.channel.type === "dm") return;
-
+    console.log(message);
     let prefix = botsettings.prefix;
     let messageArray = message.content.split(" ");
     let cmd = messageArray[0];
