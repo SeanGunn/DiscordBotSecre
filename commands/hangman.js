@@ -52,5 +52,5 @@ module.exports.config = {
     description: "Starts a hangman game",
     usage: ".hangmanSecre",
     accessableby: "Members",
-    aliases: []
+    aliases: ['hangman']
 }

@@ -132,9 +132,9 @@ module.exports.run = async (bot, message, args) => {
 }
 
 module.exports.config = {
-    name: "shedule",
+    name: "schedule",
     description: "Answers what the weekly anime schedule is",
-    usage: ".shedule",
+    usage: ".schedule",
     accessableby: "Members",
-    aliases: []
+    aliases: ['schedule']
 }

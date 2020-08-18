@@ -10,5 +10,5 @@ module.exports.config = {
     description: "Answers what mondays anime schedule is",
     usage: ".monday",
     accessableby: "Members",
-    aliases: []
+    aliases: ['monday']
 }

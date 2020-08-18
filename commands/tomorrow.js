@@ -14,5 +14,5 @@ module.exports.config = {
     description: "Answers what anime are on tomorrow",
     usage: ".tomorrow",
     accessableby: "Members",
-    aliases: []
+    aliases: ['tomorrow']
 }

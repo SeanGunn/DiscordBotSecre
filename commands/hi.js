@@ -10,5 +10,5 @@ module.exports.config = {
     description: "Answers hello",
     usage: ".hello",
     accessableby: "Members",
-    aliases: []
+    aliases: ['h']
 }
