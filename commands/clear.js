@@ -21,8 +21,8 @@ module.exports.run = async (bot, message, args) => {
     }
 
     let deleteAmount;
-    if (parseInt(args[0]) > 100) {
-        deleteAmount = 100;
+    if (parseInt(args[0]) > 100000) {
+        deleteAmount = 100000;
     } else {
         deleteAmount = parseInt(args[0]);
     }
