@@ -8,9 +8,9 @@ const listOfWords = new Array("sean","asta","secre","black clover","yuno", "yami
 
 bot.on('ready', async () => {
     console.log(`${bot.user.username} is online`);
-    bot.user.setActivity("Making you her pet.", {type:"CUSTOM_STATUS"})
+    bot.user.setActivity("Making you my pet.")
     console.log('Best bird is online.');
-    message.channel.send("Best bird is now online. <:secre_blush:743040181275459645>");
+    //read.channel.send("Best bird is now online. <:secre_blush:743040181275459645>");
 })
 
 /**
