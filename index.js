@@ -8,7 +8,7 @@ const listOfWords = new Array("sean","asta","secre","black clover","yuno", "yami
 
 bot.on('ready', async () => {
     console.log('${bot.user.username} is online');
-    bot.user.setActivity("Making you her pet.", {type:"LISTENING"})
+    bot.user.setActivity("Making you her pet.", {type:"CUSTOM_STATUS"})
     console.log('Best bird is online.');
 })
 
@@ -64,7 +64,7 @@ bot.on('message', async message =>{
         return message.channel.send("Hi my pet.");
     }
 
-
+    /*
     var temp = msg.content.toLowerCase();
     console.log(temp);
     if(temp == (("welcome")|| ('hello')|| ('hi'))){ 
@@ -259,7 +259,7 @@ bot.on('message', async message =>{
         var weekDay = getWeekDay(tomorrow);
         var lowWeekDay = weekDay.toLowerCase();
         todayOrTomorrow(msg,lowWeekDay);
-    }
+    }*/
 })
 
 bot.login(process.env.token);
