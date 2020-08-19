@@ -56,6 +56,7 @@ module.exports.config = {
 }
 
 function getAnimeMangaSoOn(type,search){
+    console.log(1);
     try{
         request('https://api.jikan.moe/v3/search/{'+type+'}?q='+search+'&page=1', function (error, response, body) {
             console.log('Status:', response.statusCode);
@@ -66,7 +67,7 @@ function getAnimeMangaSoOn(type,search){
     catch(err){
         console.log(err);
     }
-
+    console.log(2);
     try{
         request('https://api.jikan.moe/v3/search/{tv}?q=blackclover&page=1', function (error, response, body) {
             console.log('Status:', response.statusCode);
@@ -77,6 +78,7 @@ function getAnimeMangaSoOn(type,search){
     catch(err){
         console.log(err);
     }
+    console.log(3);
     try{
         request('https://api.jikan.moe/v3/search/{tv}?q=black clover&page=1', function (error, response, body) {
             console.log('Status:', response.statusCode);
@@ -87,8 +89,42 @@ function getAnimeMangaSoOn(type,search){
     catch(err){
         console.log(err);
     }
+    console.log(4);
     try{
         request('https://api.jikan.moe/v3/search/{tv}?q=black_clover&page=1', function (error, response, body) {
+            console.log('Status:', response.statusCode);
+            console.log('Headers:', JSON.stringify(response.headers));
+            console.log('Response:', body);
+        });
+    }
+    catch(err){
+        console.log(err);
+    }
+    console.log(5);
+    try{
+        request('https://api.jikan.moe/v3/search/{tv}?q=BlackClover&page=1', function (error, response, body) {
+            console.log('Status:', response.statusCode);
+            console.log('Headers:', JSON.stringify(response.headers));
+            console.log('Response:', body);
+        });
+    }
+    catch(err){
+        console.log(err);
+    }
+    console.log(6);
+    try{
+        request('https://api.jikan.moe/v3/search/{tv}?q=Black Clover&page=1', function (error, response, body) {
+            console.log('Status:', response.statusCode);
+            console.log('Headers:', JSON.stringify(response.headers));
+            console.log('Response:', body);
+        });
+    }
+    catch(err){
+        console.log(err);
+    }
+    console.log(6);
+    try{
+        request('https://api.jikan.moe/v3/search/{tv}?q=Black_Clover&page=1', function (error, response, body) {
             console.log('Status:', response.statusCode);
             console.log('Headers:', JSON.stringify(response.headers));
             console.log('Response:', body);
