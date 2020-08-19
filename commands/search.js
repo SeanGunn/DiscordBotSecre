@@ -66,11 +66,12 @@ function getAnimeMangaSoOn(message,type,search){
             var t = JSON.parse(body);
             var sizeTues = Object.keys(t.results).length;
             var string = "__**The top 3 "+type+" for the search "+search+" are: **__\n";
+            message.channel.send(string);
             var i = 0;
             console.log(sizeTues);
             while((sizeTues > 3)&&(i < sizeTues)){
                 console.log("Here");
-                string = string + "**"+t.results[i].title+":**\n";
+                var string = "**"+t.results[i].title+":**\n";
                 string = string + "      The synopsis is: \n"+t.results[i].synopsis+"\n";
                 if(t.results[i].score != null){
                     string = string + ("\n      Currently has a score of ")+t.results[i].score+(" on mal.");
@@ -79,9 +80,9 @@ function getAnimeMangaSoOn(message,type,search){
                     string = string + ("\n      Currently there is not a score on mal.");
                 }
                 i++;
-                
+                message.channel.send(string);
             }
-            return message.channel.send(string);
+            return message.channel.send("\n<:secre_pathetic:743119690859020320>");
         });
     }
     catch(err){
