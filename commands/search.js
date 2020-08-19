@@ -6,6 +6,7 @@ module.exports.run = async (bot, message, args) => {
     let type = args[0];
     let maxAmount = args.length;
     var whatSearchingFor;
+    var trueName;
     console.log(args[0]);
     console.log(args[1]);
     console.log(args[2]);
@@ -14,7 +15,9 @@ module.exports.run = async (bot, message, args) => {
     let i = 2;
     while(i < maxAmount){
         whatSearchingFor = whatSearchingFor+"%20"+args[i];
+        trueName  = trueName+" "+args[i];
         console.log(whatSearchingFor);
+        console.log(trueName);
         i++;
     }
     console.log(whatSearchingFor);
@@ -22,19 +25,19 @@ module.exports.run = async (bot, message, args) => {
     console.log(whatSearchingFor);
     var a = 1;
     if((type) ==="anime"){
-        return getAnimeMangaSoOn(message,type,whatSearchingFor);
+        return getAnimeMangaSoOn(message,type,whatSearchingFor,trueName);
     }
     else if((type) ==="ova"){
-        return getAnimeMangaSoOn(message,type,whatSearchingFor);
+        return getAnimeMangaSoOn(message,type,whatSearchingFor,trueName);
     }
     else if((type) ==="movie"){
-        return getAnimeMangaSoOn(message,type,whatSearchingFor);
+        return getAnimeMangaSoOn(message,type,whatSearchingFor,trueName);
     }
     else if((type) ==="manga"){
-        return getAnimeMangaSoOn(message,type,whatSearchingFor);
+        return getAnimeMangaSoOn(message,type,whatSearchingFor,trueName);
     }
     else if((type) ==="novel"){
-        return getAnimeMangaSoOn(message,type,whatSearchingFor);
+        return getAnimeMangaSoOn(message,type,whatSearchingFor,trueName);
     }
     else{
         return message.reply("Enter a correct type after the command to search. The correct types are tv, ova, movie, manga and novel").then(message  => { message.delete({ timeout: 10000 }) }).catch(console.error);
@@ -49,28 +52,17 @@ module.exports.config = {
     aliases: ['search']
 }
 
-function getAnimeMangaSoOn(message,type,search){
-    /*try{
-        request('https://api.jikan.moe/v3/search/'+type+'?q='+search+'&page=1', function (error, response, body) {
-            console.log('Status:', response.statusCode);
-            console.log('Headers:', JSON.stringify(response.headers));
-            console.log('Response:', body);
-        });
-    }
-    catch(err){
-        console.log(err);
-    }*/
-
+function getAnimeMangaSoOn(message,type,search,trueName){
     try{
-        request('https://api.jikan.moe/v3/search/anime?q=Black%20Clover&page=1', function (error, response, body) {
+        request('https://api.jikan.moe/v3/search/'+type+'?q='+search+'&page=1', function (error, response, body) {
             var t = JSON.parse(body);
             var sizeTues = Object.keys(t.results).length;
             if(sizeTues >= 3){
-                var string = "__**The top 3 "+type+" for the search "+search+" are: **__\n";
+                var string = "__**The top 3 "+type+" for the search "+trueName+" are: **__\n";
                 message.channel.send(string);
             }
             else{
-                var string = "__**The top "+sizeTues+" "+type+" for the search "+search+" are: **__\n";
+                var string = "__**The top "+sizeTues+" "+type+" for the search "+trueName+" are: **__\n";
                 message.channel.send(string);
             }
             var i = 0;
@@ -87,7 +79,7 @@ function getAnimeMangaSoOn(message,type,search){
                 i++;
                 message.channel.send(string);
                 if(i > 2)
-                    return "";
+                    return "<:secre_pathetic:743119690859020320>";
             }
         });
     }
