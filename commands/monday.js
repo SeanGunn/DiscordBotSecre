@@ -25,10 +25,10 @@ function shedMonday(message){
             console.log(t.monday[i].score);
             string = string +("**") +t.monday[i].title +(":**");
             if(t.monday[i].score != "null"){
-                string = string + ("\n      Currently has a score of ")+t.monday[i].score+(" on my mal.");
+                string = string + ("\n      Currently has a score of ")+t.monday[i].score+(" on mal.");
             }
             else{
-                string = string + ("\n      Currently their is not a score on my mal.");
+                string = string + ("\n      Currently their is not a score on mal.");
             }
             i++
             if(i<sizeTues-1)
@@ -36,10 +36,10 @@ function shedMonday(message){
         } 
         string = string + ("\n**")+t.monday[sizeTues-1].title+(":**");
         if(t.monday[sizeTues-1].score != "null"){
-            string = string + ("\n      Currently has a score of ")+t.monday[sizeTues-1].score+(" on my mal.");
+            string = string + ("\n      Currently has a score of ")+t.monday[sizeTues-1].score+(" on mal.");
         }
         else{
-            string = string + ("\n      Currently their is not a score on my mal.");
+            string = string + ("\n      Currently their is not a score on mal.");
         }
         string = string +"\n";
         console.log(string);
