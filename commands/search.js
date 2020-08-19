@@ -57,9 +57,10 @@ function getAnimeMangaSoOn(message,type,search,trueName){
         request('https://api.jikan.moe/v3/search/'+type+'?q='+search+'&page=1', function (error, response, body) {
             console.log('Status:', response.statusCode);
             var t = JSON.parse(body);
+            var s = JSON.parse(response.statusCode);
             //t.results.length
             console.log(body);
-            if(response.status === "400"){
+            if(s.status === "400"){
                 return message.reply("Make sure the spelling is correct for the search to work or the search value just doesn't exist.");
             }else{
                 var sizeTues = Object.keys(t.results).length;
