@@ -69,7 +69,7 @@ function getAnimeMangaSoOn(type,search){
     }*/
 
     try{
-        request('https://api.jikan.moe/v3/search/{anime}?q=Black%20Clover&page=1', function (error, response, body) {
+        request('https://api.jikan.moe/v3/search/{anime}?q=Black_Clover&page=1', function (error, response, body) {
             console.log('Status:', response.statusCode);
             console.log('Headers:', JSON.stringify(response.headers));
             console.log('Response:', body);
