@@ -20,6 +20,7 @@ module.exports.run = async (bot, message, args) => {
         let i = 1;
         while(i <= maxAmount){
             whatSearchingFor = whatSearchingFor+" "+args[i];
+            i++;
         }
         console.log(whatSearchingFor);
     if(((args[0]) !="tv")||((args[0]) !="ova")||((args[0]) !="movie")||((args[0]) !="manga")||((args[0]) !="novel")){
