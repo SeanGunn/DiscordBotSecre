@@ -7,22 +7,14 @@ module.exports.run = async (bot, message, args) => {
     let maxAmount = args.length;
     var whatSearchingFor;
     var trueName;
-    console.log(args[0]);
-    console.log(args[1]);
-    console.log(args[2]);
-    console.log(maxAmount);
     whatSearchingFor = args[1];
     let i = 2;
     while(i < maxAmount){
         whatSearchingFor = whatSearchingFor+"%20"+args[i];
         trueName  = trueName+" "+args[i];
-        console.log(whatSearchingFor);
-        console.log(trueName);
         i++;
     }
-    console.log(whatSearchingFor);
     whatSearchingFor = whatSearchingFor.toLowerCase();
-    console.log(whatSearchingFor);
     var a = 1;
     if((type) ==="anime"){
         return getAnimeMangaSoOn(message,type,whatSearchingFor,trueName);
@@ -60,6 +52,7 @@ function getAnimeMangaSoOn(message,type,search,trueName){
             var s = JSON.parse(response.statusCode);
             //t.results.length
             //console.log(body);
+            console.log(t);
             if(t == null){
                 return message.reply("Make sure the spelling is correct for the search to work or the search value just doesn't exist.");
             }else{
