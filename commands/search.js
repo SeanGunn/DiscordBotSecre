@@ -49,14 +49,8 @@ function getAnimeMangaSoOn(message,type,search,trueName){
         request('https://api.jikan.moe/v3/search/'+type+'?q='+search+'&page=1', function (error, response, body) {
             console.log(body);
             var t = JSON.parse(body);
-            var s = JSON.parse(response.statusCode);
-            //t.results.length
-            //console.log(body);
-            console.log(t);
-            //t.error === null
-            //t.type === "HttpException"
             if(t.error === null){
-                return message.reply("Make sure the spelling is correct for the search to work, or the search value you typed doesn't exist.");
+                return message.reply("Make sure the spelling is correct for the search to work, or the search value you typed doesn't exist.").then(message  => { message.delete({ timeout: 10000 }) }).catch(console.error);
             }else{
                 var sizeTues = Object.keys(t.results).length;
                     if(sizeTues >= 3){
@@ -81,7 +75,7 @@ function getAnimeMangaSoOn(message,type,search,trueName){
                     i++;
                     message.channel.send(string);
                     if(i > 2)
-                        return "<:secre_pathetic:743119690859020320>";
+                        return message.channel.send("<:secre_pathetic:743119690859020320>");
                 }
             }
             
