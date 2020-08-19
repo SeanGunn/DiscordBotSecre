@@ -18,6 +18,7 @@ module.exports.run = async (bot, message, args) => {
     console.log(maxAmount);
         let i = 1;
         while(i < maxAmount){
+            console.log(whatSearchingFor);
             whatSearchingFor = whatSearchingFor+" "+args[i];
             i++;
         }
