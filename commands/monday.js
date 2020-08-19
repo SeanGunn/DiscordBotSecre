@@ -19,7 +19,7 @@ function shedMonday(message){
         var t = JSON.parse(body);
         var sizeTues = Object.keys(t.monday).length;
         var i = 0;
-        var string = "The shows that are on Monday are: \n\n            ";
+        var string = "**The shows that are on Monday are: **\n\n            ";
         while(i<sizeTues-1){
             console.log(i);
             console.log(t.monday[i].title);
