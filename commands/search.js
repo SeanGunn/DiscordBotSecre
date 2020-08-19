@@ -53,8 +53,9 @@ function getAnimeMangaSoOn(message,type,search,trueName){
             //t.results.length
             //console.log(body);
             console.log(t);
-            if(t.error === null){
-                return message.reply("Make sure the spelling is correct for the search to work or the search value just doesn't exist.");
+            //t.error === null
+            if(t.type === "HttpException"){
+                return message.reply("Make sure the spelling is correct for the search to work, or the search value you typed doesn't exist.");
             }else{
                 var sizeTues = Object.keys(t.results).length;
                     if(sizeTues >= 3){
