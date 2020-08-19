@@ -14,6 +14,8 @@ module.exports.run = async (bot, message, args) => {
     let whatSearchingFor = args[1];
     console.log(args[0]);
     console.log(args[1]);
+    console.log(args[2]);
+    console.log(args[3]);
     console.log(maxAmount);
     if(((args[0]) !="tv")||((args[0]) !="ova")||((args[0]) !="movie")||((args[0]) !="manga")||((args[0]) !="novel")){
         return message.reply("Enter a correct type after the command to search. The correct types are tv, ova, movie, manga and novel").then(message  => { message.delete({ timeout: 10000 }) }).catch(console.error);
