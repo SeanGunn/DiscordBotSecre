@@ -25,7 +25,7 @@ function shedMonday(message){
             console.log(t.monday[i].title);
             console.log(t.monday[i].score);
             string = string + t.monday[i].title +(":");
-            string = string + (" Currently has a score of ")+t.monday[i].score+(" on my mal");
+            string = string + ("\n      Currently has a score of ")+t.monday[i].score+(" on my mal");
             i++
             if(i<sizeTues-1)
                 string = string + ",\n "
