@@ -10,7 +10,7 @@ request('https://api.jikan.moe/v3/search/{type}?q=Fate/Zero&page=1', function (e
 
 module.exports.run = async (bot, message, args) => {
     let type = args[0];
-    let maxAmount = args.size;
+    let maxAmount = args.length;
     let whatSearchingFor = args[1];
     console.log(args[0]);
     console.log(args[1]);
