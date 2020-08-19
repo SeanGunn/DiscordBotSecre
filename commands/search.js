@@ -66,4 +66,35 @@ function getAnimeMangaSoOn(type,search){
     catch(err){
         console.log(err);
     }
+
+    try{
+        request('https://api.jikan.moe/v3/search/{tv}?q=blackclover&page=1', function (error, response, body) {
+            console.log('Status:', response.statusCode);
+            console.log('Headers:', JSON.stringify(response.headers));
+            console.log('Response:', body);
+        });
+    }
+    catch(err){
+        console.log(err);
+    }
+    try{
+        request('https://api.jikan.moe/v3/search/{tv}?q=black clover&page=1', function (error, response, body) {
+            console.log('Status:', response.statusCode);
+            console.log('Headers:', JSON.stringify(response.headers));
+            console.log('Response:', body);
+        });
+    }
+    catch(err){
+        console.log(err);
+    }
+    try{
+        request('https://api.jikan.moe/v3/search/{tv}?q=black_clover&page=1', function (error, response, body) {
+            console.log('Status:', response.statusCode);
+            console.log('Headers:', JSON.stringify(response.headers));
+            console.log('Response:', body);
+        });
+    }
+    catch(err){
+        console.log(err);
+    }
 }
