@@ -187,7 +187,7 @@ module.exports.run = async (bot, message, args) => {
             console.log(t.sunday[i].title);
             console.log(t.sunday[i].score);
             string = string +("**") +t.sunday[i].title +(":**");
-            if(t.monday[i].score != "null"){
+            if(t.sunday[i].score != "null"){
                 string = string + ("\n      Currently has a score of ")+t.sunday[i].score+(" on mal.");
             }
             else{
