@@ -24,7 +24,7 @@ function shedMonday(message){
             console.log(i);
             console.log(t.monday[i].title);
             console.log(t.monday[i].score);
-            string = string + t.monday[i].title +(":");
+            string = string +("**") +t.monday[i].title +(":**");
             if(t.monday[i].score != "null"){
                 string = string + ("\n      Currently has a score of ")+t.monday[i].score+(" on my mal");
             }
@@ -33,17 +33,16 @@ function shedMonday(message){
             }
             i++
             if(i<sizeTues-1)
-                string = string + ",\n"
+                string = string + "\n"
         } 
-        string = string + " and ";
-        string = string + t.monday[sizeTues-1].title+(":");
+        string = string + ("\n**")+t.monday[sizeTues-1].title+(":**");
         if(t.monday[sizeTues-1].score != "null"){
             string = string + ("\n      Currently has a score of ")+t.monday[sizeTues-1].score+(" on my mal");
         }
         else{
             string = string + ("\n      Currently their is not a score on my mal");
         }
-        string = string +".\n";
+        string = string +"\n";
         console.log(string);
         string = string + "<:secre_pathetic:743119690859020320>";
         return message.channel.send(string);
