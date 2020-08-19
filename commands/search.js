@@ -70,8 +70,8 @@ function getAnimeMangaSoOn(message,type,search){
             console.log(sizeTues);
             while((sizeTues > 3)&&(i < sizeTues)){
                 console.log("Here");
-                string = string + "**"+results[i].title+":**\n";
-                string = string + "      The synopsis is: \n"+results[i].synopsis+"\n";
+                string = string + "**"+t.results[i].title+":**\n";
+                string = string + "      The synopsis is: \n"+t.results[i].synopsis+"\n";
                 if(t.results[i].score != null){
                     string = string + ("\n      Currently has a score of ")+t.results[i].score+(" on mal.");
                 }
