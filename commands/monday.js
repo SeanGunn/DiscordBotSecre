@@ -19,17 +19,17 @@ function shedMonday(message){
         var t = JSON.parse(body);
         var sizeTues = Object.keys(t.monday).length;
         var i = 0;
-        var string = "**The shows that are on Monday are: **\n\n";
+        var string = "__**The shows that are on Monday are: **__\n";
         while(i<sizeTues-1){
             console.log(i);
             console.log(t.monday[i].title);
             console.log(t.monday[i].score);
             string = string +("**") +t.monday[i].title +(":**");
             if(t.monday[i].score != "null"){
-                string = string + ("\n      Currently has a score of ")+t.monday[i].score+(" on my mal");
+                string = string + ("\n      Currently has a score of ")+t.monday[i].score+(" on my mal.");
             }
             else{
-                string = string + ("\n      Currently their is not a score on my mal");
+                string = string + ("\n      Currently their is not a score on my mal.");
             }
             i++
             if(i<sizeTues-1)
@@ -37,10 +37,10 @@ function shedMonday(message){
         } 
         string = string + ("\n**")+t.monday[sizeTues-1].title+(":**");
         if(t.monday[sizeTues-1].score != "null"){
-            string = string + ("\n      Currently has a score of ")+t.monday[sizeTues-1].score+(" on my mal");
+            string = string + ("\n      Currently has a score of ")+t.monday[sizeTues-1].score+(" on my mal.");
         }
         else{
-            string = string + ("\n      Currently their is not a score on my mal");
+            string = string + ("\n      Currently their is not a score on my mal.");
         }
         string = string +"\n";
         console.log(string);
