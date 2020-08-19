@@ -54,8 +54,6 @@ function shedMonday(message){
         var i = 0;
         var string = "__**The shows that are on Monday are: **__\n";
         while(i<sizeTues-1){
-            console.log(t.monday[i].title);
-            console.log(t.monday[i].score);
             string = string +("**") +t.monday[i].title +(":**");
             if(t.monday[i].score != null){
                 string = string + ("\n      Currently has a score of ")+t.monday[i].score+(" on mal.");
@@ -88,8 +86,6 @@ function shedTuesday(message){
         var i = 0;
         var string = "__**The shows that are on Tuesday are: **__\n";
         while(i<sizeTues-1){
-            console.log(t.tuesday[i].title);
-            console.log(t.tuesday[i].score);
             string = string +("**") +t.tuesday[i].title +(":**");
             if(t.tuesday[i].score != null){
                 string = string + ("\n      Currently has a score of ")+t.tuesday[i].score+(" on mal.");
@@ -122,8 +118,6 @@ function shedWednesday(message){
         var i = 0;
         var string = "__**The shows that are on Wednesday are: **__\n";
         while(i<sizeTues-1){
-            console.log(t.wednesday[i].title);
-            console.log(t.wednesday[i].score);
             string = string +("**") +t.wednesday[i].title +(":**");
             if(t.wednesday[i].score != null){
                 string = string + ("\n      Currently has a score of ")+t.wednesday[i].score+(" on mal.");
@@ -156,8 +150,6 @@ function shedThursday(message){
         var i = 0;
         var string = "__**The shows that are on Thursday are: **__\n";
         while(i<sizeTues-1){
-            console.log(t.thursday[i].title);
-            console.log(t.thursday[i].score);
             string = string +("**") +t.thursday[i].title +(":**");
             if(t.thursday[i].score != null){
                 string = string + ("\n      Currently has a score of ")+t.thursday[i].score+(" on mal.");
@@ -190,8 +182,6 @@ function shedFriday(message){
         var i = 0;
         var string = "__**The shows that are on Friday are: **__\n";
         while(i<sizeTues-1){
-            console.log(t.friday[i].title);
-            console.log(t.friday[i].score);
             string = string +("**") +t.friday[i].title +(":**");
             if(t.friday[i].score != null){
                 string = string + ("\n      Currently has a score of ")+t.friday[i].score+(" on mal.");
@@ -224,8 +214,6 @@ function shedSaturday(message){
             var i = 0;
             var string = "__**The shows that are on Saturday are: **__\n";
             while(i<sizeTues-1){
-                console.log(t.saturday[i].title);
-                console.log(t.saturday[i].score);
                 string = string +("**") +t.saturday[i].title +(":**");
                 if(t.saturday[i].score != null){
                     string = string + ("\n      Currently has a score of ")+t.saturday[i].score+(" on mal.");
@@ -258,8 +246,6 @@ function shedSunday(message){
         var i = 0;
         var string = "__**The shows that are on Sunday are: **__\n";
             while(i<sizeTues-1){
-                console.log(t.sunday[i].title);
-                console.log(t.sunday[i].score);
                 string = string +("**") +t.sunday[i].title +(":**");
                 if(t.sunday[i].score != null){
                     string = string + ("\n      Currently has a score of ")+t.sunday[i].score+(" on mal.");

@@ -47,7 +47,6 @@ module.exports.config = {
 function getAnimeMangaSoOn(message,type,search,trueName){
     try{
         request('https://api.jikan.moe/v3/search/'+type+'?q='+search+'&page=1', function (error, response, body) {
-            console.log(body);
             var t = JSON.parse(body);
             if(t.error === null){
                 return message.reply("Make sure the spelling is correct for the search to work, or the search value you typed doesn't exist.").then(message  => { message.delete({ timeout: 10000 }) }).catch(console.error);
@@ -62,7 +61,6 @@ function getAnimeMangaSoOn(message,type,search,trueName){
                     message.channel.send(string);
                 }
                 var i = 0;
-                console.log(sizeTues);
                 while(i < sizeTues){
                     var string = "**"+t.results[i].title+":**\n";
                     string = string + "The synopsis is: \n"+t.results[i].synopsis;

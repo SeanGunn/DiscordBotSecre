@@ -21,9 +21,6 @@ function shedFriday(message){
         var i = 0;
         var string = "__**The shows that are on Friday are: **__\n";
         while(i<sizeTues-1){
-            console.log(i);
-            console.log(t.friday[i].title);
-            console.log(t.friday[i].score);
             string = string +("**") +t.friday[i].title +(":**");
             if(t.friday[i].score != null){
                 string = string + ("\n      Currently has a score of ")+t.friday[i].score+(" on mal.");
@@ -43,8 +40,8 @@ function shedFriday(message){
             string = string + ("\n      Currently there is not a score on mal.");
         }
         string = string +"\n";
-        console.log(string);
         string = string + "<:secre_pathetic:743119690859020320>";
+        console.log(string);
         return message.channel.send(string);
     });
 }

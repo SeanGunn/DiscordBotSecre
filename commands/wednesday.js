@@ -21,9 +21,6 @@ function shedWednesday(message){
         var i = 0;
         var string = "__**The shows that are on Wednesday are: **__\n";
         while(i<sizeTues-1){
-            console.log(i);
-            console.log(t.wednesday[i].title);
-            console.log(t.wednesday[i].score);
             string = string +("**") +t.wednesday[i].title +(":**");
             if(t.wednesday[i].score != null){
                 string = string + ("\n      Currently has a score of ")+t.wednesday[i].score+(" on mal.");

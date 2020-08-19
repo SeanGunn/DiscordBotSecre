@@ -20,9 +20,7 @@ function shedSaturday(message){
             var i = 0;
             var string = "__**The shows that are on Saturday are: **__\n";
         while(i<sizeTues-1){
-            console.log(i);
-            console.log(t.saturday[i].title);
-            console.log(t.saturday[i].score);
+
             string = string +("**") +t.saturday[i].title +(":**");
             if(t.saturday[i].score != null){
                 string = string + ("\n      Currently has a score of ")+t.saturday[i].score+(" on mal.");
