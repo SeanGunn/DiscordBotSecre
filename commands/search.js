@@ -55,7 +55,7 @@ module.exports.config = {
 function getAnimeMangaSoOn(message,type,search,trueName){
     try{
         request('https://api.jikan.moe/v3/search/'+type+'?q='+search+'&page=1', function (error, response, body) {
-            console.log(response.statusCode);
+            console.log(body);
             var t = JSON.parse(body);
             var s = JSON.parse(response.statusCode);
             //t.results.length
