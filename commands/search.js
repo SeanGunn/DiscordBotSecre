@@ -22,19 +22,19 @@ module.exports.run = async (bot, message, args) => {
     console.log(whatSearchingFor);
     var a = 1;
     if((type) ==="anime"){
-        return getAnimeMangaSoOn(type,whatSearchingFor);
+        return getAnimeMangaSoOn(message,type,whatSearchingFor);
     }
     else if((type) ==="ova"){
-        return getAnimeMangaSoOn(type,whatSearchingFor);
+        return getAnimeMangaSoOn(message,type,whatSearchingFor);
     }
     else if((type) ==="movie"){
-        return getAnimeMangaSoOn(type,whatSearchingFor);
+        return getAnimeMangaSoOn(message,type,whatSearchingFor);
     }
     else if((type) ==="manga"){
-        return getAnimeMangaSoOn(type,whatSearchingFor);
+        return getAnimeMangaSoOn(message,type,whatSearchingFor);
     }
     else if((type) ==="novel"){
-        return getAnimeMangaSoOn(type,whatSearchingFor);
+        return getAnimeMangaSoOn(message,type,whatSearchingFor);
     }
     else{
         return message.reply("Enter a correct type after the command to search. The correct types are tv, ova, movie, manga and novel").then(message  => { message.delete({ timeout: 10000 }) }).catch(console.error);
@@ -49,7 +49,7 @@ module.exports.config = {
     aliases: ['search']
 }
 
-function getAnimeMangaSoOn(type,search){
+function getAnimeMangaSoOn(message,type,search){
     /*try{
         request('https://api.jikan.moe/v3/search/'+type+'?q='+search+'&page=1', function (error, response, body) {
             console.log('Status:', response.statusCode);
