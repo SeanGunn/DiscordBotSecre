@@ -2,12 +2,6 @@ const Discord = require("discord.js")
 const botconfig = require("../botsettings.json");
 var request = require('request');
 
-request('https://api.jikan.moe/v3/search/{type}?q=Fate/Zero&page=1', function (error, response, body) {
-  console.log('Status:', response.statusCode);
-  console.log('Headers:', JSON.stringify(response.headers));
-  console.log('Response:', body);
-});
-
 module.exports.run = async (bot, message, args) => {
     let type = args[0];
     let maxAmount = args.length;
@@ -19,7 +13,7 @@ module.exports.run = async (bot, message, args) => {
     whatSearchingFor = args[1];
     let i = 2;
     while(i < maxAmount){
-        whatSearchingFor = whatSearchingFor+" "+args[i];
+        whatSearchingFor = whatSearchingFor+"%20"+args[i];
         console.log(whatSearchingFor);
         i++;
     }
@@ -56,9 +50,8 @@ module.exports.config = {
 }
 
 function getAnimeMangaSoOn(type,search){
-    console.log(1);
     /*try{
-        request('https://api.jikan.moe/v3/search/{'+type+'}?q='+search+'&page=1', function (error, response, body) {
+        request('https://api.jikan.moe/v3/search/'+type+'?q='+search+'&page=1', function (error, response, body) {
             console.log('Status:', response.statusCode);
             console.log('Headers:', JSON.stringify(response.headers));
             console.log('Response:', body);
@@ -70,13 +63,27 @@ function getAnimeMangaSoOn(type,search){
 
     try{
         request('https://api.jikan.moe/v3/search/anime?q=Black%20Clover&page=1', function (error, response, body) {
-            console.log('Status:', response.statusCode);
-            console.log('Headers:', JSON.stringify(response.headers));
             console.log('Response:', body);
+            var sizeTues = Object.keys(t.results).length;
+            var string = "__**The top 3 "+type+" for the search "+search+" are: **__\n";
+            var i = 0;
+            while((sizeTues < 3)&&(i < sizeTues)){
+                string = string + "**"+results[i].title+":**\n";
+                string = string + "      The synopsis is: \n"+results[i].synopsis+"\n";
+                if(t.results[i].score != null){
+                    string = string + ("\n      Currently has a score of ")+t.results[i].score+(" on mal.");
+                }
+                else{
+                    string = string + ("\n      Currently there is not a score on mal.");
+                }
+                i++;
+                
+            }
+            return message.channel.send(string);
         });
     }
     catch(err){
         console.log(err);
-
+        return message.reply("Make sure the spelling is correct for the search to work");
     }
 }
