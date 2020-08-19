@@ -86,7 +86,7 @@ function getAnimeMangaSoOn(message,type,search){
                 }
                 i++;
                 message.channel.send(string);
-                if(i > 3)
+                if(i > 2)
                     return "";
             }
         });
