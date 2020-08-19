@@ -52,18 +52,29 @@ function shedMonday(message){
         var t = JSON.parse(body);
         var sizeTues = Object.keys(t.monday).length;
         var i = 0;
-        var string = "The shows that are on Monday are: \n";
+        var string = "__**The shows that are on Monday are: **__\n";
         while(i<sizeTues-1){
-            console.log(i);
             console.log(t.monday[i].title);
-            string = string + t.monday[i].title;
+            console.log(t.monday[i].score);
+            string = string +("**") +t.monday[i].title +(":**");
+            if(t.monday[i].score != "null"){
+                string = string + ("\n      Currently has a score of ")+t.monday[i].score+(" on my mal.");
+            }
+            else{
+                string = string + ("\n      Currently their is not a score on my mal.");
+            }
             i++
             if(i<sizeTues-1)
-                string = string + ",\n "
+                string = string + "\n"
         } 
-        string = string + " and ";
-        string = string + t.monday[sizeTues-1].title;
-        string = string +".";
+        string = string + ("\n**")+t.monday[sizeTues-1].title+(":**");
+        if(t.monday[sizeTues-1].score != "null"){
+            string = string + ("\n      Currently has a score of ")+t.monday[sizeTues-1].score+(" on my mal.");
+        }
+        else{
+            string = string + ("\n      Currently their is not a score on my mal.");
+        }
+        string = string +"\n";
         console.log(string);
         string = string + "<:secre_pathetic:743119690859020320>";
         return message.channel.send(string);
@@ -75,18 +86,29 @@ function shedTuesday(message){
         var t = JSON.parse(body);
         var sizeTues = Object.keys(t.tuesday).length;
         var i = 0;
-        var string = "The shows that are on Tuesday are: \n ";
+        var string = "__**The shows that are on Tuesday are: **__\n";
         while(i<sizeTues-1){
-            console.log(i);
             console.log(t.tuesday[i].title);
-            string = string + t.tuesday[i].title;
+            console.log(t.tuesday[i].score);
+            string = string +("**") +t.tuesday[i].title +(":**");
+            if(t.tuesday[i].score != "null"){
+                string = string + ("\n      Currently has a score of ")+t.tuesday[i].score+(" on my mal.");
+            }
+            else{
+                string = string + ("\n      Currently their is not a score on my mal.");
+            }
             i++
             if(i<sizeTues-1)
-                string = string + ",\n "
+                string = string + "\n"
         } 
-        string = string + " and ";
-        string = string + t.tuesday[sizeTues-1].title;
-        string = string +".";
+        string = string + ("\n**")+t.tuesday[sizeTues-1].title+(":**");
+        if(t.tuesday[sizeTues-1].score != "null"){
+            string = string + ("\n      Currently has a score of ")+t.tuesday[sizeTues-1].score+(" on my mal.");
+        }
+        else{
+            string = string + ("\n      Currently their is not a score on my mal.");
+        }
+        string = string +"\n";
         console.log(string);
         string = string + "<:secre_pathetic:743119690859020320>";
         return message.channel.send(string);
@@ -98,18 +120,29 @@ function shedWednesday(message){
         var t = JSON.parse(body);
         var sizeTues = Object.keys(t.wednesday).length;
         var i = 0;
-        var string = "The shows that are on Wednesday are: \n ";
+        var string = "__**The shows that are on Wednesday are: **__\n";
         while(i<sizeTues-1){
-            console.log(i);
             console.log(t.wednesday[i].title);
-            string = string + t.wednesday[i].title;
+            console.log(t.wednesday[i].score);
+            string = string +("**") +t.wednesday[i].title +(":**");
+            if(t.wednesday[i].score != "null"){
+                string = string + ("\n      Currently has a score of ")+t.wednesday[i].score+(" on my mal.");
+            }
+            else{
+                string = string + ("\n      Currently their is not a score on my mal.");
+            }
             i++
             if(i<sizeTues-1)
-                string = string + ", \n"
+                string = string + "\n"
         } 
-        string = string + " and ";
-        string = string + t.wednesday[sizeTues-1].title;
-        string = string +".";
+        string = string + ("\n**")+t.wednesday[sizeTues-1].title+(":**");
+        if(t.wednesday[sizeTues-1].score != "null"){
+            string = string + ("\n      Currently has a score of ")+t.wednesday[sizeTues-1].score+(" on my mal.");
+        }
+        else{
+            string = string + ("\n      Currently their is not a score on my mal.");
+        }
+        string = string +"\n";
         console.log(string);
         string = string + "<:secre_pathetic:743119690859020320>";
         return message.channel.send(string);
@@ -121,18 +154,29 @@ function shedThursday(message){
         var t = JSON.parse(body);
         var sizeTues = Object.keys(t.thursday).length;
         var i = 0;
-        var string = "The shows that are on Thursday are: \n ";
+        var string = "__**The shows that are on Thursday are: **__\n";
         while(i<sizeTues-1){
-            console.log(i);
             console.log(t.thursday[i].title);
-            string = string + t.thursday[i].title;
+            console.log(t.thursday[i].score);
+            string = string +("**") +t.thursday[i].title +(":**");
+            if(t.thursday[i].score != "null"){
+                string = string + ("\n      Currently has a score of ")+t.thursday[i].score+(" on my mal.");
+            }
+            else{
+                string = string + ("\n      Currently their is not a score on my mal.");
+            }
             i++
             if(i<sizeTues-1)
-                string = string + ", \n"
+                string = string + "\n"
         } 
-        string = string + " and ";
-        string = string + t.thursday[sizeTues-1].title;
-        string = string +".";
+        string = string + ("\n**")+t.thursday[sizeTues-1].title+(":**");
+        if(t.thursday[sizeTues-1].score != "null"){
+            string = string + ("\n      Currently has a score of ")+t.thursday[sizeTues-1].score+(" on my mal.");
+        }
+        else{
+            string = string + ("\n      Currently their is not a score on my mal.");
+        }
+        string = string +"\n";
         console.log(string);
         string = string + "<:secre_pathetic:743119690859020320>";
         return message.channel.send(string);
@@ -144,18 +188,29 @@ function shedFriday(message){
         var t = JSON.parse(body);
         var sizeTues = Object.keys(t.friday).length;
         var i = 0;
-        var string = "The shows that are on Friday are: \n ";
+        var string = "__**The shows that are on Friday are: **__\n";
         while(i<sizeTues-1){
-            console.log(i);
             console.log(t.friday[i].title);
-            string = string + t.friday[i].title;
+            console.log(t.friday[i].score);
+            string = string +("**") +t.friday[i].title +(":**");
+            if(t.friday[i].score != "null"){
+                string = string + ("\n      Currently has a score of ")+t.friday[i].score+(" on my mal.");
+            }
+            else{
+                string = string + ("\n      Currently their is not a score on my mal.");
+            }
             i++
             if(i<sizeTues-1)
-                string = string + ", \n"
+                string = string + "\n"
         } 
-        string = string + " and ";
-        string = string + t.friday[sizeTues-1].title;
-        string = string +".";
+        string = string + ("\n**")+t.friday[sizeTues-1].title+(":**");
+        if(t.friday[sizeTues-1].score != "null"){
+            string = string + ("\n      Currently has a score of ")+t.friday[sizeTues-1].score+(" on my mal.");
+        }
+        else{
+            string = string + ("\n      Currently their is not a score on my mal.");
+        }
+        string = string +"\n";
         console.log(string);
         string = string + "<:secre_pathetic:743119690859020320>";
         return message.channel.send(string);
@@ -167,18 +222,29 @@ function shedSaturday(message){
             var t = JSON.parse(body);
             var sizeTues = Object.keys(t.saturday).length;
             var i = 0;
-            var string = "The shows that are on Saturday are: \n ";
+            var string = "__**The shows that are on Saturday are: **__\n";
             while(i<sizeTues-1){
-                console.log(i);
                 console.log(t.saturday[i].title);
-                string = string + t.saturday[i].title;
+                console.log(t.saturday[i].score);
+                string = string +("**") +t.saturday[i].title +(":**");
+                if(t.saturday[i].score != "null"){
+                    string = string + ("\n      Currently has a score of ")+t.saturday[i].score+(" on my mal.");
+                }
+                else{
+                    string = string + ("\n      Currently their is not a score on my mal.");
+                }
                 i++
                 if(i<sizeTues-1)
-                    string = string + ", \n"
+                    string = string + "\n"
             } 
-            string = string + " and ";
-            string = string + t.saturday[sizeTues-1].title;
-            string = string +".";
+            string = string + ("\n**")+t.saturday[sizeTues-1].title+(":**");
+            if(t.saturday[sizeTues-1].score != "null"){
+                string = string + ("\n      Currently has a score of ")+t.saturday[sizeTues-1].score+(" on my mal.");
+            }
+            else{
+                string = string + ("\n      Currently their is not a score on my mal.");
+            }
+            string = string +"\n";
             console.log(string);
             string = string + "<:secre_pathetic:743119690859020320>";
             return message.channel.send(string);
@@ -190,19 +256,30 @@ function shedSunday(message){
         var t = JSON.parse(body);
         var sizeTues = Object.keys(t.sunday).length;
         var i = 0;
-        var string = "The shows that are on Sunday are: \n ";
-        while(i<sizeTues-1){
-            console.log(i);
-            console.log(t.sunday[i].title);
-            string = string + t.sunday[i].title;
-            i++
-            if(i<sizeTues-1)
-                string = string + ", \n"
-        } 
-        string = string + " and ";
-        string = string + t.sunday[sizeTues-1].title;
-        string = string +".";
-        console.log(string);
+        var string = "__**The shows that are on Sunday are: **__\n";
+            while(i<sizeTues-1){
+                console.log(t.sunday[i].title);
+                console.log(t.sunday[i].score);
+                string = string +("**") +t.sunday[i].title +(":**");
+                if(t.sunday[i].score != "null"){
+                    string = string + ("\n      Currently has a score of ")+t.sunday[i].score+(" on my mal.");
+                }
+                else{
+                    string = string + ("\n      Currently their is not a score on my mal.");
+                }
+                i++
+                if(i<sizeTues-1)
+                    string = string + "\n"
+            } 
+            string = string + ("\n**")+t.sunday[sizeTues-1].title+(":**");
+            if(t.sunday[sizeTues-1].score != "null"){
+                string = string + ("\n      Currently has a score of ")+t.sunday[sizeTues-1].score+(" on my mal.");
+            }
+            else{
+                string = string + ("\n      Currently their is not a score on my mal.");
+            }
+            string = string +"\n";
+            console.log(string);
         string = string + "<:secre_pathetic:743119690859020320>";
         return message.channel.send(string);
     })

@@ -19,18 +19,30 @@ function shedThursday(message){
         var t = JSON.parse(body);
         var sizeTues = Object.keys(t.thursday).length;
         var i = 0;
-        var string = "The shows that are on Thursday are: \n ";
+        var string = "__**The shows that are on thursday are: **__\n";
         while(i<sizeTues-1){
             console.log(i);
             console.log(t.thursday[i].title);
-            string = string + t.thursday[i].title;
+            console.log(t.thursday[i].score);
+            string = string +("**") +t.thursday[i].title +(":**");
+            if(t.thursday[i].score != "null"){
+                string = string + ("\n      Currently has a score of ")+t.thursday[i].score+(" on my mal.");
+            }
+            else{
+                string = string + ("\n      Currently their is not a score on my mal.");
+            }
             i++
             if(i<sizeTues-1)
-                string = string + ", \n"
+                string = string + "\n"
         } 
-        string = string + " and ";
-        string = string + t.thursday[sizeTues-1].title;
-        string = string +".";
+        string = string + ("\n**")+t.thursday[sizeTues-1].title+(":**");
+        if(t.thursday[sizeTues-1].score != "null"){
+            string = string + ("\n      Currently has a score of ")+t.thursday[sizeTues-1].score+(" on my mal.");
+        }
+        else{
+            string = string + ("\n      Currently their is not a score on my mal.");
+        }
+        string = string +"\n";
         console.log(string);
         string = string + "<:secre_pathetic:743119690859020320>";
         return message.channel.send(string);
