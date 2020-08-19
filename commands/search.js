@@ -65,23 +65,22 @@ function getAnimeMangaSoOn(message,type,search){
         request('https://api.jikan.moe/v3/search/anime?q=Black%20Clover&page=1', function (error, response, body) {
             var t = JSON.parse(body);
             var sizeTues = Object.keys(t.results).length;
-            var string = "__**The top 3 "+type+" for the search "+search+" are: **__\n";
+            var string = "__**The top 5 "+type+" for the search "+search+" are: **__\n";
             message.channel.send(string);
             var i = 0;
             console.log(sizeTues);
-            while((sizeTues > 3)&&(i < sizeTues)){
-                console.log("Here");
+            while((sizeTues > 4)&&(i < sizeTues)){
                 var string = "**"+t.results[i].title+":**\n";
-                string = string + "      The synopsis is: \n"+t.results[i].synopsis+"\n";
+                string = string + "The synopsis is: \n"+t.results[i].synopsis;
                 if(t.results[i].score != null){
-                    string = string + ("\n      Currently has a score of ")+t.results[i].score+(" on mal.");
+                    string = string + ("\nCurrently has a score of ")+t.results[i].score+(" on mal.");
                 }
                 else{
-                    string = string + ("\n      Currently there is not a score on mal.");
+                    string = string + ("\nCurrently there is not a score on mal.");
                 }
                 i++;
                 message.channel.send(string);
-                if(i > 3)
+                if(i > 4)
                     return message.channel.send("\n<:secre_pathetic:743119690859020320>");
             }
         });
