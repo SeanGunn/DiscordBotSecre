@@ -57,30 +57,35 @@ function getAnimeMangaSoOn(message,type,search,trueName){
         request('https://api.jikan.moe/v3/search/'+type+'?q='+search+'&page=1', function (error, response, body) {
             var t = JSON.parse(body);
             var sizeTues = Object.keys(t.results).length;
-            if(sizeTues >= 3){
-                var string = "__**The top 3 "+type+" for the search "+trueName+" are: **__\n";
-                message.channel.send(string);
-            }
-            else{
-                var string = "__**The top "+sizeTues+" "+type+" for the search "+trueName+" are: **__\n";
-                message.channel.send(string);
-            }
-            var i = 0;
-            console.log(sizeTues);
-            while(i < sizeTues){
-                var string = "**"+t.results[i].title+":**\n";
-                string = string + "The synopsis is: \n"+t.results[i].synopsis;
-                if(t.results[i].score != null){
-                    string = string + ("\nCurrently has a score of ")+t.results[i].score+(" on mal.");
+            if(sizeTues == null){
+                return message.reply("Make sure the spelling is correct for the search to work or the search value just doesn't exist.");
+            }else{
+                    if(sizeTues >= 3){
+                    var string = "__**The top 3 "+type+" for the search "+trueName+" are: **__\n";
+                    message.channel.send(string);
                 }
                 else{
-                    string = string + ("\nCurrently there is not a score on mal.");
+                    var string = "__**The top "+sizeTues+" "+type+" for the search "+trueName+" are: **__\n";
+                    message.channel.send(string);
                 }
-                i++;
-                message.channel.send(string);
-                if(i > 2)
-                    return "<:secre_pathetic:743119690859020320>";
+                var i = 0;
+                console.log(sizeTues);
+                while(i < sizeTues){
+                    var string = "**"+t.results[i].title+":**\n";
+                    string = string + "The synopsis is: \n"+t.results[i].synopsis;
+                    if(t.results[i].score != null){
+                        string = string + ("\nCurrently has a score of ")+t.results[i].score+(" on mal.");
+                    }
+                    else{
+                        string = string + ("\nCurrently there is not a score on mal.");
+                    }
+                    i++;
+                    message.channel.send(string);
+                    if(i > 2)
+                        return "<:secre_pathetic:743119690859020320>";
+                }
             }
+            
         });
     }
     catch(err){
