@@ -68,6 +68,7 @@ function getAnimeMangaSoOn(message,type,search){
             var string = "__**The top 3 "+type+" for the search "+search+" are: **__\n";
             var i = 0;
             while((sizeTues < 3)&&(i < sizeTues)){
+                console.log("Here");
                 string = string + "**"+results[i].title+":**\n";
                 string = string + "      The synopsis is: \n"+results[i].synopsis+"\n";
                 if(t.results[i].score != null){
