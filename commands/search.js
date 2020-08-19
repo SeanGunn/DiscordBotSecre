@@ -65,8 +65,8 @@ function getAnimeMangaSoOn(message,type,search){
         request('https://api.jikan.moe/v3/search/anime?q=Black%20Clover&page=1', function (error, response, body) {
             var t = JSON.parse(body);
             var sizeTues = Object.keys(t.results).length;
-            if(sizeTues > 5){
-                var string = "__**The top 5 "+type+" for the search "+search+" are: **__\n";
+            if(sizeTues >= 3){
+                var string = "__**The top 3 "+type+" for the search "+search+" are: **__\n";
                 message.channel.send(string);
             }
             else{
@@ -86,7 +86,7 @@ function getAnimeMangaSoOn(message,type,search){
                 }
                 i++;
                 message.channel.send(string);
-                if(i > 4)
+                if(i > 3)
                     return "";
             }
         });
