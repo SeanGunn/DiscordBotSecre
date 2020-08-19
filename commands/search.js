@@ -81,8 +81,9 @@ function getAnimeMangaSoOn(message,type,search){
                 }
                 i++;
                 message.channel.send(string);
+                if(i > 3)
+                    return message.channel.send("\n<:secre_pathetic:743119690859020320>");
             }
-            return message.channel.send("\n<:secre_pathetic:743119690859020320>");
         });
     }
     catch(err){
