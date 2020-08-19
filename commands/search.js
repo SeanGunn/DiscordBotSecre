@@ -60,7 +60,7 @@ function getAnimeMangaSoOn(message,type,search,trueName){
             var s = JSON.parse(response.statusCode);
             //t.results.length
             console.log(body);
-            if(s.status === "400"){
+            if(response.statusCode === "Status: 400"){
                 return message.reply("Make sure the spelling is correct for the search to work or the search value just doesn't exist.");
             }else{
                 var sizeTues = Object.keys(t.results).length;
