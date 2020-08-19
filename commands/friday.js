@@ -25,7 +25,7 @@ function shedFriday(message){
             console.log(t.friday[i].title);
             console.log(t.friday[i].score);
             string = string +("**") +t.friday[i].title +(":**");
-            if(t.friday[i].score != "null"){
+            if(t.friday[i].score != null){
                 string = string + ("\n      Currently has a score of ")+t.friday[i].score+(" on mal.");
             }
             else{
@@ -36,7 +36,7 @@ function shedFriday(message){
                 string = string + "\n"
         } 
         string = string + ("\n**")+t.friday[sizeTues-1].title+(":**");
-        if(t.friday[sizeTues-1].score != "null"){
+        if(t.friday[sizeTues-1].score != null){
             string = string + ("\n      Currently has a score of ")+t.friday[sizeTues-1].score+(" on mal.");
         }
         else{

@@ -58,7 +58,7 @@ function shedMonday(message){
             console.log(t.monday[i].title);
             console.log(t.monday[i].score);
             string = string +("**") +t.monday[i].title +(":**");
-            if(t.monday[i].score != "null"){
+            if(t.monday[i].score != null){
                 string = string + ("\n      Currently has a score of ")+t.monday[i].score+(" on mal.");
             }
             else{
@@ -69,7 +69,7 @@ function shedMonday(message){
                 string = string + "\n"
         } 
         string = string + ("\n**")+t.monday[sizeTues-1].title+(":**");
-        if(t.monday[sizeTues-1].score != "null"){
+        if(t.monday[sizeTues-1].score != null){
             string = string + ("\n      Currently has a score of ")+t.monday[sizeTues-1].score+(" on mal.");
         }
         else{
@@ -92,7 +92,7 @@ function shedTuesday(message){
             console.log(t.tuesday[i].title);
             console.log(t.tuesday[i].score);
             string = string +("**") +t.tuesday[i].title +(":**");
-            if(t.tuesday[i].score != "null"){
+            if(t.tuesday[i].score != null){
                 string = string + ("\n      Currently has a score of ")+t.tuesday[i].score+(" on mal.");
             }
             else{
@@ -103,7 +103,7 @@ function shedTuesday(message){
                 string = string + "\n"
         } 
         string = string + ("\n**")+t.tuesday[sizeTues-1].title+(":**");
-        if(t.tuesday[sizeTues-1].score != "null"){
+        if(t.tuesday[sizeTues-1].score != null){
             string = string + ("\n      Currently has a score of ")+t.tuesday[sizeTues-1].score+(" on mal.");
         }
         else{
@@ -126,7 +126,7 @@ function shedWednesday(message){
             console.log(t.wednesday[i].title);
             console.log(t.wednesday[i].score);
             string = string +("**") +t.wednesday[i].title +(":**");
-            if(t.wednesday[i].score != "null"){
+            if(t.wednesday[i].score != null){
                 string = string + ("\n      Currently has a score of ")+t.wednesday[i].score+(" on mal.");
             }
             else{
@@ -137,7 +137,7 @@ function shedWednesday(message){
                 string = string + "\n"
         } 
         string = string + ("\n**")+t.wednesday[sizeTues-1].title+(":**");
-        if(t.wednesday[sizeTues-1].score != "null"){
+        if(t.wednesday[sizeTues-1].score != null){
             string = string + ("\n      Currently has a score of ")+t.wednesday[sizeTues-1].score+(" on mal.");
         }
         else{
@@ -160,7 +160,7 @@ function shedThursday(message){
             console.log(t.thursday[i].title);
             console.log(t.thursday[i].score);
             string = string +("**") +t.thursday[i].title +(":**");
-            if(t.thursday[i].score != "null"){
+            if(t.thursday[i].score != null){
                 string = string + ("\n      Currently has a score of ")+t.thursday[i].score+(" on mal.");
             }
             else{
@@ -171,7 +171,7 @@ function shedThursday(message){
                 string = string + "\n"
         } 
         string = string + ("\n**")+t.thursday[sizeTues-1].title+(":**");
-        if(t.thursday[sizeTues-1].score != "null"){
+        if(t.thursday[sizeTues-1].score != null){
             string = string + ("\n      Currently has a score of ")+t.thursday[sizeTues-1].score+(" on mal.");
         }
         else{
@@ -194,7 +194,7 @@ function shedFriday(message){
             console.log(t.friday[i].title);
             console.log(t.friday[i].score);
             string = string +("**") +t.friday[i].title +(":**");
-            if(t.friday[i].score != "null"){
+            if(t.friday[i].score != null){
                 string = string + ("\n      Currently has a score of ")+t.friday[i].score+(" on mal.");
             }
             else{
@@ -205,7 +205,7 @@ function shedFriday(message){
                 string = string + "\n"
         } 
         string = string + ("\n**")+t.friday[sizeTues-1].title+(":**");
-        if(t.friday[sizeTues-1].score != "null"){
+        if(t.friday[sizeTues-1].score != null){
             string = string + ("\n      Currently has a score of ")+t.friday[sizeTues-1].score+(" on mal.");
         }
         else{
@@ -228,7 +228,7 @@ function shedSaturday(message){
                 console.log(t.saturday[i].title);
                 console.log(t.saturday[i].score);
                 string = string +("**") +t.saturday[i].title +(":**");
-                if(t.saturday[i].score != "null"){
+                if(t.saturday[i].score != null){
                     string = string + ("\n      Currently has a score of ")+t.saturday[i].score+(" on mal.");
                 }
                 else{
@@ -239,7 +239,7 @@ function shedSaturday(message){
                     string = string + "\n"
             } 
             string = string + ("\n**")+t.saturday[sizeTues-1].title+(":**");
-            if(t.saturday[sizeTues-1].score != "null"){
+            if(t.saturday[sizeTues-1].score != null){
                 string = string + ("\n      Currently has a score of ")+t.saturday[sizeTues-1].score+(" on mal.");
             }
             else{
@@ -262,7 +262,7 @@ function shedSunday(message){
                 console.log(t.sunday[i].title);
                 console.log(t.sunday[i].score);
                 string = string +("**") +t.sunday[i].title +(":**");
-                if(t.sunday[i].score != "null"){
+                if(t.sunday[i].score != null){
                     string = string + ("\n      Currently has a score of ")+t.sunday[i].score+(" on mal.");
                 }
                 else{
@@ -273,7 +273,7 @@ function shedSunday(message){
                     string = string + "\n"
             } 
             string = string + ("\n**")+t.sunday[sizeTues-1].title+(":**");
-            if(t.sunday[sizeTues-1].score != "null"){
+            if(t.sunday[sizeTues-1].score != null){
                 string = string + ("\n      Currently has a score of ")+t.sunday[sizeTues-1].score+(" on mal.");
             }
             else{
