@@ -62,7 +62,7 @@ function shedMonday(message){
                 string = string + ("\n      Currently has a score of ")+t.monday[i].score+(" on mal.");
             }
             else{
-                string = string + ("\n      Currently their is not a score on mal.");
+                string = string + ("\n      Currently there is not a score on mal.");
             }
             i++
             if(i<sizeTues-1)
@@ -73,7 +73,7 @@ function shedMonday(message){
             string = string + ("\n      Currently has a score of ")+t.monday[sizeTues-1].score+(" on mal.");
         }
         else{
-            string = string + ("\n      Currently their is not a score on mal.");
+            string = string + ("\n      Currently there is not a score on mal.");
         }
         string = string +"\n";
         console.log(string);
@@ -96,7 +96,7 @@ function shedTuesday(message){
                 string = string + ("\n      Currently has a score of ")+t.tuesday[i].score+(" on mal.");
             }
             else{
-                string = string + ("\n      Currently their is not a score on mal.");
+                string = string + ("\n      Currently there is not a score on mal.");
             }
             i++
             if(i<sizeTues-1)
@@ -107,7 +107,7 @@ function shedTuesday(message){
             string = string + ("\n      Currently has a score of ")+t.tuesday[sizeTues-1].score+(" on mal.");
         }
         else{
-            string = string + ("\n      Currently their is not a score on mal.");
+            string = string + ("\n      Currently there is not a score on mal.");
         }
         string = string +"\n";
         console.log(string);
@@ -130,7 +130,7 @@ function shedWednesday(message){
                 string = string + ("\n      Currently has a score of ")+t.wednesday[i].score+(" on mal.");
             }
             else{
-                string = string + ("\n      Currently their is not a score on mal.");
+                string = string + ("\n      Currently there is not a score on mal.");
             }
             i++
             if(i<sizeTues-1)
@@ -141,7 +141,7 @@ function shedWednesday(message){
             string = string + ("\n      Currently has a score of ")+t.wednesday[sizeTues-1].score+(" on mal.");
         }
         else{
-            string = string + ("\n      Currently their is not a score on mal.");
+            string = string + ("\n      Currently there is not a score on mal.");
         }
         string = string +"\n";
         console.log(string);
@@ -164,7 +164,7 @@ function shedThursday(message){
                 string = string + ("\n      Currently has a score of ")+t.thursday[i].score+(" on mal.");
             }
             else{
-                string = string + ("\n      Currently their is not a score on mal.");
+                string = string + ("\n      Currently there is not a score on mal.");
             }
             i++
             if(i<sizeTues-1)
@@ -175,7 +175,7 @@ function shedThursday(message){
             string = string + ("\n      Currently has a score of ")+t.thursday[sizeTues-1].score+(" on mal.");
         }
         else{
-            string = string + ("\n      Currently their is not a score on mal.");
+            string = string + ("\n      Currently there is not a score on mal.");
         }
         string = string +"\n";
         console.log(string);
@@ -198,7 +198,7 @@ function shedFriday(message){
                 string = string + ("\n      Currently has a score of ")+t.friday[i].score+(" on mal.");
             }
             else{
-                string = string + ("\n      Currently their is not a score on mal.");
+                string = string + ("\n      Currently there is not a score on mal.");
             }
             i++
             if(i<sizeTues-1)
@@ -209,7 +209,7 @@ function shedFriday(message){
             string = string + ("\n      Currently has a score of ")+t.friday[sizeTues-1].score+(" on mal.");
         }
         else{
-            string = string + ("\n      Currently their is not a score on mal.");
+            string = string + ("\n      Currently there is not a score on mal.");
         }
         string = string +"\n";
         console.log(string);
@@ -232,7 +232,7 @@ function shedSaturday(message){
                     string = string + ("\n      Currently has a score of ")+t.saturday[i].score+(" on mal.");
                 }
                 else{
-                    string = string + ("\n      Currently their is not a score on mal.");
+                    string = string + ("\n      Currently there is not a score on mal.");
                 }
                 i++
                 if(i<sizeTues-1)
@@ -243,7 +243,7 @@ function shedSaturday(message){
                 string = string + ("\n      Currently has a score of ")+t.saturday[sizeTues-1].score+(" on mal.");
             }
             else{
-                string = string + ("\n      Currently their is not a score on mal.");
+                string = string + ("\n      Currently there is not a score on mal.");
             }
             string = string +"\n";
             console.log(string);
@@ -266,7 +266,7 @@ function shedSunday(message){
                     string = string + ("\n      Currently has a score of ")+t.sunday[i].score+(" on mal.");
                 }
                 else{
-                    string = string + ("\n      Currently their is not a score on mal.");
+                    string = string + ("\n      Currently there is not a score on mal.");
                 }
                 i++
                 if(i<sizeTues-1)
@@ -277,7 +277,7 @@ function shedSunday(message){
                 string = string + ("\n      Currently has a score of ")+t.sunday[sizeTues-1].score+(" on mal.");
             }
             else{
-                string = string + ("\n      Currently their is not a score on mal.");
+                string = string + ("\n      Currently there is not a score on mal.");
             }
             string = string +"\n";
             console.log(string);

@@ -29,7 +29,7 @@ function shedSunday(message){
                 string = string + ("\n      Currently has a score of ")+t.sunday[i].score+(" on mal.");
             }
             else{
-                string = string + ("\n      Currently their is not a score on mal.");
+                string = string + ("\n      Currently there is not a score on mal.");
             }
             i++
             if(i<sizeTues-1)
@@ -40,7 +40,7 @@ function shedSunday(message){
             string = string + ("\n      Currently has a score of ")+t.sunday[sizeTues-1].score+(" on mal.");
         }
         else{
-            string = string + ("\n      Currently their is not a score on mal.");
+            string = string + ("\n      Currently there is not a score on mal.");
         }
         string = string +"\n";
         console.log(string);
