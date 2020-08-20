@@ -38,6 +38,7 @@ async function checkUserNew(client,userId){
    if(result){
        console.log("Found a user already");
        console.log(result);
+       tokensOwn(client,userId);
    }else{
        console.log("New user");
        await createUser(client,{
@@ -45,4 +46,19 @@ async function checkUserNew(client,userId){
         tokens: 1000
     });
    }
+}
+
+async function tokensOwn(client,userId){
+    var tokensAmount;
+    var result = await client.db("SeacreBot").collection("Tokens").findOne({user: userId});
+    if(result){
+        console.log("Found a user already");
+        console.log(result);
+        tokensAmount = result.tokens;
+        console.log(tokensAmount);
+        return message.reply(tokensAmount);
+    }else{
+        console.log("Their was a error finding the user.");
+    }
+    return message.reply("Their was a error finding your token amount.");
 }
