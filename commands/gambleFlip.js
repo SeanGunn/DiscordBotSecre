@@ -11,6 +11,8 @@ module.exports.run = async (bot, message, args) => {
         return message.reply("Input a number greater then 0. Not any decimals numbers.").then(message => { message.delete({ timeout: 10000 }) }).catch(console.error);
 
     }
+    console.log(args[0]);
+    console.log(args[1]);
     if((args[1] != "t" )||(args[1] != "h")){
         return message.reply("Enter a t or h after the command and amount to gamble.").then(message  => { message.delete({ timeout: 10000 }) }).catch(console.error);
 
