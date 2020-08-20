@@ -56,7 +56,9 @@ async function tokensOwn(client,userId){
     console.log("here 3");
     try {
         await client.connect();
+        console.log("here 4");
         const result = await client.db("SecreBot").collection("Tokens").findOne({user: userId});
+        console.log("here 5");
         if(result){
             console.log("Found a user already 2");
             console.log(result);
