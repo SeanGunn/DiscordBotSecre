@@ -10,7 +10,8 @@ var string;
 try{
     console.log(message.member.id);
     await client.connect();
-    await checkUserNew(client,message.member.id);
+    checkUserNew(client,message.member.id);
+    console.log("here 1");
     await client.close();
 }catch(err){
     console.error(err);
@@ -19,6 +20,7 @@ try{
 
 try{
     await client.connect();
+    console.log("here 2");
     string = await tokensOwn(client,message.member.id);
     await client.close();
 }catch(err){
@@ -57,7 +59,9 @@ console.log("user id is: "+ userId);
 
 async function tokensOwn(client,userId){
     var tokensAmount;
+    console.log("here 3");
     const result = await client.db("SecreBot").collection("Tokens").findOne({user: userId});
+    console.log("here 4");
     if(result){
         console.log("Found a user already 2");
         console.log(result);
