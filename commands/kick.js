@@ -8,8 +8,10 @@ module.exports.run = async (bot, message, args) => {
 
     else {
         
-        let member = message.guild.members.get(args);
+        let member = message.guild.members.cache.get(args);
         console.log(member);
+        let member2 = args[0];
+        console.log(member2);
         if(member) {
         try {
             await member.kick();
