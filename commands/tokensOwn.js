@@ -3,7 +3,7 @@ const botconfig = require("../botsettings.json");
 var request = require('request');
 const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://anyUser:A8aCI8lJ14aHILT3@cluster0.wfkj0.mongodb.net/SecreBot?retryWrites=true&w=majority";
-const client = new MongoClient(uri, {  useUnifiedTopology: true }, { useNewUrlParser: true }, { connectTimeoutMS: 30000 }, { keepAlive: 1});
+const client = new MongoClient(uri, { useNewUrlParser: true });
 
 module.exports.run = async (bot, message, args) => {
 var string;
