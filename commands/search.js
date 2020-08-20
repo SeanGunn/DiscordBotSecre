@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
     let type = args[0];
     let maxAmount = args.length;
     var whatSearchingFor;
-    var trueName;
+    var trueName = args[1];
     whatSearchingFor = args[1];
     console.log(whatSearchingFor);
     let i = 2;
