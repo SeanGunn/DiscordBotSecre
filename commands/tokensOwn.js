@@ -19,17 +19,7 @@ try{
         await client.close();
 }
     
-
-try{
-    await client.connect();
-    console.log("here 2");
     string = await tokensOwn(client,message.member.id);
-}catch(err){
-    console.error(err);
-}finally{
-    await client.close();
-}
-
     return message.reply(string);
 }
 
@@ -64,16 +54,22 @@ console.log("user id is: "+ userId);
 async function tokensOwn(client,userId){
     var tokensAmount;
     console.log("here 3");
-    const result = await client.db("SecreBot").collection("Tokens").findOne({user: userId});
-    console.log("here 4");
-    if(result){
-        console.log("Found a user already 2");
-        console.log(result);
-        tokensAmount = result.tokens;
-        console.log(tokensAmount);
-        return tokensAmount;
-    }else{
-        console.log("Their was a error finding the user.");
+    try {
+        await client.connect();
+        const result = await client.db("SecreBot").collection("Tokens").findOne({user: userId});
+        if(result){
+            console.log("Found a user already 2");
+            console.log(result);
+            tokensAmount = result.tokens;
+            console.log(tokensAmount);
+            await client.close();
+            return tokensAmount;
+        }else{
+            console.log("Their was a error finding the user.");
+        }
+    }catch(err){
+        console.error(err);
     }
+    await client.close();
     return "Their was a error finding your token amount.";
 }
