@@ -11,12 +11,13 @@ try{
     console.log(message.member.id);
     await client.connect();
     checkUserNew(client,message.member.id);
+    await client.close();
     console.log("here 1");
+    await client.connect();
     string = await tokensOwn(client,message.member.id);
+    await client.close();
 }catch(err){
     console.error(err);
-}finally{
-    await client.close();
 }
     
 
@@ -63,7 +64,7 @@ async function tokensOwn(client,userId){
             console.log(result);
             tokensAmount = result.tokens;
             console.log(tokensAmount);
-            return await tokensAmount;
+            return tokensAmount;
         }else{
             console.log("Their was a error finding the user.");
         }
