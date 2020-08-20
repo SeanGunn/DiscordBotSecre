@@ -7,7 +7,8 @@ module.exports.run = async (bot, message, args) => {
     let maxAmount = args.length;
     var whatSearchingFor;
     var trueName;
-    whatSearchingFor = args[1];
+    whatSearchingFor = args[2];
+    console.log(whatSearchingFor);
     let i = 3;
     if(maxAmount >= 3){
         whatSearchingFor = args[2];
