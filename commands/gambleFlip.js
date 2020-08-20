@@ -86,7 +86,11 @@ async function updateDatebaseTokensWin(userId,tokens){
         string = await tokensOwn(client,userId);
         newValueOfTokens = string + tokens;
         console.log(newValueOfTokens);
-        var result = await client.db("SecreBot").collection("Tokens").updateOne({user: userId},{tokens: newValueOfTokens});
+        var updatedInformation ={
+            user: userId,
+            tokens: newValueOfTokens
+        };
+        var result = await client.db("SecreBot").collection("Tokens").updateOne({user: userId},{$set: updatedInformation});
         console.log(`${result.matchedCount} document(s) matched the query criteria.`);
         console.log(`${result.modifiedCount} document(s) was/were updated.`);
     }catch(err){
@@ -105,7 +109,11 @@ async function updateDatebaseTokensLost(userId,tokens){
         string = await tokensOwn(client,userId);
         newValueOfTokens = string - tokens;
         console.log(newValueOfTokens);
-        var result = await client.db("SecreBot").collection("Tokens").updateOne({user: userId},{tokens: newValueOfTokens});
+        var updatedInformation ={
+            user: userId,
+            tokens: newValueOfTokens
+        };
+        var result = await client.db("SecreBot").collection("Tokens").updateOne({user: userId}, {$set: updatedInformation});
         console.log(`${result.matchedCount} document(s) matched the query criteria.`);
         console.log(`${result.modifiedCount} document(s) was/were updated.`);
     }catch(err){
