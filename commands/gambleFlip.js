@@ -42,12 +42,11 @@ async function flipCoins(type,message,gamble,userId){
         if(type === "h"){
             gamble = gamble * 2;
             string = string + "\n**The flip was "+flipValue+". You earned "+gamble+" tokens.**";
-            await updateDatebaseTokens(userId,gamble);
+            await updateDatebaseTokensWin(userId,gamble);
             return message.channel.send(string);
         }else{
-            gamble = 0;
-            string = string + "\n**The flip was "+flipValue+". You earned "+gamble+" tokens.**";
-            await updateDatebaseTokens(userId,gamble);
+            string = string + "\n**The flip was "+flipValue+". You lost "+gamble+" tokens.**";
+            await updateDatebaseTokensLost(userId,gamble);
             return message.channel.send(string);
         }
     }else{
@@ -55,12 +54,11 @@ async function flipCoins(type,message,gamble,userId){
         if(type === "t"){
             gamble = gamble * 2;
             string = string + "\n**The flip was "+flipValue+". You earned "+gamble+" tokens.**";
-            await updateDatebaseTokens(userId,gamble);
+            await updateDatebaseTokensWin(userId,gamble);
             return message.channel.send(string);
         }else{
-            gamble = 0;
-            string = string + "\n**The flip was "+flipValue+". You earned "+gamble+" tokens.**";
-            await updateDatebaseTokens(userId,gamble);
+            string = string + "\n**The flip was "+flipValue+". You lost "+gamble+" tokens.**";
+            await updateDatebaseTokensLost(userId,gamble);
             return message.channel.send(string);
         }
     }
@@ -79,16 +77,56 @@ function getRandom50Chance() {
     return headsOrTails;
 }
 
-async function updateDatebaseTokens(userId,tokens){
+async function updateDatebaseTokensWin(userId,tokens){
     var client = new MongoClient(uri, { useNewUrlParser: true });
+    var string;
+    var newValueOfTokens;
     try{
         await client.connect();
-        var result = await client.db("SecreBot").collection("Tokens").updateOne({user: userId},{tokens: tokens});
+        string = await tokensOwn(client,userId);
+        newValueOfTokens = string + tokens;
+        var result = await client.db("SecreBot").collection("Tokens").updateOne({user: userId},{tokens: newValueOfTokens});
         console.log(`${result.matchedCount} document(s) matched the query criteria.`);
         console.log(`${result.modifiedCount} document(s) was/were updated.`);
     }catch(err){
         console.error(err);
     }finally{
         await client.close();
+    }
+}
+
+async function updateDatebaseTokensLost(userId,tokens){
+    var client = new MongoClient(uri, { useNewUrlParser: true });
+    var string;
+    var newValueOfTokens;
+    try{
+        await client.connect();
+        string = await tokensOwn(client,userId);
+        newValueOfTokens = string - tokens;
+        var result = await client.db("SecreBot").collection("Tokens").updateOne({user: userId},{tokens: newValueOfTokens});
+        console.log(`${result.matchedCount} document(s) matched the query criteria.`);
+        console.log(`${result.modifiedCount} document(s) was/were updated.`);
+    }catch(err){
+        console.error(err);
+    }finally{
+        await client.close();
+    }
+}
+
+async function tokensOwn(client,userId){
+    var tokensAmount;
+    try {
+        var result = await client.db("SecreBot").collection("Tokens").findOne({user: userId});
+        if(result){
+            console.log("Found a user already 2");
+            console.log(result);
+            tokensAmount = result.tokens;
+            console.log(tokensAmount);
+            return tokensAmount;
+        }else{
+            console.log("Their was a error finding the user.");
+        }
+    }catch(err){
+        console.error(err);
     }
 }
