@@ -9,10 +9,10 @@ module.exports.run = async (bot, message, args) => {
     try{
         await client.connect();
         var updatedInformation ={
-            user: userId,
+            user: message.member.id,
             tokens: 1000
         };
-        var result = await client.db("SecreBot").collection("Tokens").updateOne({user: userId},{$set: updatedInformation});
+        var result = await client.db("SecreBot").collection("Tokens").updateOne({user: message.member.id},{$set: updatedInformation});
         console.log(`${result.matchedCount} document(s) matched the query criteria.`);
         console.log(`${result.modifiedCount} document(s) was/were updated.`);
     }catch(err){
