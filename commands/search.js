@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
     var trueName;
     whatSearchingFor = args[1];
     let i = 2;
-    while(i < maxAmount){
+    while(i <= maxAmount){
         whatSearchingFor = whatSearchingFor+"%20"+args[i];
         trueName  = trueName+" "+args[i];
         i++;
