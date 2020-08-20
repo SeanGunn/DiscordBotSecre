@@ -2,6 +2,7 @@ const Discord = require("discord.js")
 const botconfig = require("../botsettings.json");
 var request = require('request');
 
+
 module.exports.run = async (bot, message, args) => {
     var tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);
@@ -33,7 +34,7 @@ function todayOrTomorrow(msg,lowWeekDay){
     else if (lowWeekDay === 'saturday'){
         return shedSaturday(msg);
     }else{
-        return shedSunday(msg);
+        return sSF.shedSunday(msg);
     }
 }
 
