@@ -10,10 +10,7 @@ module.exports.run = async (bot, message, args) => {
 try{
     console.log(message.member.id);
     await client.connect();
-    await createUser(client,{
-        user: message.member.id,
-        tokens: 1000
-    });
+    checkUserNew(client,message.member.id);
 }catch(err){
     console.error(err);
 }finally{
@@ -32,6 +29,20 @@ module.exports.config = {
 }
 
 async function createUser(client, user){
-    const result = await client.db("SecreBot").collection("Tokens").insertOne(user);
+    var result = await client.db("SecreBot").collection("Tokens").insertOne(user);
     console.log(`New user created with the following id: ${result.insertedId}`);
+}
+
+async function checkUserNew(client,userId){
+   var result = await client.db("SeacreBot").collection("Tokens").findOne({user: userId});
+   if(result){
+       console.log("Found a user already");
+       console.log(result);
+   }else{
+       console.log("New user");
+       await createUser(client,{
+        user: userId,
+        tokens: 1000
+    });
+   }
 }
