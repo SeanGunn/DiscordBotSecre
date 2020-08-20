@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
 
     else {
         
-        let member = message.guild.members.cache.get(args);
+        let member = message.guild.members.get(args);
         console.log(member);
         if(member) {
         try {
