@@ -7,11 +7,10 @@ module.exports.run = async (bot, message, args) => {
     let maxAmount = args.length;
     var whatSearchingFor;
     var trueName;
-    whatSearchingFor = args[2];
+    whatSearchingFor = args[1];
     console.log(whatSearchingFor);
-    let i = 3;
+    let i = 2;
     if(maxAmount >= 3){
-        whatSearchingFor = args[2];
         while(i < maxAmount){
             whatSearchingFor = whatSearchingFor+"%20"+args[i];
             trueName  = trueName+" "+args[i];
