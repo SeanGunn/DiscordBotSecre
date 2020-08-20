@@ -8,8 +8,8 @@ module.exports.run = async (bot, message, args) => {
     var whatSearchingFor;
     var trueName;
     whatSearchingFor = args[1];
-    let i = 2;
-    while(i <= maxAmount){
+    let i = 1;
+    while(i < maxAmount){
         whatSearchingFor = whatSearchingFor+"%20"+args[i];
         trueName  = trueName+" "+args[i];
         i++;
