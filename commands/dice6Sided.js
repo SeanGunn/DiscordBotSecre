@@ -19,7 +19,7 @@ module.exports.run = async (bot, message, args) => {
         flipAmount = parseInt(args[0]);
     }
 
-    return flipCoins(flipAmount,message);
+    return flipDices(flipAmount,message);
 }
 
 module.exports.config = {
