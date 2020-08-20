@@ -44,10 +44,8 @@ async function createUser(client, user){
 async function checkUserNew(client,userId){
 console.log("user id is: "+ userId);
    const result = await client.db("SecreBot").collection("Tokens").findOne({user: userId});
-   console.log(result);
    if(result){
        console.log("Found a user already");
-       console.log(result);
    }else{
        console.log("New user");
        await createUser(client,{
@@ -59,7 +57,7 @@ console.log("user id is: "+ userId);
 
 async function tokensOwn(client,userId){
     var tokensAmount;
-    var result = await client.db("SeacreBot").collection("Tokens").findOne({user: userId});
+    var result = await client.db("SecreBot").collection("Tokens").findOne({user: userId});
     if(result){
         console.log("Found a user already");
         console.log(result);
