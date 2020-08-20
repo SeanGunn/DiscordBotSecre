@@ -39,26 +39,22 @@ function flipCoins(type,message,gamble){
         string = string+ "heads";
         if(type === "h"){
             gamble = gamble * 2;
-            string = string + "\n**The flip was "+flipValue+".**";
-            string = string + "** You earned "+gamble+" tokens.**";
+            string = string + "\n**The flip was "+flipValue+". You earned "+gamble+" tokens.**";
             return message.channel.send(string);
         }else{
             gamble = 0;
-            string = string + "\n**The flip was "+flipValue+".**";
-            string = string + "** You earned "+gamble+" tokens.**";
+            string = string + "\n**The flip was "+flipValue+". You earned "+gamble+" tokens.**";
             return message.channel.send(string);
         }
     }else{
         string = string+ "tails";
         if(type === "t"){
             gamble = gamble * 2;
-            string = string + "\n**The flip was "+flipValue+".**";
-            string = string + "** You earned "+gamble+" tokens.**";
+            string = string + "\n**The flip was "+flipValue+". You earned "+gamble+" tokens.**";
             return message.channel.send(string);
         }else{
             gamble = 0;
-            string = string + "\n**The flip was "+flipValue+".**";
-            string = string + "** You earned "+gamble+" tokens.**";
+            string = string + "\n**The flip was "+flipValue+". You earned "+gamble+" tokens.**";
             return message.channel.send(string);
         }
     }
