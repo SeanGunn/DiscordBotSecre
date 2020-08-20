@@ -43,7 +43,7 @@ async function createUser(client, user){
 
 async function checkUserNew(client,userId){
 console.log("user id is: "+ userId);
-   const result = await client.db("SeacreBot").collection("Tokens").findOne({user: userId});
+   const result = await client.db("SecreBot").collection("Tokens").findOne({user: userId});
    console.log(result);
    if(result){
        console.log("Found a user already");
