@@ -7,10 +7,10 @@ module.exports.run = async (bot, message, args) => {
         message.channel.send("You don't have permission to use that command.").then(message  => { message.delete({ timeout: 10000 }) }).catch(console.error);
 
     else {
-        console.log("kick?");
+        
         let member = message.guild.members.cache.get(args);
+        console.log(member);
         if(member) {
-            console.log("kick2?");
         try {
             await member.kick();
             console.log('Kicked the user from the discord.');
