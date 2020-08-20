@@ -11,12 +11,20 @@ try{
     console.log(message.member.id);
     await client.connect();
     checkUserNew(client,message.member.id);
-    string = tokensOwn(client,message.member.id);
+    await client.close();
 }catch(err){
     console.error(err);
-}finally{
-    await client.close();
 }
+    
+
+try{
+    await client.connect();
+    string = tokensOwn(client,message.member.id);
+    await client.close();
+}catch(err){
+    console.error(err);
+} 
+
     return message.reply(string);
 }
 
@@ -35,6 +43,7 @@ async function createUser(client, user){
 
 async function checkUserNew(client,userId){
    var result = await client.db("SeacreBot").collection("Tokens").findOne({user: userId});
+   console.log(result);
    if(result){
        console.log("Found a user already");
        console.log(result);
