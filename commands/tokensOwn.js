@@ -6,7 +6,7 @@ const uri = "mongodb+srv://anyUser:A8aCI8lJ14aHILT3@cluster0.wfkj0.mongodb.net/S
 const client = new MongoClient(uri, {  useUnifiedTopology: true });
 
 module.exports.run = async (bot, message, args) => {
-
+var string;
 try{
     console.log(message.member.id);
     await client.connect();
@@ -16,8 +16,16 @@ try{
 }finally{
     await client.close();
 }
+try{
+    await client.connect();
+    string = tokensOwn(client,message.member.id);
+}catch(err){
+    console.error(err);
+}finally{
+    await client.close();
+}
 
-    return message.reply("string");
+    return message.reply(string);
 }
 
 module.exports.config = {
@@ -38,13 +46,12 @@ async function checkUserNew(client,userId){
    if(result){
        console.log("Found a user already");
        console.log(result);
-       tokensOwn(client,userId);
    }else{
        console.log("New user");
        await createUser(client,{
         user: userId,
         tokens: 1000
-    });
+        });
    }
 }
 
@@ -56,9 +63,9 @@ async function tokensOwn(client,userId){
         console.log(result);
         tokensAmount = result.tokens;
         console.log(tokensAmount);
-        return message.reply(tokensAmount);
+        return tokensAmount;
     }else{
         console.log("Their was a error finding the user.");
     }
-    return message.reply("Their was a error finding your token amount.");
+    return "Their was a error finding your token amount.";
 }
