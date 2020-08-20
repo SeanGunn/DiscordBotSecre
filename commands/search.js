@@ -15,6 +15,7 @@ module.exports.run = async (bot, message, args) => {
         i++;
     }
     whatSearchingFor = whatSearchingFor.toLowerCase();
+    console.log(whatSearchingFor);
     var a = 1;
     if((type) ==="anime"){
         return getAnimeMangaSoOn(message,type,whatSearchingFor,trueName);
