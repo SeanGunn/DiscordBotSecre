@@ -2,7 +2,7 @@ const Discord = require("discord.js")
 const botconfig = require("../botsettings.json");
 var request = require('request');
 const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://seangunnrua:fizzis2g@cluster0.wfkj0.mongodb.net/SecreBot?retryWrites=true&w=majority";
+const uri = "mongodb+srv://anyUser:A8aCI8lJ14aHILT3@cluster0.wfkj0.mongodb.net/SecreBot?retryWrites=true&w=majority";
 const client = new MongoClient(uri, {  useUnifiedTopology: true });
 
 module.exports.run = async (bot, message, args) => {
