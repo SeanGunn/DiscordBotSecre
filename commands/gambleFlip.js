@@ -1,7 +1,8 @@
 const Discord = require("discord.js")
 const botconfig = require("../botsettings.json");
 var request = require('request');
-const {MongoClient} = require('mongodb');
+const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://anyUser:A8aCI8lJ14aHILT3@cluster0.wfkj0.mongodb.net/SecreBot?retryWrites=true&w=majority";
 
 module.exports.run = async (bot, message, args) => {
 
@@ -22,7 +23,7 @@ module.exports.run = async (bot, message, args) => {
     let gambleAmount = args[0];
     let flipType = args[1];
 
-    return flipCoins(flipType,message,gambleAmount);
+    return await flipCoins(flipType,message,gambleAmount,message.member.id);
 }
 
 module.exports.config = {
@@ -33,7 +34,7 @@ module.exports.config = {
     aliases: ['gf']
 }
 
-function flipCoins(type,message,gamble){
+async function flipCoins(type,message,gamble,userId){
     var flipValue = getRandom50Chance();
     var string = "__**The outcomes for 1 flips was: **__\n"
     if(flipValue === "heads"){
@@ -41,10 +42,12 @@ function flipCoins(type,message,gamble){
         if(type === "h"){
             gamble = gamble * 2;
             string = string + "\n**The flip was "+flipValue+". You earned "+gamble+" tokens.**";
+            await updateDatebaseTokens(userId,gamble);
             return message.channel.send(string);
         }else{
             gamble = 0;
             string = string + "\n**The flip was "+flipValue+". You earned "+gamble+" tokens.**";
+            await updateDatebaseTokens(userId,gamble);
             return message.channel.send(string);
         }
     }else{
@@ -52,10 +55,12 @@ function flipCoins(type,message,gamble){
         if(type === "t"){
             gamble = gamble * 2;
             string = string + "\n**The flip was "+flipValue+". You earned "+gamble+" tokens.**";
+            await updateDatebaseTokens(userId,gamble);
             return message.channel.send(string);
         }else{
             gamble = 0;
             string = string + "\n**The flip was "+flipValue+". You earned "+gamble+" tokens.**";
+            await updateDatebaseTokens(userId,gamble);
             return message.channel.send(string);
         }
     }
@@ -72,4 +77,18 @@ function getRandom50Chance() {
         headsOrTails = "tails";
     }
     return headsOrTails;
+}
+
+async function updateDatebaseTokens(userId,tokens){
+    var client = new MongoClient(uri, { useNewUrlParser: true });
+    try{
+        await client.connect();
+        var result = await client.db("SecreBot").collection("Tokens").updateOne({user: userId},{tokens: tokens});
+        console.log(`${result.matchedCount} document(s) matched the query criteria.`);
+        console.log(`${result.modifiedCount} document(s) was/were updated.`);
+    }catch(err){
+        console.error(err);
+    }finally{
+        await client.close();
+    }
 }

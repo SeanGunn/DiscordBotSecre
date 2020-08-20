@@ -4,24 +4,20 @@ var request = require('request');
 const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://anyUser:A8aCI8lJ14aHILT3@cluster0.wfkj0.mongodb.net/SecreBot?retryWrites=true&w=majority";
 
-
 module.exports.run = async (bot, message, args) => {
-var string;
-var client = new MongoClient(uri, { useNewUrlParser: true });
-try{
-    
-    console.log(message.member.id);
-    await client.connect();
-    checkUserNew(client,message.member.id);
-    console.log("here 1");
-    string = await tokensOwn(client,message.member.id);
-}catch(err){
-    console.error(err);
-}finally{
-    await client.close();
-}
-    
-
+    var string;
+    var client = new MongoClient(uri, { useNewUrlParser: true });
+    try{
+        console.log(message.member.id);
+        await client.connect();
+        checkUserNew(client,message.member.id);
+        console.log("here 1");
+        string = await tokensOwn(client,message.member.id);
+    }catch(err){
+        console.error(err);
+    }finally{
+        await client.close();
+    }
     return message.reply(string);
 }
 
