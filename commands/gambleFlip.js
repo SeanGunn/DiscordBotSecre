@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args) => {
     }
     console.log(args[0]);
     console.log(args[1]);
-    if((args[1] != "t" || "h")){
+    if((args[1] != ("t" || "h"))){
         return message.reply("Enter a t or h after the command and amount to gamble.").then(message  => { message.delete({ timeout: 10000 }) }).catch(console.error);
 
     }else if (parseInt(args[0]) <= 0) {
