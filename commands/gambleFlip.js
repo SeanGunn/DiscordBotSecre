@@ -1,6 +1,7 @@
 const Discord = require("discord.js")
 const botconfig = require("../botsettings.json");
 var request = require('request');
+const {MongoClient} = require('mongodb');
 
 module.exports.run = async (bot, message, args) => {
 
