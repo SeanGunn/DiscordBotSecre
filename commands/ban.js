@@ -6,12 +6,13 @@ module.exports.run = async (bot, message, args) => {
         message.channel.send("You don't have permission to use that command.").then(message  => { message.delete({ timeout: 10000 }) }).catch(console.error);
 
     else {
-        let bannedMember = await message.guild.members.ban(args);
-        if(bannedMember){
-
+        let member = message.mentions.members.first();
+        console.log(member);
+        if(member){
         try {
-            console.log(bannedMember.tag + " was banned.");
-            message.channel.send (`${bannedMember} Have been Banned from The Server!`).then(message  => { message.delete({ timeout: 10000 }) }).catch(console.error);
+            await member.ban();
+            console.log(member.tag + " was banned.");
+            message.channel.send (`${member} Have been Banned from The Server!`).then(message  => { message.delete({ timeout: 10000 }) }).catch(console.error);
 
         }
             catch(err) {
