@@ -12,9 +12,11 @@ try{
     await client.connect();
     checkUserNew(client,message.member.id);
     console.log("here 1");
-    await client.close();
+
 }catch(err){
     console.error(err);
+}finally{
+        await client.close();
 }
     
 
@@ -22,10 +24,11 @@ try{
     await client.connect();
     console.log("here 2");
     string = await tokensOwn(client,message.member.id);
-    await client.close();
 }catch(err){
     console.error(err);
-} 
+}finally{
+    await client.close();
+}
 
     return message.reply(string);
 }
