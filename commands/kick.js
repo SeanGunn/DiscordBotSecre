@@ -12,11 +12,11 @@ module.exports.run = async (bot, message, args) => {
         console.log(member);
         let member2 = args[0];
         console.log(member2);
-        if(member) {
+        if(member2) {
         try {
-            await member.kick();
+            await member2.kick();
             console.log('Kicked the user from the discord.');
-            message.channel.send(`${member}, Kicked!`).then(msg => {
+            message.channel.send(`${member2}, Kicked!`).then(msg => {
                 msg.delete({ timeout: 10000 })
             }).catch(console.error);
 
