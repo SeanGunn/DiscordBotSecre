@@ -8,10 +8,10 @@ const client = new MongoClient(uri, {  useUnifiedTopology: true });
 module.exports.run = async (bot, message, args) => {
 
 try{
-    console.log(message.guild.members);
+    console.log(message.member.id);
     await client.connect();
     await createUser(client,{
-        user: "temp",
+        user: message.member.id,
         tokens: 1000
     });
 }catch(err){
@@ -33,5 +33,5 @@ module.exports.config = {
 
 async function createUser(client, user){
     const result = await client.db("SecreBot").collection("Tokens").insertOne(user);
-    console.log(`New user created with the following id: ${result.insertedId},${result.isserteduser},${result.insertedtoken}`);
+    console.log(`New user created with the following id: ${result.insertedId}`);
 }
