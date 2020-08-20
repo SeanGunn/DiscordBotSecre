@@ -8,13 +8,13 @@ module.exports.run = async (bot, message, args) => {
 
     else {
         
-        let member = message.guild.members.cache.get(args);
-        console.log(member);
+        //let member = message.guild.members.cache.get(args);
+        //console.log(member);
         let member2 = args[0];
         console.log(member2);
         if(member2) {
         try {
-            await message.guild.members.get(member2).kick();
+            await bot.kick(member2);
             //await member.kick();
             console.log('Kicked the user from the discord.');
             message.channel.send(`${member2}, Kicked!`).then(msg => {
