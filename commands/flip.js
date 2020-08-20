@@ -32,7 +32,7 @@ module.exports.config = {
 
 function flipCoins(amount,message){
     var i = 0;
-    var string = "__**The outcomes for "+amount+" flipped is: **__\n"
+    var string = "__**The outcomes for "+amount+" flips are: **__\n"
     var heads = 0;
     var tails = 0;
     while(i < amount){
@@ -45,14 +45,13 @@ function flipCoins(amount,message){
         }
          i++;
     }
-    string = string + "\n**The outcomes for heads was "+heads+" amount of times and tails was "+tails+" : **";
+    string = string + "\n**The outcomes for heads was "+heads+" amount of times and tails was "+tails+".**";
     return message.channel.send(string);
 }
 
 
 function getRandom50Chance() {
     var value = Math.random();
-    console.log(value);
     var headsOrTails;
     if(value <= 0.5){
         headsOrTails = "heads";
