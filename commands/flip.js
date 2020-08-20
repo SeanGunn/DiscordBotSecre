@@ -13,8 +13,8 @@ module.exports.run = async (bot, message, args) => {
     }
 
     let flipAmount = 0;
-    if (parseInt(args[0]) > 20) {
-        flipAmount = 20;
+    if (parseInt(args[0]) > 100) {
+        flipAmount = 100;
     } else {
         flipAmount = parseInt(args[0]);
     }
