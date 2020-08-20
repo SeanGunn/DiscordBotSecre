@@ -54,7 +54,7 @@ function getRandom50Chance() {
     var value = Math.random();
     console.log(value);
     var headsOrTails;
-    if((value / 2) < 0.5){
+    if(value <= 0.5){
         headsOrTails = "heads";
     }
     else{
