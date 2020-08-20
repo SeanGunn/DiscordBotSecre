@@ -2,6 +2,7 @@ const Discord = require("discord.js")
 const botconfig = require("../botsettings.json");
 
 module.exports.run = async (bot, message, args) => {
+    console.log("kick?");
     if(!message.member.hasPermission('KICK_MEMBERS'))
         message.channel.send("You don't have permission to use that command.").then(message  => { message.delete({ timeout: 10000 }) }).catch(console.error);
 
