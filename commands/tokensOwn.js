@@ -29,20 +29,20 @@ try{
 }
 
 module.exports.config = {
-    name: "£",
+    name: "money",
     description: "Shows how many tokens you current own",
-    usage: ".£",
+    usage: ".money",
     accessableby: "Members",
-    aliases: ['£']
+    aliases: ['money']
 }
 
 async function createUser(client, user){
-    var result = await client.db("SecreBot").collection("Tokens").insertOne(user);
+    const result = await client.db("SecreBot").collection("Tokens").insertOne(user);
     console.log(`New user created with the following id: ${result.insertedId}`);
 }
 
 async function checkUserNew(client,userId){
-   var result = await client.db("SeacreBot").collection("Tokens").findOne({user: userId});
+   const result = await client.db("SeacreBot").collection("Tokens").findOne({user: userId});
    console.log(result);
    if(result){
        console.log("Found a user already");
