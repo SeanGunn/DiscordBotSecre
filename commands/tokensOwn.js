@@ -38,7 +38,7 @@ async function createUser(client, user){
 
 async function checkUserNew(client,userId){
 console.log("user id is: "+ userId);
-   const result = await client.db("SecreBot").collection("Tokens").findOne({user: userId});
+   var result = await client.db("SecreBot").collection("Tokens").findOne({user: userId});
    if(result){
        console.log("Found a user already 1");
        console.log(result);
@@ -57,7 +57,7 @@ async function tokensOwn(client,userId){
     try {
         await client.connect();
         console.log("here 4");
-        const result = await client.db("SecreBot").collection("Tokens").findOne({user: userId});
+        var result = await client.db("SecreBot").collection("Tokens").findOne({user: userId});
         console.log("here 5");
         if(result){
             console.log("Found a user already 2");
