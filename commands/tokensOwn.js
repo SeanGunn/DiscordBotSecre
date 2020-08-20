@@ -63,7 +63,7 @@ async function tokensOwn(client,userId){
             tokensAmount = result.tokens;
             console.log(tokensAmount);
             await client.close();
-            return tokensAmount;
+            return await tokensAmount;
         }else{
             console.log("Their was a error finding the user.");
         }
