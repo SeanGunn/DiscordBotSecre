@@ -36,7 +36,7 @@ function flipCoins(amount,message){
     var heads = 0;
     var tails = 0;
     while(i < amount){
-        if(getRandom50Chance() = "heads"){
+        if(getRandom50Chance() === "heads"){
             string = string+ "heads ";
             heads++;
         }else{
