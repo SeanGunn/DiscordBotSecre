@@ -51,6 +51,7 @@ console.log("user id is: "+ userId);
    const result = await client.db("SecreBot").collection("Tokens").findOne({user: userId});
    if(result){
        console.log("Found a user already 1");
+       console.log(result);
    }else{
        console.log("New user");
        await createUser(client,{
