@@ -36,8 +36,8 @@ module.exports.config = {
 
 function flipCoins(type,message,gamble){
     var flipValue = getRandom50Chance();
+    var string = "__**The outcomes for 1 flips was: **__\n"
     if(flipValue === "heads"){
-        var string = "__**The outcomes for 1 flips was: **__\n"
         string = string+ "heads";
         if(type === "h"){
             gamble = gamble * 2;
