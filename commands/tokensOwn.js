@@ -11,20 +11,12 @@ try{
     console.log(message.member.id);
     await client.connect();
     checkUserNew(client,message.member.id);
-}catch(err){
-    console.error(err);
-}finally{
-    await client.close();
-}
-try{
-    await client.connect();
     string = tokensOwn(client,message.member.id);
 }catch(err){
     console.error(err);
 }finally{
     await client.close();
 }
-
     return message.reply(string);
 }
 
