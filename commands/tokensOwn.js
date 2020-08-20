@@ -10,7 +10,7 @@ var string;
 try{
     console.log(message.member.id);
     await client.connect();
-    checkUserNew(client,message.member.id);
+    await checkUserNew(client,message.member.id);
     await client.close();
 }catch(err){
     console.error(err);
@@ -19,7 +19,7 @@ try{
 
 try{
     await client.connect();
-    string = tokensOwn(client,message.member.id);
+    string = await tokensOwn(client,message.member.id);
     await client.close();
 }catch(err){
     console.error(err);
