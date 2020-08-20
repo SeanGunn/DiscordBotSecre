@@ -9,13 +9,15 @@ module.exports.run = async (bot, message, args) => {
     var trueName;
     whatSearchingFor = args[1];
     let i = 3;
-    if(maxAmount > 3)
+    if(maxAmount >= 3){
         whatSearchingFor = args[2];
-    while(i < maxAmount){
-        whatSearchingFor = whatSearchingFor+"%20"+args[i];
-        trueName  = trueName+" "+args[i];
-        i++;
+        while(i < maxAmount){
+            whatSearchingFor = whatSearchingFor+"%20"+args[i];
+            trueName  = trueName+" "+args[i];
+            i++;
+        }
     }
+        
     whatSearchingFor = whatSearchingFor.toLowerCase();
     console.log(whatSearchingFor);
     var a = 1;
