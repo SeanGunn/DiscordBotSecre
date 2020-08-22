@@ -29,7 +29,7 @@ module.exports.run = async (bot, message, args) => {
             timeDiff = Math.floor(timeDiff / 1000);
             console.log(timeDiff);
             //new point every 5 mins
-            timeDiff = (timeDiff*(5/60));
+            timeDiff = (timeDiff)*5;
             console.log(timeDiff);
             //each 5 mins is 20 points
             timeDiff = timeDiff*10;
