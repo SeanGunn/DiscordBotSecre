@@ -31,7 +31,7 @@ module.exports.run = async (bot, message, args) => {
     string = string + "\nDescription: Resets your token amount to base (1000).";
     string = string + "\nAccessable by: Everyone";
     string = string + "\nPermissions needed: None";
-    string = string + "\nUsage: .redeem";
+    string = string + "\nUsage: .redeemTokens";
     string = string + "\nDescription: Increases your amount of tokens based on when you last redeemed. Every 5 mins is 20 tokens.";
     string = string + "\nAccessable by: Everyone";
     string = string + "\nPermissions needed: None";
