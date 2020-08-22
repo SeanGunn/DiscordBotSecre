@@ -55,7 +55,7 @@ bot.on("guildMemberAdd",member =>{
 
 bot.login(process.env.token);
 
-function setMoney(userId){
+async function setMoney(userId){
     var string;
     var client = new MongoClient(uri, { useNewUrlParser: true });
     try{
