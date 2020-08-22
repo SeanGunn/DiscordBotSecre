@@ -32,7 +32,7 @@ module.exports.run = async (bot, message, args) => {
             timeDiff = (timeDiff)*5;
             console.log(timeDiff);
             //each 5 mins is 20 points
-            timeDiff = timeDiff*10;
+            timeDiff = timeDiff*1;
             tokensAmount = tokensAmount+timeDiff;
             var updatedInformation ={
                 user: message.member.id,
