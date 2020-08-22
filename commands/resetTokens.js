@@ -5,7 +5,7 @@ const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://anyUser:A8aCI8lJ14aHILT3@cluster0.wfkj0.mongodb.net/SecreBot?retryWrites=true&w=majority";
 
 module.exports.run = async (bot, message, args) => {
-    var client = new MongoClient(uri, { useNewUrlParser: true });
+    var client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
     try{
         await client.connect();
         var redeemDate = Date.now();

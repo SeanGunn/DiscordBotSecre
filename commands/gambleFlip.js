@@ -78,7 +78,7 @@ function getRandom50Chance() {
 }
 
 async function updateDatebaseTokensWin(userId,tokens){
-    var client = new MongoClient(uri, { useNewUrlParser: true });
+    var client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
     var string;
     var newValueOfTokens;
     try{
@@ -106,7 +106,7 @@ async function updateDatebaseTokensWin(userId,tokens){
 }
 
 async function updateDatebaseTokensLost(userId,tokens){
-    var client = new MongoClient(uri, { useNewUrlParser: true });
+    var client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
     var string;
     var newValueOfredeemed;
     try{

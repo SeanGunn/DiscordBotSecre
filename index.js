@@ -57,7 +57,7 @@ bot.login(process.env.token);
 
 async function setMoney(userId){
     var string;
-    var client = new MongoClient(uri, { useNewUrlParser: true });
+    var client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
     try{
         console.log(userId);
         await client.connect();
