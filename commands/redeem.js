@@ -5,6 +5,19 @@ const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://anyUser:A8aCI8lJ14aHILT3@cluster0.wfkj0.mongodb.net/SecreBot?retryWrites=true&w=majority";
 
 module.exports.run = async (bot, message, args) => {
+    
+    return redeemTokensFunction(message.member.id);
+}
+
+module.exports.config = {
+    name: "redeemTokens",
+    description: "Updates your token amound based on when you last redeemed.",
+    usage: ".redeem",
+    accessableby: "Members",
+    aliases: ['redeemTokens']
+}
+
+async function redeemTokensFunction(userId){
     var client = new MongoClient(uri, { useNewUrlParser: true });
     try{
         console.log("redeem?");
@@ -33,29 +46,20 @@ module.exports.run = async (bot, message, args) => {
             timeDiff = timeDiff*20;
             tokensAmount = tokensAmount+timeDiff;
             var updatedInformation ={
-                user: message.member.id,
+                user: userId,
                 tokens: tokensAmount,
                 redeemed: redeemDate
             };
-            var result = await client.db("SecreBot").collection("Tokens").updateOne({user: message.member.id},{$set: updatedInformation});
+            var result = await client.db("SecreBot").collection("Tokens").updateOne({user: userId},{$set: updatedInformation});
             console.log(`${result.matchedCount} document(s) matched the query criteria.`);
             console.log(`${result.modifiedCount} document(s) was/were updated.`);
-            message.reply("**Your tokens have been increased.**\nYour new token balance is "+tokensAmount+".");
+            await client.close();
+            return message.reply("**Your tokens have been increased.**\nYour new token balance is "+tokensAmount+".");
         }else{
             console.log("Their was a error finding the user.");
         }
     }catch(err){
         console.error(err);
-    }finally{
-        await client.close();
     }
-    //return message.reply("**Your tokens have been increased.**");
-}
-
-module.exports.config = {
-    name: "redeemTokens",
-    description: "Updates your token amound based on when you last redeemed.",
-    usage: ".redeem",
-    accessableby: "Members",
-    aliases: ['redeemTokens']
+    return message,reply("Their was a error redeeming tokens. Try again.");
 }
