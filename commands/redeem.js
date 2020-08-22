@@ -6,7 +6,7 @@ const uri = "mongodb+srv://anyUser:A8aCI8lJ14aHILT3@cluster0.wfkj0.mongodb.net/S
 
 module.exports.run = async (bot, message, args) => {
     
-    return redeemTokensFunction(message.member.id);
+    return await redeemTokensFunction(message.member.id);
 }
 
 module.exports.config = {

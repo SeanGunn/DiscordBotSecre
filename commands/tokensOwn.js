@@ -42,9 +42,11 @@ console.log("user id is: "+ userId);
        console.log(result);
    }else{
        console.log("New user");
+       var redeemDate = Date.now();
        await createUser(client,{
         user: userId,
-        tokens: 1000
+        tokens: 1000,
+        redeemed: redeemDate
         });
    }
 }
