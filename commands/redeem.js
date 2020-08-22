@@ -62,7 +62,3 @@ module.exports.config = {
     accessableby: "Members",
     aliases: ['redeemTokens']
 }
-
-async function redeemTokensFunction(userId){
-   
-}
