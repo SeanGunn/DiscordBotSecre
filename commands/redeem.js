@@ -6,7 +6,9 @@ const uri = "mongodb+srv://anyUser:A8aCI8lJ14aHILT3@cluster0.wfkj0.mongodb.net/S
 
 module.exports.run = async (bot, message, args) => {
     console.log("redeem 1?");
-    return await redeemTokensFunction(message.member.id);
+    var string = await redeemTokensFunction(message.member.id);
+    console.log(string);
+    return string;
 }
 
 module.exports.config = {
@@ -18,6 +20,7 @@ module.exports.config = {
 }
 
 async function redeemTokensFunction(userId){
+    var string;
     var client = new MongoClient(uri, { useNewUrlParser: true });
     try{
         console.log("redeem?");
@@ -54,12 +57,12 @@ async function redeemTokensFunction(userId){
             console.log(`${result.matchedCount} document(s) matched the query criteria.`);
             console.log(`${result.modifiedCount} document(s) was/were updated.`);
             await client.close();
-            return message.reply("**Your tokens have been increased.**\nYour new token balance is "+tokensAmount+".");
+            return string = "**Your tokens have been increased.**\nYour new token balance is "+tokensAmount+".";;
         }else{
             console.log("Their was a error finding the user.");
         }
     }catch(err){
         console.error(err);
     }
-    return message.reply("Their was a error redeeming tokens. Try again.");
+    return string ="Their was a error redeeming tokens. Try again.";
 }
