@@ -6,20 +6,6 @@ const uri = "mongodb+srv://anyUser:A8aCI8lJ14aHILT3@cluster0.wfkj0.mongodb.net/S
 
 module.exports.run = async (bot, message, args) => {
     console.log("redeem 1?");
-    var string = await redeemTokensFunction(message.member.id);
-    console.log(string);
-    return string;
-}
-
-module.exports.config = {
-    name: "redeemTokens",
-    description: "Updates your token amound based on when you last redeemed.",
-    usage: ".redeem",
-    accessableby: "Members",
-    aliases: ['redeemTokens']
-}
-
-async function redeemTokensFunction(userId){
     var string;
     var client = new MongoClient(uri, { useNewUrlParser: true });
     try{
@@ -57,12 +43,26 @@ async function redeemTokensFunction(userId){
             console.log(`${result.matchedCount} document(s) matched the query criteria.`);
             console.log(`${result.modifiedCount} document(s) was/were updated.`);
             await client.close();
-            return string = "**Your tokens have been increased.**\nYour new token balance is "+tokensAmount+".";;
+            string = "**Your tokens have been increased.**\nYour new token balance is "+tokensAmount+".";
+            return message.reply(string);
         }else{
             console.log("Their was a error finding the user.");
         }
     }catch(err){
         console.error(err);
     }
-    return string ="Their was a error redeeming tokens. Try again.";
+    string ="Their was a error redeeming tokens. Try again.";
+    return message.reply(string);
+}
+
+module.exports.config = {
+    name: "redeemTokens",
+    description: "Updates your token amound based on when you last redeemed.",
+    usage: ".redeem",
+    accessableby: "Members",
+    aliases: ['redeemTokens']
+}
+
+async function redeemTokensFunction(userId){
+   
 }
