@@ -6,7 +6,7 @@ const uri = "mongodb+srv://anyUser:A8aCI8lJ14aHILT3@cluster0.wfkj0.mongodb.net/S
 
 module.exports.run = async (bot, message, args) => {
     var string;
-    var client = new MongoClient(uri, { useNewUrlParser: true });
+    var client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
     try{
         console.log(message.member.id);
         await client.connect();
