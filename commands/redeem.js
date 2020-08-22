@@ -11,7 +11,7 @@ module.exports.run = async (bot, message, args) => {
     try{
         console.log("redeem?");
         await client.connect();
-        var result = await client.db("SecreBot").collection("Tokens").findOne({user: userId});
+        var result = await client.db("SecreBot").collection("Tokens").findOne({user: message.member.id});
         console.log("here 5");
         if(result){
             var tokensAmount;
@@ -35,11 +35,11 @@ module.exports.run = async (bot, message, args) => {
             timeDiff = timeDiff*20;
             tokensAmount = tokensAmount+timeDiff;
             var updatedInformation ={
-                user: userId,
+                user: message.member.id,
                 tokens: tokensAmount,
                 redeemed: redeemDate
             };
-            var result = await client.db("SecreBot").collection("Tokens").updateOne({user: userId},{$set: updatedInformation});
+            var result = await client.db("SecreBot").collection("Tokens").updateOne({user: message.member.id},{$set: updatedInformation});
             console.log(`${result.matchedCount} document(s) matched the query criteria.`);
             console.log(`${result.modifiedCount} document(s) was/were updated.`);
             await client.close();
