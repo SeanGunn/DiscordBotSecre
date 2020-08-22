@@ -5,7 +5,7 @@ const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://anyUser:A8aCI8lJ14aHILT3@cluster0.wfkj0.mongodb.net/SecreBot?retryWrites=true&w=majority";
 
 module.exports.run = async (bot, message, args) => {
-    
+    console.log("redeem 1?");
     return await redeemTokensFunction(message.member.id);
 }
 
@@ -61,5 +61,5 @@ async function redeemTokensFunction(userId){
     }catch(err){
         console.error(err);
     }
-    return message,reply("Their was a error redeeming tokens. Try again.");
+    return message.reply("Their was a error redeeming tokens. Try again.");
 }
