@@ -8,9 +8,11 @@ module.exports.run = async (bot, message, args) => {
     var client = new MongoClient(uri, { useNewUrlParser: true });
     try{
         await client.connect();
+        var redeemDate = Date.now();
         var updatedInformation ={
             user: message.member.id,
-            tokens: 1000
+            tokens: 1000,
+            redeemed: redeemDate
         };
         var result = await client.db("SecreBot").collection("Tokens").updateOne({user: message.member.id},{$set: updatedInformation});
         console.log(`${result.matchedCount} document(s) matched the query criteria.`);

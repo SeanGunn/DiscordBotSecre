@@ -1,5 +1,8 @@
 const Discord = require('discord.js');
 const botsettings = require('./botsettings.json');
+var request = require('request');
+const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://anyUser:A8aCI8lJ14aHILT3@cluster0.wfkj0.mongodb.net/SecreBot?retryWrites=true&w=majority";
 
 const bot = new Discord.Client({disableEveryone: true});
 
@@ -27,7 +30,9 @@ fs.readdir("./commands/", (err, files) => {
     });
 });
 
+
 bot.on("message", async message => {
+
     if(message.author.bot || message.channel.type === "dm") return;
     
     let prefix = botsettings.prefix;
@@ -43,6 +48,66 @@ bot.on("message", async message => {
 
 })
 
+bot.on("guildMemberAdd",member =>{
+    console.log("User "+ member.user.username + " has joined the server!");
+    member.guild.channels.get("general").send("Welcome to the server!").then(message  => {setMoney(member.user.username); }).catch(console.error);
+})
+
 bot.login(process.env.token);
 
+function setMoney(userId){
+    var string;
+    var client = new MongoClient(uri, { useNewUrlParser: true });
+    try{
+        console.log(userId);
+        await client.connect();
+        checkUserNew(userId);
+        console.log("here 1");
+        string = await tokensOwn(client,userId);
+        console.log(string);
+    }catch(err){
+        console.error(err);
+    }finally{
+        await client.close();
+    }
+}
  
+
+async function checkUserNew(client,userId){
+    console.log("user id is: "+ userId);
+       var result = await client.db("SecreBot").collection("Tokens").findOne({user: userId});
+       if(result){
+           console.log("Found a user already 1");
+           console.log(result);
+       }else{
+           console.log("New user");
+           var redeemDate = Date.now();
+           await createUser(client,{
+            user: userId,
+            tokens: 1000,
+            redeemed: redeemDate
+            });
+       }
+    }
+
+    async function tokensOwn(client,userId){
+        var tokensAmount;
+        console.log("here 3");
+        try {
+            console.log("here 4");
+            var result = await client.db("SecreBot").collection("Tokens").findOne({user: userId});
+            console.log("here 5");
+            if(result){
+                console.log("Found a user already 2");
+                console.log(result);
+                tokensAmount = result.tokens;
+                console.log(tokensAmount);
+                return tokensAmount;
+            }else{
+                console.log("Their was a error finding the user.");
+            }
+        }catch(err){
+            console.error(err);
+        }
+        return "Their was a error finding your token amount.";
+    }
