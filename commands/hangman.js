@@ -50,7 +50,7 @@ module.exports.run = async (bot, message, args) => {
 module.exports.config = {
     name: "hello",
     description: "Starts a hangman game",
-    usage: ".hangmanSecre",
+    usage: ".hangmaSecre",
     accessableby: "Members",
     aliases: ['hangman']
 }

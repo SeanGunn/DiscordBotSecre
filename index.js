@@ -38,13 +38,14 @@ bot.on("message", async message => {
     let prefix = botsettings.prefix;
     let messageArray = message.content.split(" ");
     let cmd = messageArray[0];
+    cmd = cmd.toLowerCase();
     let args = messageArray.slice(1);
     
     if(!message.content.startsWith(prefix))
         return;
     let commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)))
     if(commandfile)
-        commandfile.run(bot,message,args);
+        commandfile.run(bot,message.toLowerCase(),args);
 
 })
 
