@@ -37,6 +37,8 @@ module.exports.config = {
 async function flipCoins(type,message,gamble,userId){
     var flipValue = getRandom50Chance();
     var string = "__**The outcomes for 1 flips was: **__\n"
+    type = type.toLowerCase();
+    console.log("type: "+type);
     if(flipValue === "heads"){
         string = string+ "heads";
         if(type === "h"){
