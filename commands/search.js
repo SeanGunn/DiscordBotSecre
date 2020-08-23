@@ -21,6 +21,7 @@ module.exports.run = async (bot, message, args) => {
     whatSearchingFor = whatSearchingFor.toLowerCase();
     console.log(whatSearchingFor);
     var a = 1;
+    console.log(type);
     if((type) ==="anime"){
         return getAnimeMangaSoOn(message,type,whatSearchingFor,trueName);
     }
@@ -37,7 +38,7 @@ module.exports.run = async (bot, message, args) => {
         return getAnimeMangaSoOn(message,type,whatSearchingFor,trueName);
     }
     else{
-        return message.reply("Enter a correct type after the command to search. The correct types are tv, ova, movie, manga and novel").then(message  => { message.delete({ timeout: 10000 }) }).catch(console.error);
+        return message.reply("Enter a correct type after the command to search. The correct types are anime, ova, movie, manga and novel").then(message  => { message.delete({ timeout: 10000 }) }).catch(console.error);
     }
 }
 
