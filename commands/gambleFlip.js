@@ -99,10 +99,10 @@ async function updateDatebaseTokensWin(userId,tokens){
         await client.connect();
         await checkUserNew(client,userId);
         string = await tokensOwn(client,userId);
-        newValueOfTokens = string - tokens;
+        newValueOfTokens = string + tokens;
         console.log(newValueOfTokens);
         string = await redeemDate(client,userId);
-        newValueOfredeemed = string - tokens;
+        newValueOfredeemed = string;
         console.log(newValueOfredeemed);
         var updatedInformation ={
             user: userId,
@@ -130,7 +130,7 @@ async function updateDatebaseTokensLost(userId,tokens){
         newValueOfTokens = string - tokens;
         console.log(newValueOfTokens);
         string = await redeemDate(client,userId);
-        newValueOfredeemed = string - tokens;
+        newValueOfredeemed = string;
         console.log(newValueOfredeemed);
         var updatedInformation ={
             user: userId,
