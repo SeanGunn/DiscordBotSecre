@@ -56,9 +56,9 @@ module.exports.run = async (bot, message, args) => {
 }
 
 module.exports.config = {
-    name: "redeemTokens",
+    name: "redeemtokens",
     description: "Updates your token amound based on when you last redeemed.",
     usage: ".redeemtokens",
     accessableby: "Members",
-    aliases: ['redeemTokens']
+    aliases: ['redeemtokens']
 }

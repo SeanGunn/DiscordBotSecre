@@ -26,9 +26,9 @@ module.exports.run = async (bot, message, args) => {
 }
 
 module.exports.config = {
-    name: "resetTokens",
+    name: "resettokens",
     description: "Gamble tokens based on a call and win or lose tokens based on what comes back",
     usage: ".resettokens",
     accessableby: "Members",
-    aliases: ['resetTokens']
+    aliases: ['resettokens']
 }
