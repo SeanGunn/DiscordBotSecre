@@ -45,8 +45,7 @@ bot.on("message", async message => {
         return;
     let commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)))
     if(commandfile){
-        let lowerCaseArgs =args.toLowerCase();
-        commandfile.run(bot,message,lowerCaseArgs);
+        commandfile.run(bot,message,args);
     }
         
 
