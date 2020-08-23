@@ -46,11 +46,6 @@ async function flipCoins(type,message,gamble,userId){
             string = string + "\n**The flip was "+flipValue+". You earned "+gamble+" tokens.**";
             await updateDatebaseTokensWin(userId,gamble);
             return message.channel.send(string);
-        }else if(type === "H"){
-            gamble = gamble * 2;
-            string = string + "\n**The flip was "+flipValue+". You earned "+gamble+" tokens.**";
-            await updateDatebaseTokensWin(userId,gamble);
-            return message.channel.send(string);
         }
         else{
             string = string + "\n**The flip was "+flipValue+". You lost "+gamble+" tokens.**";
@@ -60,11 +55,6 @@ async function flipCoins(type,message,gamble,userId){
     }else{
         string = string+ "tails";
         if(type === "t"){
-            gamble = gamble * 2;
-            string = string + "\n**The flip was "+flipValue+". You earned "+gamble+" tokens.**";
-            await updateDatebaseTokensWin(userId,gamble);
-            return message.channel.send(string);
-        }else if(type === "T"){
             gamble = gamble * 2;
             string = string + "\n**The flip was "+flipValue+". You earned "+gamble+" tokens.**";
             await updateDatebaseTokensWin(userId,gamble);
