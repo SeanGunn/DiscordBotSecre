@@ -45,7 +45,7 @@ bot.on("message", async message => {
         return;
     let commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)))
     if(commandfile)
-        commandfile.run(bot,message.toLowerCase(),args);
+        commandfile.run(bot,message,args);
 
 })
 
