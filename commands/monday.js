@@ -4,11 +4,7 @@ const mondayShedule = require("./functions/mondayShed");
 
 
 module.exports.run = async (bot, message, args) => {
-    mondayShedule.mF().then((result)=>{
-        console.log("The result was" +result);
-    }).catch((err)=>{
-        console.log(err);
-    })
+    mondayShedule.mF().then(response => console.log(response));
     //console.log(await mondayShedule.getMondayShed());
     return message.channel.send("Their was a problem getting the shedule for monday.");
     

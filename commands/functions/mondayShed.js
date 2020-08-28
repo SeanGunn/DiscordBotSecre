@@ -21,15 +21,27 @@ const mondayF = async function() {
     })
 };*/
 
-async function mF(){
-    try{
-        let returnValue = await getRequest();
-        return returnValue;
-    }
-    catch(err){
-        console.log(err);
-        throw err;
-    }
+const myFun = () => {
+    let a = await getRequest();
+    let state = false;
+
+    setTimeout(() => {state = true}, 2000);
+
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if(state) {
+                resolve('State is true');
+                return a;
+            } else {
+                reject('State is false');
+            }
+        }, 3000);
+    });
+}
+
+
+const mF = async () => {
+    return await myFun();
 }
 
 
