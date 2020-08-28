@@ -35,7 +35,7 @@ var request = require('request');
     }
     
 }*/
-const foo, callback;
+let foo, callback;
 
     module.exports = new Promise(function(resolve, reject){
         async.function(function(response) {
