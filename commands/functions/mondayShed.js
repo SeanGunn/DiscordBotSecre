@@ -2,8 +2,9 @@ var request = require('request');
 
 const mondayF = async function(callBack) {
     const returnValue = await getRequest();
+    console.log("return Value = "+returnValue);
     callBack(returnValue);
-}
+};
 
 
 /*(function() {
