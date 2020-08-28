@@ -1,6 +1,12 @@
 var request = require('request');
 
-(function() {
+const mondayF = async function(callBack) {
+    const returnValue = await getRequest();
+    callBack(returnValue);
+}
+
+
+/*(function() {
     let mondayShed = "";
 
     const getMondayShedAsync = async (time) => {
@@ -19,13 +25,13 @@ var request = require('request');
         return answer1;
     }
 
-    /*module.exports.doSomething = function() {
-        return doSomething();
-    }*/
+
     module.exports.getMondayShed = async function() {
         return getMondayShed();
     }
-}());
+}());*/
+
+module.exports = {mondayF}
 
 async function getRequest() {
     request('https://api.jikan.moe/v3/schedule/monday', function (error, response, body) {
