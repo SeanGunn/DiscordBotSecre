@@ -4,9 +4,8 @@ var request = require('request');
     let mondayShed = "";
 
     const getMondayShedAsync = (time) => {
-        getRequest();
         return new Promise(resolve => {
-            setTimeout(() => resolve(42), time);
+            setTimeout(() => resolve(getRequest()), time);
         })
     }
 
