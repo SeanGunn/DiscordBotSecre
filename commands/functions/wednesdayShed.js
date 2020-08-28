@@ -28,7 +28,7 @@ const myFun = async() => {
         string = string +"\n";
         console.log(string);
         string = string + "<:secre_pathetic:743119690859020320>";
-        return message.channel.send(string);
+        return string;
     });
     let state = false;
 
