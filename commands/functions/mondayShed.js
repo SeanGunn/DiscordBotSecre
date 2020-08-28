@@ -7,7 +7,6 @@ var request = require('request');
         let returnValue = await getRequest();
 
         return new Promise(resolve => {
-            setTimeout(time);
             if(returnValue === undefined) throw new Error("Should = a value");
             setTimeout(() => resolve(returnValue), time);
         })
