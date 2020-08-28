@@ -4,9 +4,9 @@ const mondayShedule = require("./functions/mondayShed");
 
 
 module.exports.run = async (bot, message, args) => {
-    let a = await
-    mondayShedule.mondayF((a) =>{
-        
+    let a = new Promise (resolve =>{
+        setTimeout(() => resolve(mondayShedule.mondayF()), 3000);
+        console.log("a = "+a);
     });
     console.log("a = "+a);
     //console.log(await mondayShedule.getMondayShed());
