@@ -21,7 +21,23 @@ module.exports.run = async (bot, message, args) => {
     }
     let gambleAmount = args[0];
     let flipType = args[1];
-
+    let client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+    let string;
+    let newValueOfTokens;
+    try{
+        await client.connect();
+        await checkUserNew(client,userId);
+        string = await tokensOwn(client,userId);
+        newValueOfTokens = string - gambleAmount;
+        console.log(newValueOfTokens);
+    }catch(err){
+        console.error(err);
+    }finally{
+        await client.close();
+    }
+    if(newValueOfTokens < 0){
+        return message.reply("Max you can gamble is "+string+".").then(message => { message.delete({ timeout: 10000 }) }).catch(console.error);
+    }
     return await flipCoins(flipType,message,gambleAmount,message.member.id);
 }
 
