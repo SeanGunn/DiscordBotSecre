@@ -4,7 +4,7 @@ const mondayShedule = require("./functions/mondayShed");
 
 
 module.exports.run = async (bot, message, args) => {
-    let shed = mondayShedule.getSheduleMonday(message);
+    let shed = await mondayShedule.getSheduleMonday(message);
     console.log("New Shed = ");
     console.log(shed);
     return message.channel.send(shed);

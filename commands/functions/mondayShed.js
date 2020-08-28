@@ -1,6 +1,6 @@
 var request = require('request');
 
-const getSheduleMonday = (message) => {
+const getSheduleMonday = async (message) =>  {
     request('https://api.jikan.moe/v3/schedule/monday', function (error, response, body) {
         var t = JSON.parse(body);
         var sizeTues = Object.keys(t.monday).length;
