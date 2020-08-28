@@ -1,20 +1,18 @@
-const Discord = require("discord.js")
-const botconfig = require("../botsettings.json");
-var request = require('request');
+
 const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://anyUser:A8aCI8lJ14aHILT3@cluster0.wfkj0.mongodb.net/SecreBot?retryWrites=true&w=majority";
 
 module.exports.run = async (bot, message, args) => {
-    var client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+    let client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
     try{
         await client.connect();
-        var redeemDate = Date.now();
-        var updatedInformation ={
+        let redeemDate = Date.now();
+        let updatedInformation ={
             user: message.member.id,
             tokens: 1000,
             redeemed: redeemDate
         };
-        var result = await client.db("SecreBot").collection("Tokens").updateOne({user: message.member.id},{$set: updatedInformation});
+        let result = await client.db("SecreBot").collection("Tokens").updateOne({user: message.member.id},{$set: updatedInformation});
         console.log(`${result.matchedCount} document(s) matched the query criteria.`);
         console.log(`${result.modifiedCount} document(s) was/were updated.`);
     }catch(err){

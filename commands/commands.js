@@ -2,7 +2,7 @@ const Discord = require("discord.js")
 const botconfig = require("../botsettings.json");
 
 module.exports.run = async (bot, message, args) => {
-    var string = "__**The commands that are currently functional are: **__\n";
+    let string = "__**The commands that are currently functional are: **__\n";
     message.channel.send(string);
 
     //week schedule

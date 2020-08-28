@@ -1,5 +1,3 @@
-const Discord = require("discord.js")
-const botconfig = require("../botsettings.json");
 
 module.exports.run = async (bot, message, args) => {
     return message.reply("<:secre_yes:743119658181197834>");

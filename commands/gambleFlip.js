@@ -1,6 +1,5 @@
 const Discord = require("discord.js")
 const botconfig = require("../botsettings.json");
-var request = require('request');
 const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://anyUser:A8aCI8lJ14aHILT3@cluster0.wfkj0.mongodb.net/SecreBot?retryWrites=true&w=majority";
 
@@ -35,8 +34,8 @@ module.exports.config = {
 }
 
 async function flipCoins(type,message,gamble,userId){
-    var flipValue = getRandom50Chance();
-    var string = "__**The outcomes for 1 flips was: **__\n"
+    let flipValue = getRandom50Chance();
+    let string = "__**The outcomes for 1 flips was: **__\n"
     type = type.toLowerCase();
     console.log("type: "+type);
     if(flipValue === "heads"){
@@ -70,8 +69,8 @@ async function flipCoins(type,message,gamble,userId){
 
 
 function getRandom50Chance() {
-    var value = Math.random();
-    var headsOrTails;
+    let value = Math.random();
+    let headsOrTails;
     if(value <= 0.5){
         headsOrTails = "heads";
     }
@@ -82,9 +81,9 @@ function getRandom50Chance() {
 }
 
 async function updateDatebaseTokensWin(userId,tokens){
-    var client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-    var string;
-    var newValueOfTokens;
+    let client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+    let string;
+    let newValueOfTokens;
     try{
         await client.connect();
         await checkUserNew(client,userId);
@@ -94,12 +93,12 @@ async function updateDatebaseTokensWin(userId,tokens){
         string = await redeemDate(client,userId);
         newValueOfredeemed = string;
         console.log(newValueOfredeemed);
-        var updatedInformation ={
+        let updatedInformation ={
             user: userId,
             tokens: newValueOfTokens,
             redeemed: newValueOfredeemed
         };
-        var result = await client.db("SecreBot").collection("Tokens").updateOne({user: userId},{$set: updatedInformation});
+        let result = await client.db("SecreBot").collection("Tokens").updateOne({user: userId},{$set: updatedInformation});
         console.log(`${result.matchedCount} document(s) matched the query criteria.`);
         console.log(`${result.modifiedCount} document(s) was/were updated.`);
     }catch(err){
@@ -110,9 +109,9 @@ async function updateDatebaseTokensWin(userId,tokens){
 }
 
 async function updateDatebaseTokensLost(userId,tokens){
-    var client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-    var string;
-    var newValueOfredeemed;
+    let client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+    let string;
+    let newValueOfredeemed;
     try{
         await client.connect();
         await checkUserNew(client,userId);
@@ -122,12 +121,12 @@ async function updateDatebaseTokensLost(userId,tokens){
         string = await redeemDate(client,userId);
         newValueOfredeemed = string;
         console.log(newValueOfredeemed);
-        var updatedInformation ={
+        let updatedInformation ={
             user: userId,
             tokens: newValueOfTokens,
             redeemed: newValueOfredeemed
         };
-        var result = await client.db("SecreBot").collection("Tokens").updateOne({user: userId}, {$set: updatedInformation});
+        let result = await client.db("SecreBot").collection("Tokens").updateOne({user: userId}, {$set: updatedInformation});
         console.log(`${result.matchedCount} document(s) matched the query criteria.`);
         console.log(`${result.modifiedCount} document(s) was/were updated.`);
     }catch(err){
@@ -138,9 +137,9 @@ async function updateDatebaseTokensLost(userId,tokens){
 }
 
 async function tokensOwn(client,userId){
-    var tokensAmount;
+    let tokensAmount;
     try {
-        var result = await client.db("SecreBot").collection("Tokens").findOne({user: userId});
+        let result = await client.db("SecreBot").collection("Tokens").findOne({user: userId});
         if(result){
             console.log("Found a user already 2");
             console.log(result);
@@ -156,9 +155,9 @@ async function tokensOwn(client,userId){
 }
 
 async function redeemDate(client,userId){
-    var tokensAmount;
+    let tokensAmount;
     try {
-        var result = await client.db("SecreBot").collection("Tokens").findOne({user: userId});
+        let result = await client.db("SecreBot").collection("Tokens").findOne({user: userId});
         if(result){
             console.log("Found a user already 2");
             console.log(result);
@@ -175,13 +174,13 @@ async function redeemDate(client,userId){
 
 async function checkUserNew(client,userId){
     console.log("user id is: "+ userId);
-       var result = await client.db("SecreBot").collection("Tokens").findOne({user: userId});
+       let result = await client.db("SecreBot").collection("Tokens").findOne({user: userId});
        if(result){
            console.log("Found a user already 1");
            console.log(result);
        }else{
            console.log("New user");
-           var redeemDate = Date.now();
+           let redeemDate = Date.now();
            await createUser(client,{
             user: userId,
             tokens: 1000,

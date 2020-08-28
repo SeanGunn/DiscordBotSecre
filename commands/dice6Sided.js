@@ -1,6 +1,5 @@
 const Discord = require("discord.js")
 const botconfig = require("../botsettings.json");
-var request = require('request');
 
 module.exports.run = async (bot, message, args) => {
 
@@ -31,16 +30,16 @@ module.exports.config = {
 }
 
 function flipDices(amount,message){
-    var i = 0;
-    var string = "__**The outcomes for "+amount+" rolls are: **__\n"
-    var one = 0;
-    var two = 0;
-    var three = 0;
-    var four = 0;
-    var five = 0;
-    var six = 0;
+    let i = 0;
+    let string = "__**The outcomes for "+amount+" rolls are: **__\n"
+    let one = 0;
+    let two = 0;
+    let three = 0;
+    let four = 0;
+    let five = 0;
+    let six = 0;
     while(i < amount){
-        var roll = getRandomRoll();
+        let roll = getRandomRoll();
         if(roll === "1"){
             string = string+ "1 ";
             one++;
@@ -73,8 +72,8 @@ function flipDices(amount,message){
 
 
 function getRandomRoll() {
-    var value = Math.random();
-    var sideOnDice = "1";
+    let value = Math.random();
+    let sideOnDice = "1";
     if(value <= 1/6){
         sideOnDice = "1";
     }

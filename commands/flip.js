@@ -1,6 +1,5 @@
 const Discord = require("discord.js")
 const botconfig = require("../botsettings.json");
-var request = require('request');
 
 module.exports.run = async (bot, message, args) => {
 
@@ -31,10 +30,10 @@ module.exports.config = {
 }
 
 function flipCoins(amount,message){
-    var i = 0;
-    var string = "__**The outcomes for "+amount+" flips are: **__\n"
-    var heads = 0;
-    var tails = 0;
+    let i = 0;
+    let string = "__**The outcomes for "+amount+" flips are: **__\n"
+    let heads = 0;
+    let tails = 0;
     while(i < amount){
         if(getRandom50Chance() === "heads"){
             string = string+ "heads ";
@@ -51,8 +50,8 @@ function flipCoins(amount,message){
 
 
 function getRandom50Chance() {
-    var value = Math.random();
-    var headsOrTails;
+    let value = Math.random();
+    let headsOrTails;
     if(value <= 0.5){
         headsOrTails = "heads";
     }

@@ -1,6 +1,5 @@
 const Discord = require('discord.js');
 const botsettings = require('./botsettings.json');
-var request = require('request');
 const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://anyUser:A8aCI8lJ14aHILT3@cluster0.wfkj0.mongodb.net/SecreBot?retryWrites=true&w=majority";
 
@@ -59,8 +58,8 @@ bot.on("guildMemberAdd",member =>{
 bot.login(process.env.token);
 
 async function setMoney(userId){
-    var string;
-    var client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+    let string;
+    let client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
     try{
         console.log(userId);
         await client.connect();
@@ -78,13 +77,13 @@ async function setMoney(userId){
 
 async function checkUserNew(client,userId){
     console.log("user id is: "+ userId);
-       var result = await client.db("SecreBot").collection("Tokens").findOne({user: userId});
+       let result = await client.db("SecreBot").collection("Tokens").findOne({user: userId});
        if(result){
            console.log("Found a user already 1");
            console.log(result);
        }else{
            console.log("New user");
-           var redeemDate = Date.now();
+           let redeemDate = Date.now();
            await createUser(client,{
             user: userId,
             tokens: 1000,
@@ -94,11 +93,11 @@ async function checkUserNew(client,userId){
     }
 
     async function tokensOwn(client,userId){
-        var tokensAmount;
+        let tokensAmount;
         console.log("here 3");
         try {
             console.log("here 4");
-            var result = await client.db("SecreBot").collection("Tokens").findOne({user: userId});
+            let result = await client.db("SecreBot").collection("Tokens").findOne({user: userId});
             console.log("here 5");
             if(result){
                 console.log("Found a user already 2");

@@ -1,9 +1,15 @@
-const Discord = require("discord.js")
-const botconfig = require("../botsettings.json");
-var request = require('request');
+const saturdayShedule = require("./functions/saturdayShed");
 
 module.exports.run = async (bot, message, args) => {
-    return shedSaturday(message);
+    let rt = await saturdayShedule.satF();
+    console.log("rt is = "+rt);
+    if(rt === undefined){
+        return message.channel.send("Their was a problem getting the shedule for saturday.");
+    } else if (rt === 'State is false') {
+        return message.channel.send("Their was a problem getting the shedule for saturday.");
+    } else {
+        return message.channel.send(rt);
+    }
 }
 
 module.exports.config = {
@@ -12,36 +18,4 @@ module.exports.config = {
     usage: ".saturday",
     accessableby: "Members",
     aliases: ['sat']
-}
-function shedSaturday(message){
-    request('https://api.jikan.moe/v3/schedule/saturday', function (error, response, body) {
-            var t = JSON.parse(body);
-            var sizeTues = Object.keys(t.saturday).length;
-            var i = 0;
-            var string = "__**The shows that are on Saturday are: **__\n";
-        while(i<sizeTues-1){
-
-            string = string +("**") +t.saturday[i].title +(":**");
-            if(t.saturday[i].score != null){
-                string = string + ("\n      Currently has a score of ")+t.saturday[i].score+(" on mal.");
-            }
-            else{
-                string = string + ("\n      Currently there is not a score on mal.");
-            }
-            i++
-            if(i<sizeTues-1)
-                string = string + "\n"
-        } 
-        string = string + ("\n**")+t.saturday[sizeTues-1].title+(":**");
-        if(t.saturday[sizeTues-1].score != null){
-            string = string + ("\n      Currently has a score of ")+t.saturday[sizeTues-1].score+(" on mal.");
-        }
-        else{
-            string = string + ("\n      Currently there is not a score on mal.");
-        }
-        string = string +"\n";
-        console.log(string);
-            string = string + "<:secre_pathetic:743119690859020320>";
-            return message.channel.send(string);
-        });
 }

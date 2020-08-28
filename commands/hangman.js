@@ -1,15 +1,13 @@
-const Discord = require("discord.js")
-const botconfig = require("../botsettings.json");
 const listOfWords = new Array("sean","asta","secre","black clover","yuno", "yami");
 
 module.exports.run = async (bot, message, args) => {
-    var guesses = 0;
-    var amountOfWords = listOfWords.size;
-    var word = listOfWords[getRandomInt(amountOfWords)];
-    var sizeOfWord = word.size;
-    var blanks = "_ "*sizeOfWord;
-    var guessesList = []
-    var wordsForUser;
+    let guesses = 0;
+    let amountOfWords = listOfWords.size;
+    let word = listOfWords[getRandomInt(amountOfWords)];
+    let sizeOfWord = word.size;
+    let blanks = "_ "*sizeOfWord;
+    let guessesList = []
+    let wordsForUser;
     wordsForUser = wordsForUser + "Lets play hangman!\n";
     wordsForUser = wordsForUser + HanganManScaffold(guesses, word);
     wordsForUser = wordsForUser + "\n";
@@ -17,9 +15,9 @@ module.exports.run = async (bot, message, args) => {
     wordsForUser = wordsForUser + "\nGuess a letter.\n";
     message.channel.send();
     message.channel.send(wordsForUser);
-    var exit = ".exit";
+    let exit = ".exit";
     while (guesses < 7 ){
-        var guess = bot.wait_for('message',check = check);
+        let guess = bot.wait_for('message',check = check);
         guess = guess.toLocaleLowerCase();
         if((guess == word)&&(guess.size > 1)){
             message.channel.send("\nYou win. The word was" +word);
@@ -60,7 +58,7 @@ function getRandomInt(max) {
 }
 
 function HanganManScaffold(guesses, wd){
-    var scaf;
+    let scaf;
     if(guesses == 0){
         scaf = "\n---------";
         scaf = scaf + "\n|    |";
