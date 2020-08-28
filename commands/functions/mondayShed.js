@@ -30,12 +30,11 @@ const myFun = async() => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             if(state) {
-                resolve('State is true');
-                return a;
+                resolve(a);
             } else {
                 reject('State is false');
             }
-        }, 3000);
+        }, 2000);
     });
 }
 
