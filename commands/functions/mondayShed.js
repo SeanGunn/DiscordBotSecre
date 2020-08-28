@@ -3,7 +3,9 @@ var request = require('request');
 const mondayF = async function() {
     return new Promise(async (resolve,reject)=> {
         let returnValue = await getRequest();
-
+        setInterval(() => {
+            
+        }, 3000);
         if(returnValue === undefined){
             reject("Undefined");
         }
