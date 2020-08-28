@@ -12,6 +12,7 @@ var request = require('request');
     //const doSomething = async () => {
     async function getMondayShed() {
         let answer1 = await getRequest(3000);
+        console.log("the answer is: "+answer1);
         return answer1;
     }
 
