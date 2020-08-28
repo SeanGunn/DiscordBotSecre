@@ -6,13 +6,14 @@ var request = require('request');
     const getMondayShedAsync = (time) => {
         let returnValue = getRequest();
         return new Promise(resolve => {
+            if(returnValue === "undefined") throw new Error("Should = a value");
             setTimeout(() => resolve(returnValue), time);
         })
     }
 
     //const doSomething = async () => {
     async function getMondayShed() {
-        let answer1 = await getMondayShedAsync(5000);
+        let answer1 = await getMondayShedAsync(3000).catch(error =>{console.log(error);});
         console.log("the answer is: "+answer1);
         return answer1;
     }
