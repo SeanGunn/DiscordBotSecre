@@ -22,62 +22,62 @@ const todayOrTomorrow = async(lowWeekDay) => {
         let rt = await tuesdayShedule.tF();
         console.log("rt is = "+rt);
         if(rt === undefined){
-            return message.channel.send("Their was a problem getting the shedule for monday.");
+            string = "Their was a problem getting the shedule for tuesday.";
         } else if (rt === 'State is false') {
-            return message.channel.send("Their was a problem getting the shedule for monday.");
+            string = "Their was a problem getting the shedule for tuesday.";
         } else {
-            return message.channel.send(rt);
+            string = rt;
         }
     }else if (lowWeekDay === 'wednesday'){
         let rt = await wedsShedule.wF();
         console.log("rt is = "+rt);
         if(rt === undefined){
-            return message.channel.send("Their was a problem getting the shedule for monday.");
+            string = "Their was a problem getting the shedule for wednesday.";
         } else if (rt === 'State is false') {
-            return message.channel.send("Their was a problem getting the shedule for monday.");
+            string = "Their was a problem getting the shedule for wednesday.";
         } else {
-            return message.channel.send(rt);
+            string = rt;
         }
     }else if (lowWeekDay === 'thursday'){
         let rt = await thursdayShedule.thF();
         console.log("rt is = "+rt);
         if(rt === undefined){
-            return message.channel.send("Their was a problem getting the shedule for monday.");
+            string = "Their was a problem getting the shedule for thursday.";
         } else if (rt === 'State is false') {
-            return message.channel.send("Their was a problem getting the shedule for monday.");
+            string = "Their was a problem getting the shedule for thursday.";
         } else {
-            return message.channel.send(rt);
+            string = rt;
         }
     }else if (lowWeekDay === 'friday'){
         let rt = await fridayShedule.fF();
         console.log("rt is = "+rt);
         if(rt === undefined){
-            return message.channel.send("Their was a problem getting the shedule for monday.");
+            string = "Their was a problem getting the shedule for friday.";
         } else if (rt === 'State is false') {
-            return message.channel.send("Their was a problem getting the shedule for monday.");
+            string = "Their was a problem getting the shedule for friday.";
         } else {
-            return message.channel.send(rt);
+            string = rt;
         }
     }
     else if (lowWeekDay === 'saturday'){
         let rt = await saturdayShedule.satF();
         console.log("rt is = "+rt);
         if(rt === undefined){
-            return message.channel.send("Their was a problem getting the shedule for monday.");
+            string = "Their was a problem getting the shedule for saturday.";
         } else if (rt === 'State is false') {
-            return message.channel.send("Their was a problem getting the shedule for monday.");
+            string = "Their was a problem getting the shedule for saturday.";
         } else {
-            return message.channel.send(rt);
+            string = rt;
         }
     }else if(lowWeekDay === 'sunday'){
         let rt = await sundayShedule.sunF();
         console.log("rt is = "+rt);
         if(rt === undefined){
-            return message.channel.send("Their was a problem getting the shedule for monday.");
+            string = "Their was a problem getting the shedule for sunday.";
         } else if (rt === 'State is false') {
-            return message.channel.send("Their was a problem getting the shedule for monday.");
+            string = "Their was a problem getting the shedule for sunday.";
         } else {
-            return message.channel.send(rt);
+            string = rt;
         }
     }
 
