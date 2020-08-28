@@ -38,7 +38,7 @@ var request = require('request');
 let foo, callback;
 
     module.exports = new Promise(function(resolve, reject){
-        async.function(function(response) {
+        async.getSheduleMonday(function(response) {
            foo = request('https://api.jikan.moe/v3/schedule/monday', function (error, response, body) {
                 var t = JSON.parse(body);
                 var sizeTues = Object.keys(t.monday).length;
