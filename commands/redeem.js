@@ -4,11 +4,12 @@ const uri = "mongodb+srv://anyUser:A8aCI8lJ14aHILT3@cluster0.wfkj0.mongodb.net/S
 module.exports.run = async (bot, message, args) => {
     console.log("redeem 1?");
     let string;
+    let result
     let client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
     try{
         console.log("redeem?");
         await client.connect();
-        var result = await client.db("SecreBot").collection("Tokens").findOne({user: message.member.id});
+        result = await client.db("SecreBot").collection("Tokens").findOne({user: message.member.id});
         console.log("here 5");
         if(result){
             let tokensAmount;
