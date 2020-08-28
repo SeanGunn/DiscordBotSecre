@@ -4,7 +4,7 @@ var request = require('request');
     let mondayShed = "";
 
     const getMondayShedAsync = async (time) => {
-        let returnValue = await getRequest();
+        let returnValue = getRequest();
 
         return new Promise(resolve => {
             if(returnValue === undefined) throw new Error("Should = a value");
