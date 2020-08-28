@@ -1,9 +1,19 @@
 var request = require('request');
 
-const mondayF = async function(callBack) {
-    let returnValue = await getRequest();
-    console.log("return Value = "+returnValue);
-    callBack(returnValue);
+const mondayF = async function() {
+    return new Promise((resolve,reject)=> {
+        let returnValue = await getRequest();
+
+        if(returnValue === undefined){
+            reject("Undefined");
+        }
+        else{
+            console.log(returnValue);
+            resolve(returnValue);
+        }
+
+    })
+
 };
 
 
