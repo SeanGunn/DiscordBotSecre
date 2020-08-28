@@ -1,22 +1,5 @@
-const Discord = require("discord.js")
-const botconfig = require("../botsettings.json");
-const mondayShedule = require("./functions/mondayShed");
-var request = require('request');
 
-module.exports.run = async (bot, message, args) => {
-    return mondayShedule.getSheduleMonday(message);
-     //return shedMonday(message);
-}
-
-module.exports.config = {
-    name: "monday",
-    description: "Answers what mondays anime schedule is",
-    usage: ".monday",
-    accessableby: "Members",
-    aliases: ['m']
-}
-
-/*function shedMonday(message){
+const getSheduleMonday = (message) => {
     request('https://api.jikan.moe/v3/schedule/monday', function (error, response, body) {
         var t = JSON.parse(body);
         var sizeTues = Object.keys(t.monday).length;
@@ -44,6 +27,8 @@ module.exports.config = {
         string = string +"\n";
         console.log(string);
         string = string + "<:secre_pathetic:743119690859020320>";
-        return message.channel.send(string);
+        return string;
     })
-}*/
+}
+
+module.exports = {getSheduleMonday};
