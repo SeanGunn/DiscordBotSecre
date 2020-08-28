@@ -3,7 +3,7 @@ const request = require('request');
 module.exports.run = async (bot, message, args) => {
     request('https://api.jikan.moe/v3/schedule/', function (error, response, body) {
         //Mon
-        let t = JSON.parse(body);
+        var t = JSON.parse(body);
         let sizeTues = Object.keys(t.monday).length;
         let i = 0;
         let string = "__**The shows that are on Monday are: **__\n";
@@ -30,7 +30,7 @@ module.exports.run = async (bot, message, args) => {
         console.log(string);
         message.channel.send(string);
         //Tues
-        let t = JSON.parse(body);
+        var t = JSON.parse(body);
         let sizeTues = Object.keys(t.tuesday).length;
         let i = 0;
         let string = "__**The shows that are on Tuesday are: **__\n";
@@ -57,7 +57,7 @@ module.exports.run = async (bot, message, args) => {
         console.log(string);
         message.channel.send(string);
        //Wed
-        let t = JSON.parse(body);
+        var t = JSON.parse(body);
         let sizeTues = Object.keys(t.wednesday).length;
         let i = 0;
         let string = "__**The shows that are on Wednesday are: **__\n";
@@ -84,7 +84,7 @@ module.exports.run = async (bot, message, args) => {
         console.log(string);
         message.channel.send(string);
         //Thur
-        let t = JSON.parse(body);
+        var t = JSON.parse(body);
         let sizeTues = Object.keys(t.thursday).length;
         let i = 0;
         let string = "__**The shows that are on Thursday are: **__\n";
@@ -111,7 +111,7 @@ module.exports.run = async (bot, message, args) => {
         console.log(string);
         message.channel.send(string);
         //Fri
-        let t = JSON.parse(body);
+        var t = JSON.parse(body);
         let sizeTues = Object.keys(t.friday).length;
         let i = 0;
         let string = "__**The shows that are on Friday are: **__\n";
@@ -138,7 +138,7 @@ module.exports.run = async (bot, message, args) => {
         console.log(string);
         message.channel.send(string);
         //Sat
-        let t = JSON.parse(body);
+        var t = JSON.parse(body);
         let sizeTues = Object.keys(t.saturday).length;
         let i = 0;
         let string = "__**The shows that are on Saturday are: **__\n";
@@ -165,7 +165,7 @@ module.exports.run = async (bot, message, args) => {
         console.log(string);
         message.channel.send(string);
         //Sun
-        let t = JSON.parse(body);
+        var t = JSON.parse(body);
         let sizeTues = Object.keys(t.sunday).length;
         let i = 0;
         let string = "__**The shows that are on Sunday are: **__\n";
