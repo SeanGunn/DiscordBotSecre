@@ -1,7 +1,7 @@
 var request = require('request');
 
 const mondayF = async function() {
-    return new Promise((resolve,reject)=> {
+    return new Promise(async (resolve,reject)=> {
         let returnValue = await getRequest();
 
         if(returnValue === undefined){
