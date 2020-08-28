@@ -1,13 +1,17 @@
 var request = require('request');
-
+/*
 const mondayF = async function() {
     return new Promise(async (resolve,reject)=> {
         let returnValue = await getRequest();
-        setInterval(() => {
-            
-        }, 3000);
+        
         if(returnValue === undefined){
             reject("Undefined");
+            setTimeout(function() {
+                resolve();
+            }, 1000);
+            if(returnValue === undefined){
+                reject("Undefined");
+            }
         }
         else{
             console.log(returnValue);
@@ -15,8 +19,18 @@ const mondayF = async function() {
         }
 
     })
+};*/
 
-};
+async function mF(){
+    try{
+        let returnValue = await getRequest();
+        return returnValue;
+    }
+    catch(err){
+        console.log(err);
+        throw err;
+    }
+}
 
 
 /*(function() {

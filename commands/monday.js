@@ -4,7 +4,7 @@ const mondayShedule = require("./functions/mondayShed");
 
 
 module.exports.run = async (bot, message, args) => {
-    mondayShedule.mondayF().then((result)=>{
+    mondayShedule.mF().then((result)=>{
         console.log("The result was" +result);
     }).catch((err)=>{
         console.log(err);
