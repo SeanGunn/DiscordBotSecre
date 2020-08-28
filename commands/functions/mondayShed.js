@@ -34,7 +34,7 @@ const myFun = async() => {
             } else {
                 reject('State is false');
             }
-        }, 2000);
+        }, 4000);
     });
 }
 
