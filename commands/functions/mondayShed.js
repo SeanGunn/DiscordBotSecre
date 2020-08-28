@@ -1,25 +1,4 @@
 var request = require('request');
-/*
-const mondayF = async function() {
-    return new Promise(async (resolve,reject)=> {
-        let returnValue = await getRequest();
-        
-        if(returnValue === undefined){
-            reject("Undefined");
-            setTimeout(function() {
-                resolve();
-            }, 1000);
-            if(returnValue === undefined){
-                reject("Undefined");
-            }
-        }
-        else{
-            console.log(returnValue);
-            resolve(returnValue);
-        }
-
-    })
-};*/
 
 const myFun = async() => {
     var string = "__**The shows that are on Monday are: **__\n";
@@ -64,40 +43,13 @@ const myFun = async() => {
             } else {
                 reject('State is false');
             }
-        }, 4000);
+        }, 2000);
     });
 }
-
 
 const mF = async () => {
     return await myFun();
 }
-
-
-/*(function() {
-    let mondayShed = "";
-
-    const getMondayShedAsync = async (time) => {
-        let returnValue = await getRequest();
-        console.log("return value =\n"+returnValue);
-        return new Promise(resolve => {
-            //if(returnValue === undefined) throw new Error("Should = a value");
-            setTimeout(() => resolve(returnValue), time);
-        })
-    }
-
-    //const doSomething = async () => {
-    async function getMondayShed() {
-        let answer1 = await getMondayShedAsync(3000).catch(error =>{console.log(error);});
-        console.log("the answer is: "+answer1);
-        return answer1;
-    }
-
-
-    module.exports.getMondayShed = async function() {
-        return getMondayShed();
-    }
-}());*/
 
 module.exports = {mF}
 
