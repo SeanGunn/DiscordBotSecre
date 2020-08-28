@@ -26,8 +26,8 @@ module.exports.run = async (bot, message, args) => {
     let newValueOfTokens;
     try{
         await client.connect();
-        await checkUserNew(client,userId);
-        string = await tokensOwn(client,userId);
+        await checkUserNew(client,message.member.id);
+        string = await tokensOwn(client,message.member.id);
         newValueOfTokens = string - gambleAmount;
         console.log(newValueOfTokens);
     }catch(err){
