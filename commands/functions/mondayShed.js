@@ -58,7 +58,7 @@ async function mF(){
     }
 }());*/
 
-module.exports = {mondayF}
+module.exports = {mF}
 
 async function getRequest() {
     request('https://api.jikan.moe/v3/schedule/monday', function (error, response, body) {
