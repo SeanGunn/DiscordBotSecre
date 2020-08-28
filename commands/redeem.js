@@ -4,12 +4,11 @@ const uri = "mongodb+srv://anyUser:A8aCI8lJ14aHILT3@cluster0.wfkj0.mongodb.net/S
 module.exports.run = async (bot, message, args) => {
     console.log("redeem 1?");
     var string;
-    var result;
     const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
     try{
         console.log("redeem?");
         await client.connect();
-        result = await client.db("SecreBot").collection("Tokens").findOne({user: message.member.id});
+        let result = await client.db("SecreBot").collection("Tokens").findOne({user: message.member.id});
         console.log("here 5");
         if(result){
             let tokensAmount;
@@ -32,14 +31,14 @@ module.exports.run = async (bot, message, args) => {
             //each 5 mins is 20 points
             timeDiff = timeDiff*1;
             tokensAmount = tokensAmount+timeDiff;
-            var updatedInformation ={
+            let updatedInformation ={
                 user: message.member.id,
                 tokens: tokensAmount,
                 redeemed: redeemDate
             };
-            var result = await client.db("SecreBot").collection("Tokens").updateOne({user: message.member.id},{$set: updatedInformation});
-            console.log(`${result.matchedCount} document(s) matched the query criteria.`);
-            console.log(`${result.modifiedCount} document(s) was/were updated.`);
+            let result2 = await client.db("SecreBot").collection("Tokens").updateOne({user: message.member.id},{$set: updatedInformation});
+            console.log(`${result2.matchedCount} document(s) matched the query criteria.`);
+            console.log(`${result2.modifiedCount} document(s) was/were updated.`);
             await client.close();
             string = "**Your tokens have been increased.**\nYour new token balance is "+tokensAmount+".";
             return message.reply(string);
