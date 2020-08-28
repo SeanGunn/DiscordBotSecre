@@ -4,10 +4,13 @@ const mondayShedule = require("./functions/mondayShed");
 
 
 module.exports.run = async (bot, message, args) => {
-    let shed = await mondayShedule.getSheduleMonday(message);
-    console.log("New Shed = ");
-    console.log(shed);
-    return message.channel.send(shed);
+    let shed = mondayShedule.then(function(foo){
+        console.log("New Shed = ");
+        console.log(shed);
+        return message.channel.send(shed);
+    })
+    return message.channel.send("Their was a problem getting the shedule for monday.");
+    
      //return shedMonday(message);
 }
 
