@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
     try{
         console.log("redeem?");
         await client.connect();
-        let result = await client.db("SecreBot").collection("Tokens").findOne({user: message.member.id});
+        var result = await client.db("SecreBot").collection("Tokens").findOne({user: message.member.id});
         console.log("here 5");
         if(result){
             let tokensAmount;
