@@ -4,9 +4,9 @@ module.exports.run = async (bot, message, args) => {
     request('https://api.jikan.moe/v3/schedule/', function (error, response, body) {
         //Mon
         var t = JSON.parse(body);
-        let sizeTues = Object.keys(t.monday).length;
-        let i = 0;
-        let string = "__**The shows that are on Monday are: **__\n";
+        var sizeTues = Object.keys(t.monday).length;
+        var i = 0;
+        var string = "__**The shows that are on Monday are: **__\n";
         while(i<sizeTues-1){
             string = string +("**") +t.monday[i].title +(":**");
             if(t.monday[i].score != null){
@@ -31,9 +31,9 @@ module.exports.run = async (bot, message, args) => {
         message.channel.send(string);
         //Tues
         var t = JSON.parse(body);
-        let sizeTues = Object.keys(t.tuesday).length;
-        let i = 0;
-        let string = "__**The shows that are on Tuesday are: **__\n";
+        var sizeTues = Object.keys(t.tuesday).length;
+        var i = 0;
+        var string = "__**The shows that are on Tuesday are: **__\n";
         while(i<sizeTues-1){
             string = string +("**") +t.tuesday[i].title +(":**");
             if(t.tuesday[i].score != null){
@@ -58,9 +58,9 @@ module.exports.run = async (bot, message, args) => {
         message.channel.send(string);
        //Wed
         var t = JSON.parse(body);
-        let sizeTues = Object.keys(t.wednesday).length;
-        let i = 0;
-        let string = "__**The shows that are on Wednesday are: **__\n";
+        var sizeTues = Object.keys(t.wednesday).length;
+        var i = 0;
+        var string = "__**The shows that are on Wednesday are: **__\n";
         while(i<sizeTues-1){
             string = string +("**") +t.wednesday[i].title +(":**");
             if(t.wednesday[i].score != null){
@@ -85,9 +85,9 @@ module.exports.run = async (bot, message, args) => {
         message.channel.send(string);
         //Thur
         var t = JSON.parse(body);
-        let sizeTues = Object.keys(t.thursday).length;
-        let i = 0;
-        let string = "__**The shows that are on Thursday are: **__\n";
+        var sizeTues = Object.keys(t.thursday).length;
+        var i = 0;
+        var string = "__**The shows that are on Thursday are: **__\n";
         while(i<sizeTues-1){
             string = string +("**") +t.thursday[i].title +(":**");
             if(t.thursday[i].score != null){
@@ -112,9 +112,9 @@ module.exports.run = async (bot, message, args) => {
         message.channel.send(string);
         //Fri
         var t = JSON.parse(body);
-        let sizeTues = Object.keys(t.friday).length;
-        let i = 0;
-        let string = "__**The shows that are on Friday are: **__\n";
+        var sizeTues = Object.keys(t.friday).length;
+        var i = 0;
+        var string = "__**The shows that are on Friday are: **__\n";
         while(i<sizeTues-1){
             string = string +("**") +t.friday[i].title +(":**");
             if(t.friday[i].score != null){
@@ -139,9 +139,9 @@ module.exports.run = async (bot, message, args) => {
         message.channel.send(string);
         //Sat
         var t = JSON.parse(body);
-        let sizeTues = Object.keys(t.saturday).length;
-        let i = 0;
-        let string = "__**The shows that are on Saturday are: **__\n";
+        var sizeTues = Object.keys(t.saturday).length;
+        var i = 0;
+        var string = "__**The shows that are on Saturday are: **__\n";
         while(i<sizeTues-1){
             string = string +("**") +t.saturday[i].title +(":**");
             if(t.saturday[i].score != null){
@@ -166,9 +166,9 @@ module.exports.run = async (bot, message, args) => {
         message.channel.send(string);
         //Sun
         var t = JSON.parse(body);
-        let sizeTues = Object.keys(t.sunday).length;
-        let i = 0;
-        let string = "__**The shows that are on Sunday are: **__\n";
+        var sizeTues = Object.keys(t.sunday).length;
+        var i = 0;
+        var string = "__**The shows that are on Sunday are: **__\n";
         while(i<sizeTues-1){
             string = string +("**") +t.sunday[i].title +(":**");
             if(t.sunday[i].score != null){
