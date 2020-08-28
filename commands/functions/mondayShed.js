@@ -21,7 +21,7 @@ const mondayF = async function() {
     })
 };*/
 
-const myFun = () => {
+const myFun = async() => {
     let a = await getRequest();
     let state = false;
 
