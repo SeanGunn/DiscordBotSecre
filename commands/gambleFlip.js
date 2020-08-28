@@ -28,11 +28,13 @@ module.exports.run = async (bot, message, args) => {
         await client.connect();
         await checkUserNew(client,message.member.id);
         string = await tokensOwn(client,message.member.id);
+        console.log("They have "+string);
+        console.log("They gambling "+gambleAmount);
         newValueOfTokens = string - gambleAmount;
         console.log("the new amount of tokens they current have if they lose "+newValueOfTokens);
         await client.close();
         if(newValueOfTokens < 0){
-        return message.reply("Max you can gamble is "+string+".").then(message => { message.delete({ timeout: 10000 }) }).catch(console.error);
+            return message.reply("Max you can gamble is "+string+".").then(message => { message.delete({ timeout: 10000 }) }).catch(console.error);
         }
         return await flipCoins(flipType,message,gambleAmount,message.member.id);
     }catch(err){
