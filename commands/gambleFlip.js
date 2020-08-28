@@ -8,6 +8,9 @@ module.exports.run = async (bot, message, args) => {
     if(isNaN(args[0])){
         return message.reply("Enter a number after the command to gamble.").then(message  => { message.delete({ timeout: 10000 }) }).catch(console.error);
 
+    }else if((args[0]) === ""){
+        return message.reply("Enter a number after the command to gamble.").then(message  => { message.delete({ timeout: 10000 }) }).catch(console.error);
+
     }else if (parseInt(args[0]) <= 0) {
         return message.reply("Input a number greater then 0. Not any decimals numbers.").then(message => { message.delete({ timeout: 10000 }) }).catch(console.error);
 
@@ -17,7 +20,6 @@ module.exports.run = async (bot, message, args) => {
 
     }else if (parseInt(args[0]) <= 0) {
         return message.reply("Input a number greater then 0. Not any decimals numbers.").then(message => { message.delete({ timeout: 10000 }) }).catch(console.error);
-
     }
     let gambleAmount = args[0];
     let flipType = args[1];
