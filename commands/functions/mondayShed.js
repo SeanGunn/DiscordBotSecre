@@ -1,3 +1,4 @@
+var request = require('request');
 
 const getSheduleMonday = (message) => {
     request('https://api.jikan.moe/v3/schedule/monday', function (error, response, body) {

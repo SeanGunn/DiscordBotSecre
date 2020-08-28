@@ -1,7 +1,7 @@
 const Discord = require("discord.js")
 const botconfig = require("../botsettings.json");
 const mondayShedule = require("./functions/mondayShed");
-var request = require('request');
+
 
 module.exports.run = async (bot, message, args) => {
     return mondayShedule.getSheduleMonday(message);
