@@ -9,6 +9,7 @@ var request = require('request');
         return new Promise(resolve => {
             //if(returnValue === undefined) throw new Error("Should = a value");
             setTimeout(() => resolve(returnValue), time);
+            return returnValue;
         })
     }
 
