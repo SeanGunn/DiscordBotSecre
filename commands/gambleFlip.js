@@ -32,7 +32,7 @@ module.exports.run = async (bot, message, args) => {
                 await checkUserNew(client,message.member.id);
                 string = await tokensOwn(client,message.member.id);
                 console.log("They have "+string);
-                gambleAmount = Math.abs(string /2);
+                gambleAmount = Math.round(string /2);
                 console.log("They gambling "+gambleAmount);
                 newValueOfTokens = string - gambleAmount;
                 console.log("the new amount of tokens they current have if they lose "+newValueOfTokens);
