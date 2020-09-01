@@ -13,15 +13,14 @@ module.exports.run = async (bot, message, args) => {
     if(isNaN(args[0])){
         if(args[0].toLowerCase() === ("all")){
             if(members){
-                
-            }try{
+                try{
                     await client.connect();
                     await checkUserNew(client,message.member.id);
                     string = await tokensOwn(client,message.member.id);
                     console.log("They have "+string);
-                    giftAmount = Math.round(string /2);
+                    giftAmount = string;
                     console.log("They gambling "+giftAmount);
-                    newValueOfTokens = string - giftAmount;
+                    newValueOfTokens = 0;
                     console.log("the new amount of tokens they current have if they lose "+newValueOfTokens);
                     await client.close();
                     if(newValueOfTokens < 0){
@@ -31,6 +30,7 @@ module.exports.run = async (bot, message, args) => {
                 }catch(err){
                     console.error(err);
                 }
+            }
             return message.reply("Could not find user mentioned.").then(message  => { message.delete({ timeout: 10000 }) }).catch(console.error);
         }
         else if(args[0].toLowerCase() === ("half")){
@@ -103,7 +103,7 @@ module.exports.config = {
 async function giftCoins(giftToo,message,giftAmount,userId){
     await updateDatebaseTokensGive(giftToo,giftAmount);
     await updateDatebaseTokensLost(userId,giftAmount);
-    return message.channel.send("Gave the "+userId+" "+giftAmount+" of tokens");
+    return message.channel.send("You gave away "+giftAmount+" of tokens to someone else.");
 }
 
 
