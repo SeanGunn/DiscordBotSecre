@@ -13,7 +13,8 @@ module.exports.run = async (bot, message, args) => {
     if(isNaN(args[0])){
         if(args[0].toLowerCase() === ("all")){
             if(members){
-                try{
+                
+            }try{
                     await client.connect();
                     await checkUserNew(client,message.member.id);
                     string = await tokensOwn(client,message.member.id);
@@ -30,7 +31,6 @@ module.exports.run = async (bot, message, args) => {
                 }catch(err){
                     console.error(err);
                 }
-            }
             return message.reply("Could not find user mentioned.").then(message  => { message.delete({ timeout: 10000 }) }).catch(console.error);
         }
         else if(args[0].toLowerCase() === ("half")){
