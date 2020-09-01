@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
     let string;
     let newValueOfTokens;
     var members = message.mentions.members.first();
-    console.log(member);
+    console.log(members);
     if(isNaN(args[0])){
         if(args[0].toLowerCase() === ("all")){
             if(members){
