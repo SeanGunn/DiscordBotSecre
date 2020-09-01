@@ -4,8 +4,44 @@ const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://anyUser:A8aCI8lJ14aHILT3@cluster0.wfkj0.mongodb.net/SecreBot?retryWrites=true&w=majority";
 
 module.exports.run = async (bot, message, args) => {
-
+    let gambleAmount = args[0];
+    let flipType = args[1];
+    let client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+    let string;
+    let newValueOfTokens;
     if(isNaN(args[0])){
+        if(args[0] === ("all")){
+            try{
+                await client.connect();
+                await checkUserNew(client,message.member.id);
+                string = await tokensOwn(client,message.member.id);
+                console.log("They have "+string);
+                gambleAmount = string;
+                console.log("They gambling "+gambleAmount);
+                newValueOfTokens = 0;
+                console.log("the new amount of tokens they current have if they lose "+newValueOfTokens);
+                await client.close();
+                return await flipCoins(flipType,message,gambleAmount,message.member.id);
+            }catch(err){
+                console.error(err);
+            }
+        }
+        else if(args[0] === ("half")){
+            try{
+                await client.connect();
+                await checkUserNew(client,message.member.id);
+                string = await tokensOwn(client,message.member.id);
+                console.log("They have "+string);
+                gambleAmount = abs(string /2);
+                console.log("They gambling "+gambleAmount);
+                newValueOfTokens = string - gambleAmount;
+                console.log("the new amount of tokens they current have if they lose "+newValueOfTokens);
+                await client.close();
+                return await flipCoins(flipType,message,gambleAmount,message.member.id);
+            }catch(err){
+                console.error(err);
+            }
+        }
         return message.reply("Enter a number after the command to gamble.").then(message  => { message.delete({ timeout: 10000 }) }).catch(console.error);
 
     }else if((args[0]) === ""){
@@ -15,17 +51,13 @@ module.exports.run = async (bot, message, args) => {
         return message.reply("Input a number greater then 0. Not any decimals numbers.").then(message => { message.delete({ timeout: 10000 }) }).catch(console.error);
 
     }
-    if((!args[1] === ("t" || "h"))){
+    if((!args[1] === ("t" || "h" ))){
         return message.reply("Enter a t or h after the command and amount to gamble.").then(message  => { message.delete({ timeout: 10000 }) }).catch(console.error);
 
     }else if (parseInt(args[0]) <= 0) {
         return message.reply("Input a number greater then 0. Not any decimals numbers.").then(message => { message.delete({ timeout: 10000 }) }).catch(console.error);
     }
-    let gambleAmount = args[0];
-    let flipType = args[1];
-    let client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-    let string;
-    let newValueOfTokens;
+    
     try{
         await client.connect();
         await checkUserNew(client,message.member.id);
