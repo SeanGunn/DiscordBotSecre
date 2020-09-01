@@ -4,141 +4,114 @@ const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://anyUser:A8aCI8lJ14aHILT3@cluster0.wfkj0.mongodb.net/SecreBot?retryWrites=true&w=majority";
 
 module.exports.run = async (bot, message, args) => {
-    let gambleAmount = args[0];
-    let flipType = args[1];
+    let giftAmount = args[0];
     let client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
     let string;
     let newValueOfTokens;
+    let member = message.mentions.members.first();
+    console.log(member);
     if(isNaN(args[0])){
         if(args[0].toLowerCase() === ("all")){
-            try{
-                await client.connect();
-                await checkUserNew(client,message.member.id);
-                string = await tokensOwn(client,message.member.id);
-                console.log("They have "+string);
-                gambleAmount = string;
-                console.log("They gambling "+gambleAmount);
-                newValueOfTokens = 0;
-                console.log("the new amount of tokens they current have if they lose "+newValueOfTokens);
-                await client.close();
-                if(newValueOfTokens < 0){
-                    return message.reply("Max you can gamble is "+string+".").then(message => { message.delete({ timeout: 10000 }) }).catch(console.error);
+            if(members){
+                try{
+                    await client.connect();
+                    await checkUserNew(client,message.member.id);
+                    string = await tokensOwn(client,message.member.id);
+                    console.log("They have "+string);
+                    giftAmount = Math.round(string /2);
+                    console.log("They gambling "+giftAmount);
+                    newValueOfTokens = string - giftAmount;
+                    console.log("the new amount of tokens they current have if they lose "+newValueOfTokens);
+                    await client.close();
+                    if(newValueOfTokens < 0){
+                        return message.reply("Max you can give away is "+string+".").then(message => { message.delete({ timeout: 10000 }) }).catch(console.error);
+                    }
+                    return await giftCoins(member,message,giftAmount,message.member.id);
+                }catch(err){
+                    console.error(err);
                 }
-                return await flipCoins(flipType,message,gambleAmount,message.member.id);
-            }catch(err){
-                console.error(err);
             }
+            return message.reply("Could not find user mentioned.").then(message  => { message.delete({ timeout: 10000 }) }).catch(console.error);
         }
         else if(args[0].toLowerCase() === ("half")){
-            try{
-                await client.connect();
-                await checkUserNew(client,message.member.id);
-                string = await tokensOwn(client,message.member.id);
-                console.log("They have "+string);
-                gambleAmount = Math.round(string /2);
-                console.log("They gambling "+gambleAmount);
-                newValueOfTokens = string - gambleAmount;
-                console.log("the new amount of tokens they current have if they lose "+newValueOfTokens);
-                await client.close();
-                if(newValueOfTokens < 0){
-                    return message.reply("Max you can gamble is "+string+".").then(message => { message.delete({ timeout: 10000 }) }).catch(console.error);
+            if(members){
+                try{
+                    await client.connect();
+                    await checkUserNew(client,message.member.id);
+                    string = await tokensOwn(client,message.member.id);
+                    console.log("They have "+string);
+                    giftAmount = Math.round(string /2);
+                    console.log("They gambling "+giftAmount);
+                    newValueOfTokens = string - giftAmount;
+                    console.log("the new amount of tokens they current have if they lose "+newValueOfTokens);
+                    await client.close();
+                    if(newValueOfTokens < 0){
+                        return message.reply("Max you can give away is "+string+".").then(message => { message.delete({ timeout: 10000 }) }).catch(console.error);
+                    }
+                    return await giftCoins(member,message,giftAmount,message.member.id);
+                }catch(err){
+                    console.error(err);
                 }
-                return await flipCoins(flipType,message,gambleAmount,message.member.id);
-            }catch(err){
-                console.error(err);
             }
+            return message.reply("Could not find user mentioned.").then(message  => { message.delete({ timeout: 10000 }) }).catch(console.error);
         }
-        return message.reply("Enter a number after the command to gamble.").then(message  => { message.delete({ timeout: 10000 }) }).catch(console.error);
+        return message.reply("Enter a number after the command to gift tokens.").then(message  => { message.delete({ timeout: 10000 }) }).catch(console.error);
 
     }else if((args[0]) === ""){
-        return message.reply("Enter a number after the command to gamble.").then(message  => { message.delete({ timeout: 10000 }) }).catch(console.error);
+        return message.reply("Enter a number after the command to gift tokens.").then(message  => { message.delete({ timeout: 10000 }) }).catch(console.error);
 
     }else if (parseInt(args[0]) <= 0) {
         return message.reply("Input a number greater then 0. Not any decimals numbers.").then(message => { message.delete({ timeout: 10000 }) }).catch(console.error);
 
     }
-    if((!args[1] === ("t" || "h" ))){
-        return message.reply("Enter a t or h after the command and amount to gamble.").then(message  => { message.delete({ timeout: 10000 }) }).catch(console.error);
+    if((args[1]) === ""){
+        return message.reply("Enter a user by @mention after the command and amount to gift tokens.").then(message  => { message.delete({ timeout: 10000 }) }).catch(console.error);
 
     }else if (parseInt(args[0]) <= 0) {
         return message.reply("Input a number greater then 0. Not any decimals numbers.").then(message => { message.delete({ timeout: 10000 }) }).catch(console.error);
     }
-    
-    try{
-        await client.connect();
-        await checkUserNew(client,message.member.id);
-        string = await tokensOwn(client,message.member.id);
-        console.log("They have "+string);
-        console.log("They gambling "+gambleAmount);
-        newValueOfTokens = string - gambleAmount;
-        console.log("the new amount of tokens they current have if they lose "+newValueOfTokens);
-        await client.close();
-        if(newValueOfTokens < 0){
-            return message.reply("Max you can gamble is "+string+".").then(message => { message.delete({ timeout: 10000 }) }).catch(console.error);
-        }
-        return await flipCoins(flipType,message,gambleAmount,message.member.id);
-    }catch(err){
-        console.error(err);
+     if(member){
+        try{
+            await client.connect();
+            await checkUserNew(client,message.member.id);
+            string = await tokensOwn(client,message.member.id);
+            console.log("They have "+string);
+            console.log("They gambling "+gambleAmount);
+            newValueOfTokens = string - gambleAmount;
+            console.log("the new amount of tokens they current have if they lose "+newValueOfTokens);
+            await client.close();
+            if(newValueOfTokens < 0){
+                return message.reply("Max you can give away is "+string+".").then(message => { message.delete({ timeout: 10000 }) }).catch(console.error);
+            }
+            return await giftCoins(member,message,giftAmount,message.member.id);
+        }catch(err){
+            console.error(err);
+        } 
     }
+    return message.reply("Could not find user mentioned.").then(message  => { message.delete({ timeout: 10000 }) }).catch(console.error);
 }  
    
 
 module.exports.config = {
-    name: "gf",
-    description: "Gamble tokens based on a call and win or lose tokens based on what comes back",
-    usage: ".gf",
+    name: "gift",
+    description: "Gift some of your tokens to a different user.",
+    usage: ".gifttokens",
     accessableby: "Members",
-    aliases: ['gf']
+    aliases: ['gifttokens']
 }
 
-async function flipCoins(type,message,gamble,userId){
-    let flipValue = getRandom50Chance();
-    let string = "__**The outcomes for 1 flips was: **__\n"
+async function giftCoins(giftToo,message,giftAmount,userId){
+    let stringYou;
+    let stringThem;
     type = type.toLowerCase();
     console.log("type: "+type);
-    if(flipValue === "heads"){
-        string = string+ "heads";
-        if(type === "h"){
-            gamble = gamble * 2;
-            string = string + "\n**The flip was "+flipValue+". You earned "+gamble+" tokens.**";
-            await updateDatebaseTokensWin(userId,gamble);
-            return message.channel.send(string);
-        }
-        else{
-            string = string + "\n**The flip was "+flipValue+". You lost "+gamble+" tokens.**";
-            await updateDatebaseTokensLost(userId,gamble);
-            return message.channel.send(string);
-        }
-    }else{
-        string = string+ "tails";
-        if(type === "t"){
-            gamble = gamble * 2;
-            string = string + "\n**The flip was "+flipValue+". You earned "+gamble+" tokens.**";
-            await updateDatebaseTokensWin(userId,gamble);
-            return message.channel.send(string);
-        }
-        else{
-            string = string + "\n**The flip was "+flipValue+". You lost "+gamble+" tokens.**";
-            await updateDatebaseTokensLost(userId,gamble);
-            return message.channel.send(string);
-        }
-    }
+    await updateDatebaseTokensGive(giftToo,giftAmount);
+    await updateDatebaseTokensLost(userId,giftAmount);
+    return message.channel.send("Gave the "+userId+" "+giftAmount+" of tokens");
 }
 
 
-function getRandom50Chance() {
-    let value = Math.random();
-    let headsOrTails;
-    if(value <= 0.5){
-        headsOrTails = "heads";
-    }
-    else{
-        headsOrTails = "tails";
-    }
-    return headsOrTails;
-}
-
-async function updateDatebaseTokensWin(userId,tokens){
+async function updateDatebaseTokensGive(userId,tokens){
     let client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
     let string;
     let newValueOfTokens;
