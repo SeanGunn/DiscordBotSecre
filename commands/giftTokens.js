@@ -26,7 +26,7 @@ module.exports.run = async (bot, message, args) => {
                     if(newValueOfTokens < 0){
                         return message.reply("Max you can give away is "+string+".").then(message => { message.delete({ timeout: 10000 }) }).catch(console.error);
                     }
-                    return await giftCoins(members.id,message,giftAmount,message.member.id);
+                    return await giftCoins(members.id,members.username,message,giftAmount,message.member.id);
                 }catch(err){
                     console.error(err);
                 }
@@ -48,7 +48,7 @@ module.exports.run = async (bot, message, args) => {
                     if(newValueOfTokens < 0){
                         return message.reply("Max you can give away is "+string+".").then(message => { message.delete({ timeout: 10000 }) }).catch(console.error);
                     }
-                    return await giftCoins(members.id,message,giftAmount,message.member.id);
+                    return await giftCoins(members.id,members.username,message,giftAmount,message.member.id);
                 }catch(err){
                     console.error(err);
                 }
@@ -83,7 +83,7 @@ module.exports.run = async (bot, message, args) => {
             if(newValueOfTokens < 0){
                 return message.reply("Max you can give away is "+string+".").then(message => { message.delete({ timeout: 10000 }) }).catch(console.error);
             }
-            return await giftCoins(members.id,message,giftAmount,message.member.id);
+            return await giftCoins(members.id,members.username,message,giftAmount,message.member.id);
         }catch(err){
             console.error(err);
         } 
@@ -100,10 +100,10 @@ module.exports.config = {
     aliases: ['gifttokens']
 }
 
-async function giftCoins(giftToo,message,giftAmount,userId){
+async function giftCoins(giftToo,userNameToGift,message,giftAmount,userId){
     await updateDatebaseTokensGive(giftToo,giftAmount);
     await updateDatebaseTokensLost(userId,giftAmount);
-    return message.channel.send("You gave away "+giftAmount+" of tokens to someone else.");
+    return message.channel.send("**You gave away "+giftAmount+" of tokens to "+userNameToGift+".**");
 }
 
 
