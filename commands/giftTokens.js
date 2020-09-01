@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
     let client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
     let string;
     let newValueOfTokens;
-    var member = message.mentions.members.first();
+    var members = message.mentions.members.first();
     console.log(member);
     if(isNaN(args[0])){
         if(args[0].toLowerCase() === ("all")){
@@ -26,7 +26,7 @@ module.exports.run = async (bot, message, args) => {
                     if(newValueOfTokens < 0){
                         return message.reply("Max you can give away is "+string+".").then(message => { message.delete({ timeout: 10000 }) }).catch(console.error);
                     }
-                    return await giftCoins(member,message,giftAmount,message.member.id);
+                    return await giftCoins(members.id,message,giftAmount,message.member.id);
                 }catch(err){
                     console.error(err);
                 }
@@ -48,7 +48,7 @@ module.exports.run = async (bot, message, args) => {
                     if(newValueOfTokens < 0){
                         return message.reply("Max you can give away is "+string+".").then(message => { message.delete({ timeout: 10000 }) }).catch(console.error);
                     }
-                    return await giftCoins(member,message,giftAmount,message.member.id);
+                    return await giftCoins(members.id,message,giftAmount,message.member.id);
                 }catch(err){
                     console.error(err);
                 }
@@ -83,7 +83,7 @@ module.exports.run = async (bot, message, args) => {
             if(newValueOfTokens < 0){
                 return message.reply("Max you can give away is "+string+".").then(message => { message.delete({ timeout: 10000 }) }).catch(console.error);
             }
-            return await giftCoins(member,message,giftAmount,message.member.id);
+            return await giftCoins(members.id,message,giftAmount,message.member.id);
         }catch(err){
             console.error(err);
         } 
