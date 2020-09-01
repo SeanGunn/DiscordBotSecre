@@ -101,10 +101,6 @@ module.exports.config = {
 }
 
 async function giftCoins(giftToo,message,giftAmount,userId){
-    let stringYou;
-    let stringThem;
-    type = type.toLowerCase();
-    console.log("type: "+type);
     await updateDatebaseTokensGive(giftToo,giftAmount);
     await updateDatebaseTokensLost(userId,giftAmount);
     return message.channel.send("Gave the "+userId+" "+giftAmount+" of tokens");
