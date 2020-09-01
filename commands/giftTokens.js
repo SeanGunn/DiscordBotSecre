@@ -103,7 +103,8 @@ module.exports.config = {
 async function giftCoins(giftToo,userNameToGift,message,giftAmount,userId){
     await updateDatebaseTokensGive(giftToo,giftAmount);
     await updateDatebaseTokensLost(userId,giftAmount);
-    return message.channel.send("**You gave away "+giftAmount+" of tokens to "+userNameToGift+".**");
+    let username = ""+userNameToGift;
+    return message.channel.send("**You gave away "+giftAmount+" of tokens to "+username+".**");
 }
 
 
