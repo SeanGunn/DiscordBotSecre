@@ -72,14 +72,14 @@ module.exports.run = async (bot, message, args) => {
     }else if (parseInt(args[0]) <= 0) {
         return message.reply("Input a number greater then 0. Not any decimals numbers.").then(message => { message.delete({ timeout: 10000 }) }).catch(console.error);
     }
-     if(member){
+    if(members){
         try{
             await client.connect();
             await checkUserNew(client,message.member.id);
             string = await tokensOwn(client,message.member.id);
             console.log("They have "+string);
-            console.log("They gambling "+gambleAmount);
-            newValueOfTokens = string - gambleAmount;
+            console.log("They gambling "+giftAmount);
+            newValueOfTokens = string - giftAmount;
             console.log("the new amount of tokens they current have if they lose "+newValueOfTokens);
             await client.close();
             if(newValueOfTokens < 0){
@@ -106,7 +106,7 @@ async function giftCoins(giftToo,userNameToGift,message,giftAmount,userId){
     await updateDatebaseTokensGive(giftToo,giftAmount);
     await updateDatebaseTokensLost(userId,giftAmount);
     let username = ""+userNameToGift;
-    return message.channel.send("**You gave away "+giftAmount+" of tokens to "+username+".**");
+    return message.channel.send("**You gave away "+giftAmount+" of tokens.\nYou are such a nice person.\n <:secre_smile:749572483992256594>**");
 }
 
 
