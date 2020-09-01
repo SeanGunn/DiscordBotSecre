@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
     let string;
     let newValueOfTokens;
     if(isNaN(args[0])){
-        if(args[0] === ("all")){
+        if(args[0].toLowerCase() === ("all")){
             try{
                 await client.connect();
                 await checkUserNew(client,message.member.id);
@@ -26,7 +26,7 @@ module.exports.run = async (bot, message, args) => {
                 console.error(err);
             }
         }
-        else if(args[0] === ("half")){
+        else if(args[0].toLowerCase() === ("half")){
             try{
                 await client.connect();
                 await checkUserNew(client,message.member.id);
