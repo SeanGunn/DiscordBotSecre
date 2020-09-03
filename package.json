@@ -9,6 +9,7 @@
   "author": "Rua",
   "license": "ISC",
   "dependencies": {
+    "bl": "^4.0.3",
     "discord.js": "^12.3.1",
     "fs": "0.0.1-security",
     "jikan-node": "^1.2.1",
